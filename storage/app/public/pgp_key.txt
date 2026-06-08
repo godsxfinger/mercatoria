@@ -1,3 +1,5 @@
 Mercatoria PGP Public Key
 
+Mercatoria Monero Marketplace Script
+
 This file formerly contained a public key for the original project maintainer. It has been replaced with a generic placeholder to remove personal identifying references.

@@ -1,6 +1,8 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
+Mercatoria Monero Marketplace Script
+
 I am the creator and developer of the Mercatoria Monero Marketplace Script. As of September 9, 2025, I am writing this message while alive, safe, with internet access, and under no pressure or influence of any substance. To prove that this message is not automated, I will mention current news. Among this week’s top headlines, a devastating earthquake struck eastern Afghanistan, causing heavy casualties and widespread destruction. At the same time, supporters of an opposition party in Türkiye used tables and chairs to block police outside their party headquarters amid escalating tensions.
 
 The purpose of creating Mercatoria was to contribute to the Monero ecosystem and ensure its growth. It was never created for any illegal purpose, nor does it encourage such activities. The aim of this marketplace script is to facilitate the sale of legal products online as anonymously as possible.
