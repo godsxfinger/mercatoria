@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52af64860553793b6b246bf63d023e69",
+    "content-hash": "da2b10061930615c440e255877938785",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -217,8 +217,7 @@
             "license": [
                 "MIT"
             ],
-            "homepage": "https://github.com/charcoal-dev/buffers",
-            "time": "2024-08-04T12:41:41+00:00"
+            "homepage": "https://github.com/charcoal-dev/buffers"
         },
         {
             "name": "charcoal-dev/gmp-adapter",
@@ -241,13 +240,12 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Charcoal\\GMP\\": "src"
+                    "Charcoal\\Adapters\\GMP\\": "src"
                 }
             },
             "license": [
                 "MIT"
-            ],
-            "time": "2023-08-11T11:54:13+00:00"
+            ]
         },
         {
             "name": "dasprid/enum",
