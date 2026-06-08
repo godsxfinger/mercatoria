@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="rules-container">
-    <div style="text-align: center;">
+    <div class="u-text-center">
         <h1 class="rules-title">Marketplace Rules & Guidelines</h1>
     </div>
     @if(request()->get('page', 1) == 1)
         <div class="rules-section">
-            <p>Welcome to our secure Monero marketplace. These rules are designed to ensure a safe, private, and efficient trading environment for all users. Compliance with these rules is mandatory for all marketplace participants.</p>
+            <p>Welcome to our secure crypto payment integration. These rules are designed to ensure a safe, private, and efficient trading environment for all users. Compliance with these rules is mandatory for all marketplace participants.</p>
 
             <h2>Important Notice</h2>
             <p>The marketplace reserves the right to modify these rules as needed to maintain security and improve user experience. Users are responsible for staying updated with current rules. Violations may result in account suspension or permanent ban. Your security and privacy are our top priorities.</p>
@@ -88,4 +88,3 @@
     </div>
 </div>
 @endsection
-

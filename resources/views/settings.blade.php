@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="settings-container">
+    <header class="settings-page-header">
+        <h1 class="settings-page-title">Settings</h1>
+        <p class="settings-page-subtitle">Manage account security, PGP, and authentication preferences</p>
+    </header>
     <div class="settings-grid">
         <div class="settings-card">
             <div class="settings-card-title">Need a New Password?</div>

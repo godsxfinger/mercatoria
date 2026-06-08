@@ -4,7 +4,7 @@
 
 <div class="advertisement-payment-container">
     <div class="advertisement-payment-content">
-        <div style="text-align: center;">
+        <div class="u-text-center">
             <h1 class="advertisement-payment-title">Advertisement Payment</h1>
         </div>
 
@@ -30,13 +30,13 @@
                     
                     <div class="advertisement-payment-row">
                         <span class="advertisement-payment-label">Required Amount:</span>
-                        <span class="advertisement-payment-value advertisement-payment-amount">ɱ{{ number_format($advertisement->required_amount, 12) }} XMR</span>
+                        <span class="advertisement-payment-value advertisement-payment-amount">{{ number_format($advertisement->required_amount, 12) }} XMR</span>
                     </div>
 
                     <div class="advertisement-payment-row">
                         <span class="advertisement-payment-label">Minimum Payment:</span>
                         <div class="advertisement-payment-value-group">
-                            <span class="advertisement-payment-amount">ɱ{{ number_format($advertisement->required_amount * config('monero.advertisement_minimum_payment_percentage'), 12) }} XMR</span>
+                            <span class="advertisement-payment-amount">{{ number_format($advertisement->required_amount * config('monero.advertisement_minimum_payment_percentage'), 12) }} XMR</span>
                         </div>
                     </div>
 
@@ -63,9 +63,9 @@
                         <div class="advertisement-payment-row">
                             <span class="advertisement-payment-label">Amount Received:</span>
                             <div class="advertisement-payment-value-group">
-                                <span class="advertisement-payment-amount">ɱ{{ number_format($advertisement->total_received, 12) }} XMR</span>
+                                <span class="advertisement-payment-amount">{{ number_format($advertisement->total_received, 12) }} XMR</span>
                                 <span class="advertisement-payment-remaining">
-                                    Remaining: ɱ{{ number_format($advertisement->required_amount - $advertisement->total_received, 12) }} XMR
+                                    Remaining: {{ number_format($advertisement->required_amount - $advertisement->total_received, 12) }} XMR
                                 </span>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                     </div>
                 @endif
 
-                <h2 class="advertisement-payment-subtitle" style="margin-top: 20px;">Payment Address</h2>
+                <h2 class="advertisement-payment-subtitle advertisement-payment-subtitle-spaced">Payment Address</h2>
                 <div class="advertisement-payment-address">
                     {{ $advertisement->payment_address }}
                 </div>
@@ -112,13 +112,13 @@
         @else
             <div class="advertisement-payment-instructions">
                 <p class="advertisement-payment-message">
-                    Please send exactly ɱ{{ number_format($advertisement->required_amount, 12) }} XMR to the address above. 
+                    Please send exactly {{ number_format($advertisement->required_amount, 12) }} XMR to the address above. 
                     The payment will be detected once confirmed on the blockchain.
                 </p>
                 <p class="advertisement-payment-warning">
                     DO NOT CLOSE THIS PAGE WITHOUT SEEING PAYMENT COMPLETED TEXT; OTHERWISE, YOU WILL LOSE ALL MONERO YOU PAID. ONLY USE THE REFRESH BUTTON BELOW TO CHECK FOR INCOMING TRANSACTIONS.
                 </p>
-                <p class="advertisement-payment-note" style="text-align: center;">
+                <p class="advertisement-payment-note advertisement-payment-note-center">
                     Click the refresh button above to check for new transactions.
                 </p>
             </div>

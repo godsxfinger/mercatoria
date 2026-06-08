@@ -8,22 +8,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Services\CaptchaService;
+use App\Services\Security\PublicKeyChallengeService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\RateLimiter;
 use FurqanSiddiqui\BIP39\BIP39;
 use FurqanSiddiqui\BIP39\Language\English;
 
 class AuthController extends Controller
 {
     private const CONFIRMATION_EXPIRY_MINUTES = 16;
-    protected $captchaService;
+    private const RESET_VERIFY_ATTEMPTS = 5;
+    private const RESET_VERIFY_DECAY_SECONDS = 300;
+    private const RESET_SUBMIT_ATTEMPTS = 5;
+    private const RESET_SUBMIT_DECAY_SECONDS = 300;
 
-    public function __construct(CaptchaService $captchaService)
-    {
-        $this->captchaService = $captchaService;
+    public function __construct(
+        protected CaptchaService $captchaService,
+        private PublicKeyChallengeService $publicKeyChallenges
+    ) {
     }
 
     /**
@@ -92,8 +98,8 @@ class AuthController extends Controller
                 return redirect()->route('login')->with('error', 'Could not generate 2FA challenge. Please contact support team.');
             }
 
-            $message = 'PGP-' . Str::random(10) . '-KEY';
-            $encryptedMessage = $this->encryptMessage($message, $pgpKey->public_key);
+            $message = $this->publicKeyChallenges->generatePlaintext();
+            $encryptedMessage = $this->publicKeyChallenges->encrypt($message, $pgpKey->public_key);
 
             if ($encryptedMessage === false) {
                 Log::error("Failed to encrypt 2FA challenge for user {$userId}");
@@ -307,6 +313,16 @@ class AuthController extends Controller
         ];
     }
 
+    private function passwordResetVerifyThrottleKey(Request $request): string
+    {
+        return 'password-reset-verify:' . strtolower((string) $request->input('username', '')) . '|' . (string) $request->ip();
+    }
+
+    private function passwordResetSubmitThrottleKey(Request $request): string
+    {
+        return 'password-reset-submit:' . (string) $request->ip();
+    }
+
     public function register(Request $request)
     {
         // Validate request
@@ -382,6 +398,18 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        $throttleKey = sprintf(
+            'login:%s|%s',
+            strtolower((string) $request->input('username', '')),
+            (string) $request->ip()
+        );
+
+        if (RateLimiter::tooManyAttempts($throttleKey, 5)) {
+            $seconds = RateLimiter::availableIn($throttleKey);
+            return back()->with('error', "Too many login attempts. Please try again in {$seconds} seconds.")
+                ->onlyInput('username');
+        }
+
         // Validate request
         try {
             $validated = $request->validate(
@@ -396,6 +424,7 @@ class AuthController extends Controller
         // Validate CAPTCHA
         $captchaCode = session('captcha_code');
         if (!hash_equals(strtoupper($captchaCode), strtoupper($request->captcha))) {
+            RateLimiter::hit($throttleKey, 300);
             return back()->with('error', 'Invalid CAPTCHA code.')
                 ->onlyInput('username');
         }
@@ -407,6 +436,7 @@ class AuthController extends Controller
         $user = User::whereRaw('BINARY username = ?', [$credentials['username']])->first();
 
         if (!$user || !Hash::check($credentials['password'], $user->password)) {
+            RateLimiter::hit($throttleKey, 300);
             return back()->with('error', 'The provided credentials do not match our records.')
                 ->onlyInput('username');
         }
@@ -417,10 +447,12 @@ class AuthController extends Controller
 
         if ($user->pgpKey && $user->pgpKey->verified && $user->pgpKey->two_fa_enabled) {
             // Store user ID in session for 2FA process
+            RateLimiter::clear($throttleKey);
             Session::put('2fa_user_id', $user->id);
             return redirect()->route('pgp.2fa.challenge');
         }
 
+        RateLimiter::clear($throttleKey);
         Auth::login($user);
         $request->session()->regenerate();
         $user->update(['last_login' => now()]);
@@ -453,6 +485,13 @@ class AuthController extends Controller
      */
     public function verifyMnemonic(Request $request)
     {
+        $throttleKey = $this->passwordResetVerifyThrottleKey($request);
+        if (RateLimiter::tooManyAttempts($throttleKey, self::RESET_VERIFY_ATTEMPTS)) {
+            $seconds = RateLimiter::availableIn($throttleKey);
+            return back()->with('error', "Too many password reset attempts. Please try again in {$seconds} seconds.")
+                ->withInput($request->only('username'));
+        }
+
         try {
             $request->validate([
                 'username' => 'required|string|min:4|max:16',
@@ -466,6 +505,7 @@ class AuthController extends Controller
                 'mnemonic.max' => 'Mnemonic phrase cannot be longer than 512 characters.',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
+            RateLimiter::hit($throttleKey, self::RESET_VERIFY_DECAY_SECONDS);
             return back()->with('error', $e->validator->errors()->first())
                 ->withInput($request->only('username'));
         }
@@ -473,16 +513,20 @@ class AuthController extends Controller
         $user = User::whereRaw('BINARY username = ?', [$request->username])->first();
 
         if (!$user || !$this->verifyMnemonicPhrase($request->mnemonic, $user->mnemonic)) {
+            RateLimiter::hit($throttleKey, self::RESET_VERIFY_DECAY_SECONDS);
             return back()->with('error', 'Username or mnemonic phrase is incorrect.')
                 ->withInput($request->only('username'));
         }
 
-        $token = Str::random(64);
+        $selector = Str::lower(Str::random(16));
+        $verifier = Str::random(64);
+        $token = $selector . '.' . $verifier;
         $user->update([
-            'password_reset_token' => Hash::make($token),
+            'password_reset_token' => $selector . ':' . Hash::make($verifier),
             'password_reset_expires_at' => now()->addMinutes(60),
         ]);
 
+        RateLimiter::clear($throttleKey);
         return redirect()->route('password.reset', ['token' => $token]);
     }
 
@@ -518,6 +562,12 @@ class AuthController extends Controller
      */
     public function reset(Request $request)
     {
+        $throttleKey = $this->passwordResetSubmitThrottleKey($request);
+        if (RateLimiter::tooManyAttempts($throttleKey, self::RESET_SUBMIT_ATTEMPTS)) {
+            $seconds = RateLimiter::availableIn($throttleKey);
+            return back()->with('error', "Too many reset attempts. Please try again in {$seconds} seconds.");
+        }
+
         try {
             $validated = $request->validate([
                 'token' => 'required',
@@ -540,15 +590,31 @@ class AuthController extends Controller
                 'password_confirmation.required' => 'Please confirm your password.',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
+            RateLimiter::hit($throttleKey, self::RESET_SUBMIT_DECAY_SECONDS);
             return back()->with('error', $e->validator->errors()->first());
         }
 
-        $user = User::where('password_reset_expires_at', '>', now())->get()
-            ->first(function ($user) use ($request) {
-                return Hash::check($request->token, $user->password_reset_token);
-            });
+        $tokenParts = explode('.', (string) $request->token, 2);
+        if (count($tokenParts) !== 2 || $tokenParts[0] === '' || $tokenParts[1] === '') {
+            RateLimiter::hit($throttleKey, self::RESET_SUBMIT_DECAY_SECONDS);
+            return back()->with('error', 'This password reset token is invalid or has expired.');
+        }
 
-        if (!$user) {
+        [$selector, $verifier] = $tokenParts;
+
+        $user = User::where('password_reset_expires_at', '>', now())
+            ->where('password_reset_token', 'like', $selector . ':%')
+            ->first();
+
+        if (!$user || !$user->password_reset_token || !str_contains($user->password_reset_token, ':')) {
+            RateLimiter::hit($throttleKey, self::RESET_SUBMIT_DECAY_SECONDS);
+            return back()->with('error', 'This password reset token is invalid or has expired.');
+        }
+
+        [, $storedHash] = explode(':', $user->password_reset_token, 2);
+
+        if (!$storedHash || !Hash::check($verifier, $storedHash)) {
+            RateLimiter::hit($throttleKey, self::RESET_SUBMIT_DECAY_SECONDS);
             return back()->with('error', 'This password reset token is invalid or has expired.');
         }
 
@@ -557,6 +623,7 @@ class AuthController extends Controller
         $user->password_reset_expires_at = null;
         $user->save();
 
+        RateLimiter::clear($throttleKey);
         return redirect()->route('login')
             ->with('status', 'Your password has been successfully reset. You can now login with your new password.');
     }

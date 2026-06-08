@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="{{ asset('images/kabus.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/mercatoria.png') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Kabus</title>
+    <title>Mercatoria</title>
 <style>
 body {
 font-family:"Arial",sans-serif;
@@ -120,9 +120,9 @@ transform:rotate(360deg)
         <div class="maintenance-icon">
             🔧
         </div>
-        <h1 class="maintenance-title">Kabus Under Maintenance</h1>
+        <h1 class="maintenance-title">Mercatoria Under Maintenance</h1>
         <p class="maintenance-message">
-            We are currently performing scheduled maintenance. Our team is working to bring Kabus back online as soon as possible.
+            We are currently performing scheduled maintenance. Our team is working to bring Mercatoria back online as soon as possible.
         </p>
         <div class="maintenance-info">
             <strong>What's happening?</strong>

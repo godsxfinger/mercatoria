@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "mercatoria/marketplace",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Mercatoria marketplace application.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
@@ -11,19 +11,86 @@
         "furqansiddiqui/bip39-mnemonic-php": "^0.2.1",
         "guzzlehttp/guzzle": "^7.9.3",
         "intervention/image-laravel": "^1.3",
-        "laravel/framework": "^11.9",
+        "laravel/framework": "^11.44.1",
         "laravel/tinker": "^2.9",
         "mobicms/captcha": "^4.0",
-        "monero-integrations/monerophp": "dev-master"
+        "monero-integrations/monerophp": "dev-master",
+        "psy/psysh": "^0.12.19"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
+        "laravel/sail": "^1.62",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0.1"
+        "nunomaduro/collision": "^8.9",
+        "phpunit/phpunit": "^11.5.50"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "charcoal-dev/gmp-adapter",
+                "version": "0.0.1",
+                "type": "library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/charcoal-dev/gmp-adapter.git",
+                    "reference": "35f72a52eb3c9f9cc1eace85431a1c4467f5dfd8"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/charcoal-dev/gmp-adapter/zipball/35f72a52eb3c9f9cc1eace85431a1c4467f5dfd8",
+                    "reference": "35f72a52eb3c9f9cc1eace85431a1c4467f5dfd8",
+                    "shasum": ""
+                },
+                "require": {
+                    "ext-gmp": "*",
+                    "php": "^8.1"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Charcoal\\GMP\\": "src"
+                    }
+                },
+                "license": [
+                    "MIT"
+                ]
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "charcoal-dev/buffers",
+                "version": "0.1.0",
+                "type": "library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/charcoal-dev/buffers.git",
+                    "reference": "3ff43a0bf1df3297d0d0dc2df68a2429306d006a"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/charcoal-dev/buffers/zipball/3ff43a0bf1df3297d0d0dc2df68a2429306d006a",
+                    "reference": "3ff43a0bf1df3297d0d0dc2df68a2429306d006a",
+                    "shasum": ""
+                },
+                "require": {
+                    "charcoal-dev/gmp-adapter": "^0.0.1",
+                    "ext-gmp": "*",
+                    "php": "^8.1"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Charcoal\\Buffers\\": "src"
+                    }
+                },
+                "license": [
+                    "MIT"
+                ],
+                "homepage": "https://github.com/charcoal-dev/buffers"
+            }
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -65,6 +132,11 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "audit": {
+            "ignore": {
+                "CVE-2026-48019": "Mercatoria does not use Laravel's email validation rule or collect user email addresses."
+            }
         }
     },
     "minimum-stability": "stable",

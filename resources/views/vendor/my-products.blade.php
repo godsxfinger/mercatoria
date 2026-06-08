@@ -22,7 +22,7 @@
                             </a>
                         </h3>
                         <span class="my-products-index-product-type {{ strtolower($product->type) }}">
-                            {{ $product->type === 'deaddrop' ? 'Dead Drop' : ucfirst($product->type) }}
+                            {{ $product->type === 'deaddrop' ? 'Local Pickup' : ucfirst($product->type) }}
                         </span>
                         <div class="my-products-index-actions">
                             <a href="{{ route('vendor.products.edit', $product) }}" class="my-products-index-btn my-products-index-btn-edit">
@@ -37,7 +37,7 @@
                                     Advertisement
                                 </a>
                             @endif
-                            <form action="{{ route('vendor.products.destroy', $product) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('vendor.products.destroy', $product) }}" method="POST" class="u-inline-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="my-products-index-btn my-products-index-btn-delete">

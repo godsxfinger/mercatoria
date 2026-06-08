@@ -43,7 +43,7 @@
                                         <span class="advertisement-create-slot-status">Currently occupied</span>
                                     @endif
                                     <span class="advertisement-create-slot-price">
-                                        ɱ{{ number_format($slot['price'], 3) }} XMR per day
+                                        {{ number_format($slot['price'], 3) }} XMR per day
                                     </span>
                                 </div>
                             </label>

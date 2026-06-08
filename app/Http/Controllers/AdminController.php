@@ -16,6 +16,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Popup;
 use App\Models\VendorPayment;
+use App\Models\Order;
+use App\Models\Dispute;
+use App\Models\Advertisement;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Intervention\Image\ImageManager;
@@ -25,12 +28,223 @@ use Intervention\Image\Encoders\PngEncoder;
 use Intervention\Image\Encoders\WebpEncoder;
 use Intervention\Image\Encoders\GifEncoder;
 use Intervention\Image\Exceptions\NotReadableException;
+use Exception;
 
 class AdminController extends Controller
 {
+    private const MAX_IMAGE_WIDTH = 5000;
+    private const MAX_IMAGE_HEIGHT = 5000;
+    private const MAX_IMAGE_PIXELS = 16000000;
+
     public function index()
     {
-        return view('admin.index');
+        $periodStart = now()->subDays(30);
+        $prevPeriodStart = now()->subDays(60);
+        $cancelledOrderCommissionRate = max(
+            0.0,
+            min(1.0, ((float) config('monero.cancelled_order_commission_percentage', 1.0)) / 100)
+        );
+
+        $buildFinancialMetrics = function ($start = null, $end = null) use ($cancelledOrderCommissionRate): array {
+            $gmvPaidQuery = Order::where('is_paid', true)->whereNotNull('paid_at');
+            if ($start) {
+                $gmvPaidQuery->where('paid_at', '>=', $start);
+            }
+            if ($end) {
+                $gmvPaidQuery->where('paid_at', '<', $end);
+            }
+            $gmvPaid = (float) $gmvPaidQuery->sum('total');
+
+            $completedOrdersQuery = Order::where('is_paid', true)
+                ->where('status', Order::STATUS_COMPLETED)
+                ->whereNotNull('completed_at');
+            if ($start) {
+                $completedOrdersQuery->where('completed_at', '>=', $start);
+            }
+            if ($end) {
+                $completedOrdersQuery->where('completed_at', '<', $end);
+            }
+            $completedCommission = (float) $completedOrdersQuery->sum('commission');
+            $vendorPayouts = (float) $completedOrdersQuery->sum('subtotal');
+
+            $cancelledOrdersQuery = Order::where('is_paid', true)
+                ->where('status', Order::STATUS_CANCELLED)
+                ->whereNotNull('buyer_refund_at');
+            if ($start) {
+                $cancelledOrdersQuery->where('buyer_refund_at', '>=', $start);
+            }
+            if ($end) {
+                $cancelledOrdersQuery->where('buyer_refund_at', '<', $end);
+            }
+            $cancelledTotal = (float) $cancelledOrdersQuery->sum('total');
+            $cancelledFeeRetained = $cancelledTotal * $cancelledOrderCommissionRate;
+            $buyerRefunds = $cancelledTotal - $cancelledFeeRetained;
+
+            $adRevenueQuery = Advertisement::where('payment_completed', true)
+                ->whereNotNull('payment_completed_at');
+            if ($start) {
+                $adRevenueQuery->where('payment_completed_at', '>=', $start);
+            }
+            if ($end) {
+                $adRevenueQuery->where('payment_completed_at', '<', $end);
+            }
+            $adRevenueCollected = (float) $adRevenueQuery->sum('total_received');
+
+            $vendorApplicationQuery = VendorPayment::where('payment_completed', true)
+                ->whereIn('application_status', ['accepted', 'denied'])
+                ->whereNotNull('admin_response_at');
+            if ($start) {
+                $vendorApplicationQuery->where('admin_response_at', '>=', $start);
+            }
+            if ($end) {
+                $vendorApplicationQuery->where('admin_response_at', '<', $end);
+            }
+            $vendorAppReceived = (float) $vendorApplicationQuery->sum('total_received');
+            $vendorAppRefunded = (float) $vendorApplicationQuery->sum('refund_amount');
+            $vendorAppNetFees = $vendorAppReceived - $vendorAppRefunded;
+
+            $orderNetFees = $completedCommission + $cancelledFeeRetained;
+            $totalMarketplaceIncome = $orderNetFees + $adRevenueCollected + $vendorAppNetFees;
+
+            return [
+                'gmv_paid' => $gmvPaid,
+                'vendor_payouts' => $vendorPayouts,
+                'buyer_refunds' => $buyerRefunds,
+                'order_net_fees' => $orderNetFees,
+                'ad_revenue_collected' => $adRevenueCollected,
+                'vendor_app_net_fees' => $vendorAppNetFees,
+                'total_marketplace_income' => $totalMarketplaceIncome,
+            ];
+        };
+
+        $financialAll = $buildFinancialMetrics();
+        $financialCurrent = $buildFinancialMetrics($periodStart, now());
+        $financialPrevious = $buildFinancialMetrics($prevPeriodStart, $periodStart);
+
+        $kpis = [
+            'total_users' => User::count(),
+            'total_orders' => Order::count(),
+            'gmv_paid' => $financialAll['gmv_paid'],
+            'order_net_fees' => $financialAll['order_net_fees'],
+            'ad_revenue_collected' => $financialAll['ad_revenue_collected'],
+            'vendor_app_net_fees' => $financialAll['vendor_app_net_fees'],
+            'total_marketplace_income' => $financialAll['total_marketplace_income'],
+            'vendor_payouts' => $financialAll['vendor_payouts'],
+            'buyer_refunds' => $financialAll['buyer_refunds'],
+            'open_disputes' => Dispute::where('status', Dispute::STATUS_ACTIVE)->count(),
+        ];
+
+        $current = [
+            'total_users' => User::where('created_at', '>=', $periodStart)->count(),
+            'total_orders' => Order::where('created_at', '>=', $periodStart)->count(),
+            'gmv_paid' => $financialCurrent['gmv_paid'],
+            'total_marketplace_income' => $financialCurrent['total_marketplace_income'],
+        ];
+
+        $previous = [
+            'total_users' => User::whereBetween('created_at', [$prevPeriodStart, $periodStart])->count(),
+            'total_orders' => Order::whereBetween('created_at', [$prevPeriodStart, $periodStart])->count(),
+            'gmv_paid' => $financialPrevious['gmv_paid'],
+            'total_marketplace_income' => $financialPrevious['total_marketplace_income'],
+        ];
+
+        $buildTrend = function (float|int $curr, float|int $prev): array {
+            if ($prev <= 0 && $curr <= 0) {
+                return ['text' => 'No change vs last 30d', 'direction' => 'flat'];
+            }
+
+            if ($prev <= 0) {
+                return ['text' => 'New activity in last 30d', 'direction' => 'up'];
+            }
+
+            $delta = (($curr - $prev) / $prev) * 100;
+            $rounded = number_format(abs($delta), 1);
+
+            if ($delta > 0) {
+                return ['text' => "+{$rounded}% vs last 30d", 'direction' => 'up'];
+            }
+
+            if ($delta < 0) {
+                return ['text' => "-{$rounded}% vs last 30d", 'direction' => 'down'];
+            }
+
+            return ['text' => 'No change vs last 30d', 'direction' => 'flat'];
+        };
+
+        $kpiTrends = [
+            'total_users' => $buildTrend($current['total_users'], $previous['total_users']),
+            'total_orders' => $buildTrend($current['total_orders'], $previous['total_orders']),
+            'gmv_paid' => $buildTrend($current['gmv_paid'], $previous['gmv_paid']),
+            'total_marketplace_income' => $buildTrend($current['total_marketplace_income'], $previous['total_marketplace_income']),
+        ];
+
+        $recentOrders = Order::latest()
+            ->select(['id', 'unique_url', 'status', 'total', 'created_at'])
+            ->take(8)
+            ->get();
+
+        $recentDisputes = Dispute::latest()
+            ->select(['id', 'order_id', 'status', 'created_at'])
+            ->take(8)
+            ->get();
+
+        $recentSupport = SupportRequest::mainRequests()
+            ->latest()
+            ->select(['id', 'ticket_id', 'title', 'status', 'created_at'])
+            ->take(8)
+            ->get();
+
+        $orderFeed = $recentOrders->map(function ($order) {
+            return [
+                'type' => 'Order',
+                'title' => 'Order ' . substr((string) $order->id, 0, 8),
+                'meta' => ucfirst(str_replace('_', ' ', (string) $order->status)) . ' • $' . number_format((float) $order->total, 2),
+                'timestamp' => $order->created_at,
+                'url' => null,
+            ];
+        });
+
+        $disputeFeed = $recentDisputes->map(function ($dispute) {
+            return [
+                'type' => 'Dispute',
+                'title' => 'Dispute ' . substr((string) $dispute->id, 0, 8),
+                'meta' => ucfirst(str_replace('_', ' ', (string) $dispute->status)),
+                'timestamp' => $dispute->created_at,
+                'url' => route('admin.disputes.show', $dispute->id),
+            ];
+        });
+
+        $supportFeed = $recentSupport->map(function ($support) {
+            return [
+                'type' => 'Support',
+                'title' => $support->title ?: ('Ticket ' . substr((string) $support->ticket_id, 0, 8)),
+                'meta' => ucfirst(str_replace('_', ' ', (string) $support->status)),
+                'timestamp' => $support->created_at,
+                'url' => route('admin.support.show', $support->ticket_id),
+            ];
+        });
+
+        $liveFeed = collect()
+            ->merge($orderFeed)
+            ->merge($disputeFeed)
+            ->merge($supportFeed)
+            ->sortByDesc('timestamp')
+            ->take(14)
+            ->values();
+
+        $quickControls = [
+            'pending_support' => SupportRequest::mainRequests()
+                ->whereIn('status', ['open', 'in_progress'])
+                ->count(),
+            'active_disputes' => $kpis['open_disputes'],
+            'pending_vendor_applications' => VendorPayment::where('application_status', 'waiting')
+                ->where('payment_completed', true)
+                ->whereNotNull('application_submitted_at')
+                ->count(),
+            'active_popups' => Popup::where('active', true)->count(),
+        ];
+
+        return view('admin.index', compact('kpis', 'kpiTrends', 'liveFeed', 'quickControls'));
     }
 
     public function showUpdateCanary()
@@ -170,10 +384,71 @@ class AdminController extends Controller
             ->with('success', count($selectedLogs) . ' logs deleted successfully.');
     }
 
-    public function userList()
+    public function userList(Request $request)
     {
-        $users = User::orderBy('username')->paginate(32);
-        return view('admin.users.list', compact('users'));
+        $role = $request->query('role');
+        $search = trim((string) $request->query('search', ''));
+        $sort = (string) $request->query('sort', 'username');
+        $direction = strtolower((string) $request->query('direction', 'asc')) === 'desc' ? 'desc' : 'asc';
+        $perPage = (int) $request->query('per_page', 25);
+        $allowedPerPage = [10, 25, 50];
+
+        if (!in_array($perPage, $allowedPerPage, true)) {
+            $perPage = 25;
+        }
+
+        $usersQuery = User::query();
+
+        if ($role === 'vendor') {
+            $usersQuery->whereHas('roles', function ($query) {
+                $query->where('name', 'vendor');
+            });
+        }
+
+        if ($search !== '') {
+            $usersQuery->where(function ($query) use ($search) {
+                $query->where('username', 'like', '%' . $search . '%');
+                $query->orWhere('id', 'like', '%' . $search . '%');
+            });
+        }
+
+        $activeThreshold = now()->subHours(24);
+
+        switch ($sort) {
+            case 'id':
+                $usersQuery->orderBy('id', $direction);
+                break;
+            case 'last_login':
+                $usersQuery->orderByRaw('last_login IS NULL')
+                    ->orderBy('last_login', $direction);
+                break;
+            case 'status':
+                $usersQuery->orderByRaw(
+                    "CASE
+                        WHEN last_login IS NULL THEN 2
+                        WHEN last_login >= ? THEN 0
+                        ELSE 1
+                    END {$direction}",
+                    [$activeThreshold]
+                );
+                break;
+            case 'username':
+            default:
+                $sort = 'username';
+                $usersQuery->orderBy('username', $direction);
+                break;
+        }
+
+        $users = $usersQuery->paginate($perPage)->withQueryString();
+
+        return view('admin.users.list', [
+            'users' => $users,
+            'roleFilter' => $role,
+            'searchQuery' => $search,
+            'sortColumn' => $sort,
+            'sortDirection' => $direction,
+            'perPage' => $perPage,
+        ]);
     }
 
     public function userDetails(User $user)
@@ -292,7 +567,8 @@ class AdminController extends Controller
         $notification = Notification::create([
             'title' => 'Support Request Update',
             'message' => "An admin has replied to your support request: \"{$supportRequest->title}\"",
-            'type' => 'support'
+            'type' => 'support',
+            'sender_id' => auth()->id(),
         ]);
 
         // Send notification only to the support request's owner
@@ -372,6 +648,7 @@ class AdminController extends Controller
                 'message' => $sanitizedMessage,
                 'target_role' => $request->target_role,
                 'type' => 'bulk',
+                'sender_id' => $request->user()->id,
             ]);
 
             $notification->sendToTargetUsers();
@@ -399,6 +676,7 @@ class AdminController extends Controller
     {
         try {
             $notifications = Notification::where('type', 'bulk')
+                ->with('sender:id,username')
                 ->orderBy('created_at', 'desc')
                 ->withCount('users')
                 ->paginate(16);
@@ -848,11 +1126,20 @@ class AdminController extends Controller
                     'product_picture' => [
                         'nullable',
                         'file',
+                        'image',
+                        'mimes:jpeg,png,gif,webp',
                         'max:800', // 800KB max size
+                    ],
+                    'additional_photos' => [
+                        'nullable',
+                        'array',
+                        'max:3',
                     ],
                     'additional_photos.*' => [
                         'nullable',
                         'file',
+                        'image',
+                        'mimes:jpeg,png,gif,webp',
                         'max:800', // 800KB max size
                     ],
                     'stock_amount' => 'required|integer|min:0|max:999999',
@@ -1002,7 +1289,7 @@ class AdminController extends Controller
             $productTypeName = match($product->type) {
                 Product::TYPE_CARGO => 'Cargo',
                 Product::TYPE_DIGITAL => 'Digital',
-                Product::TYPE_DEADDROP => 'Dead Drop',
+                Product::TYPE_DEADDROP => 'Local Pickup',
             };
 
             Log::info("Product updated by admin: {$product->id}");
@@ -1045,11 +1332,19 @@ class AdminController extends Controller
 
         // Check if this is an image request
         if ($request->has('image')) {
-            $filename = $request->query('image');
+            $filename = (string) $request->query('image');
             $images = json_decode($application->application_images, true) ?? [];
+
+            if (
+                !preg_match('/^[A-Za-z0-9._-]+$/', $filename) ||
+                str_contains($filename, '..') ||
+                str_contains($filename, '/')
+            ) {
+                abort(404);
+            }
             
             // Verify the requested image belongs to this application
-            if (!in_array($filename, $images)) {
+            if (!in_array($filename, $images, true)) {
                 abort(404);
             }
 
@@ -1060,7 +1355,18 @@ class AdminController extends Controller
                     abort(404);
                 }
 
-                return response()->file(Storage::disk('private')->path($path));
+                $file = Storage::disk('private')->get($path);
+                $mimeType = (new \finfo(FILEINFO_MIME_TYPE))->buffer($file);
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                if (!in_array($mimeType, $allowedMimeTypes, true)) {
+                    abort(404);
+                }
+
+                return response($file, 200, [
+                    'Content-Type' => $mimeType,
+                    'X-Content-Type-Options' => 'nosniff',
+                    'Cache-Control' => 'private, no-store, max-age=0',
+                ]);
             } catch (\Exception $e) {
                 Log::error('Error serving vendor application image: ' . $e->getMessage());
                 abort(404);
@@ -1146,7 +1452,8 @@ class AdminController extends Controller
                     $config['host'],
                     $config['port'],
                     $config['ssl'],
-                    30000  // 30 second timeout
+                    $config['username'] ?? null,
+                    $config['password'] ?? null
                 );
 
                 // Process refund
@@ -1246,9 +1553,10 @@ class AdminController extends Controller
                 'image/webp'
             ];
 
-            if (!in_array($mimeType, $allowedMimeTypes)) {
+            if (!in_array($mimeType, $allowedMimeTypes, true)) {
                 throw new Exception('Invalid file type. Allowed types are JPEG, PNG, GIF, and WebP.');
             }
+            $this->assertSafeImageDimensions($file);
 
             $extension = match($mimeType) {
                 'image/jpeg' => 'jpg',
@@ -1290,6 +1598,28 @@ class AdminController extends Controller
         } catch (Exception $e) {
             Log::error('Product picture upload failed: ' . $e->getMessage());
             throw new Exception($e->getMessage());
+        }
+    }
+
+    private function assertSafeImageDimensions($file): void
+    {
+        $imageInfo = @getimagesize($file->getPathname());
+        if ($imageInfo === false) {
+            throw new Exception('Invalid image file.');
+        }
+
+        $width = (int) ($imageInfo[0] ?? 0);
+        $height = (int) ($imageInfo[1] ?? 0);
+        $pixels = $width * $height;
+
+        if (
+            $width < 1 ||
+            $height < 1 ||
+            $width > self::MAX_IMAGE_WIDTH ||
+            $height > self::MAX_IMAGE_HEIGHT ||
+            $pixels > self::MAX_IMAGE_PIXELS
+        ) {
+            throw new Exception('Image dimensions are too large.');
         }
     }
 }

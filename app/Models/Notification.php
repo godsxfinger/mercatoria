@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -21,6 +22,7 @@ class Notification extends Model
         'message',
         'target_role',
         'type',
+        'sender_id',
     ];
 
     protected $casts = [
@@ -46,6 +48,7 @@ class Notification extends Model
         'message' => 'required|string|min:10|max:5000',
         'target_role' => 'nullable|string|in:admin,vendor',
         'type' => 'required|string|in:bulk,message,support',
+        'sender_id' => 'nullable|uuid|exists:users,id',
     ];
 
     /**
@@ -67,6 +70,11 @@ class Notification extends Model
                 throw new ValidationException($validator);
             }
 
+            // Backward compatibility: allow inserts before sender_id migration is applied.
+            if (!Schema::hasColumn($model->getTable(), 'sender_id')) {
+                unset($model->attributes['sender_id']);
+            }
+
             // Sanitize inputs
             $model->title = strip_tags($model->title);
             $model->message = strip_tags($model->message, '<p><br><strong><em><ul><li><ol>');
@@ -81,6 +89,11 @@ class Notification extends Model
         return $this->belongsToMany(User::class)
             ->withTimestamps()
             ->withPivot('read');
+    }
+
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'sender_id');
     }
 
     /**

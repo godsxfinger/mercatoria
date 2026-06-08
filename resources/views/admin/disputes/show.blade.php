@@ -57,7 +57,7 @@
                 @endif
             </div>
             
-            <div style="text-align: center;">
+            <div class="u-text-center">
                 <a href="{{ route('orders.show', $dispute->order->unique_url) }}" class="disputes-show-order-btn">
                     View Order Details
                 </a>

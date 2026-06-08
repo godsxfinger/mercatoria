@@ -14,11 +14,11 @@ class AddContentSecurityPolicyHeaders
         // Content Security Policy (CSP)
         $response->headers->set('Content-Security-Policy', "
             default-src 'self';
-            script-src 'self' 'unsafe-inline' 'unsafe-eval';
+            script-src 'self';
             style-src 'self' 'unsafe-inline';
-            img-src 'self' data: https: http:;
+            img-src 'self' data: https:;
             font-src 'self' data:;
-            connect-src 'self' http: https:;
+            connect-src 'self';
             frame-src 'none';
             frame-ancestors 'none';
             object-src 'none';
@@ -26,8 +26,8 @@ class AddContentSecurityPolicyHeaders
             form-action 'self';
             manifest-src 'self';
             media-src 'self';
-            worker-src 'self' blob:;
-            style-src-elem 'self' 'unsafe-inline' http: https:;
+            worker-src 'self';
+            style-src-elem 'self' 'unsafe-inline';
             style-src-attr 'unsafe-inline';
         ");
 

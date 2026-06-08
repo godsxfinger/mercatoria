@@ -12,7 +12,7 @@ fi
 ##############################################
 # Configurable Variables                     #
 ##############################################
-PROJECT_DIR="/var/www/kabus"
+PROJECT_DIR="/var/www/mercatoria"
 FLAG_FILE="storage/framework/down"
 
 ##############################################

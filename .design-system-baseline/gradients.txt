@@ -1,0 +1,19 @@
+public/css/styles.css:10362:background:linear-gradient(135deg,#6366f1,#5558e3);
+public/css/styles.css:10624:background:linear-gradient(135deg,#6366f1,#5558e3);
+public/css/styles.css:11947:background:linear-gradient(to right,#292929 0%,#2d2d2d 50%,#292929 100%);
+public/css/styles.css:11965:background:linear-gradient(to right,transparent,#bb86fc,transparent);
+public/css/styles.css:13228:background:radial-gradient(1200px 500px at 20% -10%,#1a2330 0,var(--bg) 45%);
+public/css/styles.css:14825:background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,0) 28%),#142033;
+public/css/styles.css:15414:background:linear-gradient(90deg,rgba(99,102,241,.8) 0%,rgba(99,102,241,.15) 100%);
+public/css/styles.css:15629:background:linear-gradient(90deg,#6366F1 0%,rgba(99,102,241,.18) 100%);
+public/css/styles.css:16051:background:linear-gradient(90deg,#6D5EF3 0%,rgba(109,94,243,.18) 100%);
+public/css/styles.css:16055:background:linear-gradient(90deg,#22C55E 0%,rgba(34,197,94,.2) 100%);
+public/css/styles.css:16059:background:linear-gradient(90deg,#EF4444 0%,rgba(239,68,68,.2) 100%);
+public/css/styles.css:16063:background:linear-gradient(90deg,#6D5EF3 0%,rgba(109,94,243,.18) 100%);
+public/css/styles.css:16387:background:radial-gradient(460px 220px at 35% 0%,rgba(109,94,243,.12) 0%,rgba(109,94,243,0) 72%);
+public/css/styles.css:16817:background:linear-gradient(180deg,transparent 35%,rgba(16,24,39,.24) 100%);
+public/css/styles.css:17005:background:linear-gradient(135deg,#6366F1,#5558E3);
+public/css/styles.css:17880:--surface-gradient-overlay:linear-gradient(180deg,rgba(255,255,255,.03) 0%,rgba(255,255,255,0) 100%);
+public/css/styles.css:4286:radial-gradient(1000px 420px at 88% 8%,rgba(99,102,241,.08),transparent 70%),
+public/css/styles.css:4287:radial-gradient(900px 380px at 6% 82%,rgba(56,189,248,.06),transparent 70%)
+public/css/styles.css:5199:background:linear-gradient(135deg,#1e1e1e,#292929);

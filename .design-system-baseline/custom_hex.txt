@@ -1,0 +1,2067 @@
+public/css/styles.css:10001:background-color:#CD853F;
+public/css/styles.css:10002:color:#212121
+public/css/styles.css:10006:background-color:#3D0814;
+public/css/styles.css:10007:color:#e0e0e0
+public/css/styles.css:10011:background:#1976D2;
+public/css/styles.css:10012:color:#121212
+public/css/styles.css:10021:color:#bb86fc;
+public/css/styles.css:10027:color:#a0a0a0;
+public/css/styles.css:10050:color:#e0e0e0;
+public/css/styles.css:10051:background-color:#D70040;
+public/css/styles.css:1005:background-color:#292929;
+public/css/styles.css:10061:color:#e0e0e0;
+public/css/styles.css:10062:background-color:#4A3B6B;
+public/css/styles.css:10067:background-color:#3c3c3c;
+public/css/styles.css:10073:color:#bb86fc;
+public/css/styles.css:10082:color:#d0a4ff;
+public/css/styles.css:10095:background:#bb86fc;
+public/css/styles.css:10096:color:#121212;
+public/css/styles.css:10105:background:#96c;
+public/css/styles.css:1010:color:#e0e0e0;
+public/css/styles.css:10115:color:#e0e0e0;
+public/css/styles.css:10116:background-color:#2E7D32;
+public/css/styles.css:10126:color:#212121;
+public/css/styles.css:10127:background-color:#FF9800;
+public/css/styles.css:10135:background-color:#1e1e1e;
+public/css/styles.css:10138:border:1px solid #3c3c3c;
+public/css/styles.css:10145:color:#bb86fc;
+public/css/styles.css:10163:background-color:#bb86fc
+public/css/styles.css:10210:background:#6366f147
+public/css/styles.css:10214:color:#6366f1;
+public/css/styles.css:10225:color:#ffffffbf;
+public/css/styles.css:1024:background-color:#ffd700;
+public/css/styles.css:10255:color:#ffffffa6
+public/css/styles.css:1025:color:#121212
+public/css/styles.css:10263:border:1px solid #ffffff24;
+public/css/styles.css:10264:background:#151b23;
+public/css/styles.css:10265:color:#e6edf3
+public/css/styles.css:10271:border-color:#6366f1;
+public/css/styles.css:10272:box-shadow:0 0 0 2px #6366f133
+public/css/styles.css:10278:border:1px solid #ffffff2b;
+public/css/styles.css:10280:background:#1a2a40;
+public/css/styles.css:10281:color:#e6edf3;
+public/css/styles.css:10289:box-shadow:0 8px 14px #00000045
+public/css/styles.css:10299:border:1px solid #ffffff1c;
+public/css/styles.css:1029:background-color:#4caf50;
+public/css/styles.css:10301:background:#151b23bf;
+public/css/styles.css:1030:color:#fff
+public/css/styles.css:10311:background:#101c2db3;
+public/css/styles.css:10312:border:1px solid #ffffff1c
+public/css/styles.css:10323:color:#ffffffb3;
+public/css/styles.css:10333:color:#fff;
+public/css/styles.css:10334:border-color:#6366f166;
+public/css/styles.css:10335:background:#6366f112
+public/css/styles.css:10339:background:#6366f124;
+public/css/styles.css:10340:border-color:#6366f166;
+public/css/styles.css:10341:color:#e8eaff;
+public/css/styles.css:10342:box-shadow:0 0 12px #6366f13d
+public/css/styles.css:1034:background-color:#f44336;
+public/css/styles.css:10352:color:#a0a0a0;
+public/css/styles.css:10354:background:#151b23db;
+public/css/styles.css:10356:border:1px solid #ffffff10
+public/css/styles.css:1035:color:#fff
+public/css/styles.css:10362:background:linear-gradient(135deg,#6366f1,#5558e3);
+public/css/styles.css:10363:color:#e6edf3;
+public/css/styles.css:10389:background:#0f1c2db8;
+public/css/styles.css:10390:border-bottom:1px solid #ffffff24;
+public/css/styles.css:10395:box-shadow:0 6px 12px #00000026
+public/css/styles.css:10399:color:#ffffffa6;
+public/css/styles.css:1039:color:#e0e0e0;
+public/css/styles.css:10413:border:1px solid #ffffff12;
+public/css/styles.css:10414:background-color:#151b23d9;
+public/css/styles.css:10415:box-shadow:0 10px 18px #0000002e;
+public/css/styles.css:10468:background-color:#151b23e6;
+public/css/styles.css:10469:box-shadow:0 10px 18px #0000003a;
+public/css/styles.css:10481:background:#6366f1
+public/css/styles.css:10493:background:#facc15aa
+public/css/styles.css:10504:background:#22c55ea8
+public/css/styles.css:10515:background:#ef44447d
+public/css/styles.css:10519:border-color:#6366f15e;
+public/css/styles.css:1051:background-color:#1e1e1e;
+public/css/styles.css:10520:background-color:#6366f10f
+public/css/styles.css:10532:color:#e8e8e8;
+public/css/styles.css:1054:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:10556:color:#9aa3ff
+public/css/styles.css:1055:border:1px solid #3c3c3c
+public/css/styles.css:10565:color:#ffffff96
+public/css/styles.css:10584:background:#facc1533;
+public/css/styles.css:10585:border-color:#facc1591;
+public/css/styles.css:10586:color:#ffecb0;
+public/css/styles.css:10587:box-shadow:inset 0 0 8px #facc1530,0 0 0 1px #facc153f
+public/css/styles.css:10591:background:#6bb9ff22;
+public/css/styles.css:10592:border-color:#6bb9ff63;
+public/css/styles.css:10593:color:#c9e8ff
+public/css/styles.css:10597:background:#63e6be20;
+public/css/styles.css:10598:border-color:#63e6be66;
+public/css/styles.css:10599:color:#c7ffe9
+public/css/styles.css:10603:background:#22c55e21;
+public/css/styles.css:10604:border-color:#22c55e66;
+public/css/styles.css:10605:color:#b8f7cb;
+public/css/styles.css:10606:box-shadow:inset 0 0 8px #22c55e2b,0 0 0 1px #22c55e30
+public/css/styles.css:10610:background:#f8717114;
+public/css/styles.css:10611:border-color:#f8717152;
+public/css/styles.css:10612:color:#ffcbca
+public/css/styles.css:10616:background:#ff8cd521;
+public/css/styles.css:10617:border-color:#ff8cd55c;
+public/css/styles.css:10618:color:#ffd2ef
+public/css/styles.css:10624:background:linear-gradient(135deg,#6366f1,#5558e3);
+public/css/styles.css:10625:color:#e6edf3;
+public/css/styles.css:10636:box-shadow:0 12px 20px #4f52c752;
+public/css/styles.css:10647:border:1px solid #ffffff1c;
+public/css/styles.css:10649:background:#151b23b3
+public/css/styles.css:10656:color:#ffffffbf;
+public/css/styles.css:1065:background-color:#b71c1c;
+public/css/styles.css:1066:color:#ffebee
+public/css/styles.css:1070:background-color:#1e88e5;
+public/css/styles.css:1071:color:#e3f2fd
+public/css/styles.css:10782:border-bottom:2px solid #bb86fc
+public/css/styles.css:10790:color:#121212;
+public/css/styles.css:10791:background-color:#bb86fc;
+public/css/styles.css:1079:background-color:#292929;
+public/css/styles.css:10802:color:#121212;
+public/css/styles.css:10803:background-color:#bb86fc
+public/css/styles.css:10827:background-color:#1e1e1e;
+public/css/styles.css:10829:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:10831:border:1px solid #3c3c3c;
+public/css/styles.css:10836:background-color:#1e1e1e;
+public/css/styles.css:10838:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:10840:border:1px solid #3c3c3c;
+public/css/styles.css:10847:border-left:4px solid #ff3838;
+public/css/styles.css:10848:border-right:4px solid #ff3838
+public/css/styles.css:10852:border-left:4px solid #ffc107;
+public/css/styles.css:10853:border-right:4px solid #ffc107
+public/css/styles.css:10857:border-left:4px solid #4caf50;
+public/css/styles.css:10858:border-right:4px solid #4caf50
+public/css/styles.css:10862:border-left:4px solid #bb86fc;
+public/css/styles.css:10863:border-right:4px solid #bb86fc
+public/css/styles.css:10867:border-left:4px solid #9e9e9e;
+public/css/styles.css:10868:border-right:4px solid #9e9e9e
+public/css/styles.css:10876:color:#bb86fc;
+public/css/styles.css:1087:color:#e0e0e0
+public/css/styles.css:10912:background-color:#bb86fc;
+public/css/styles.css:10913:color:#121212;
+public/css/styles.css:10919:border:2px solid #bb86fc;
+public/css/styles.css:1091:color:#bb86fc;
+public/css/styles.css:10920:box-shadow:0 0 15px #bb86fc66;
+public/css/styles.css:10931:background-color:#bb86fc;
+public/css/styles.css:10942:background-color:#3c3c3c;
+public/css/styles.css:10947:background-color:#bb86fc!important
+public/css/styles.css:10951:background-color:#bb86fc!important
+public/css/styles.css:10955:background-color:#3c3c3c!important
+public/css/styles.css:10963:background-color:#bb86fc;
+public/css/styles.css:10964:color:#121212;
+public/css/styles.css:10965:border-color:#bb86fc;
+public/css/styles.css:10967:box-shadow:0 0 15px #bb86fc66
+public/css/styles.css:10974:background-color:#292929;
+public/css/styles.css:10975:color:#e0e0e0;
+public/css/styles.css:10982:border:2px solid #3c3c3c;
+public/css/styles.css:10986:box-shadow:0 0 0 5px #1e1e1e
+public/css/styles.css:10990:background-color:#bb86fc;
+public/css/styles.css:10991:color:#121212;
+public/css/styles.css:10992:border-color:#bb86fc;
+public/css/styles.css:10994:box-shadow:0 0 15px #bb86fc66
+public/css/styles.css:10998:background-color:#bb86fc;
+public/css/styles.css:10999:color:#121212;
+public/css/styles.css:11000:border-color:#bb86fc;
+public/css/styles.css:11002:box-shadow:0 0 15px #bb86fc66
+public/css/styles.css:11009:color:#e0e0e0
+public/css/styles.css:1100:color:#4caf50
+public/css/styles.css:11014:color:#a0a0a0
+public/css/styles.css:11036:box-shadow:0 4px 15px #0000004d
+public/css/styles.css:11040:background-color:#4caf50;
+public/css/styles.css:11041:color:#121212
+public/css/styles.css:11045:background-color:#45a049
+public/css/styles.css:11049:background-color:#bb86fc;
+public/css/styles.css:1104:color:#ffc107
+public/css/styles.css:11050:color:#121212
+public/css/styles.css:11054:background-color:#96c
+public/css/styles.css:11058:background-color:#ff3838;
+public/css/styles.css:11059:color:#121212;
+public/css/styles.css:11065:background-color:#f02424
+public/css/styles.css:11089:background-color:#292929
+public/css/styles.css:1108:color:#2196f3
+public/css/styles.css:11094:color:#a0a0a0;
+public/css/styles.css:11102:color:#e0e0e0;
+public/css/styles.css:11108:color:#bb86fc;
+public/css/styles.css:11131:background-color:#292929
+public/css/styles.css:11142:color:#bb86fc
+public/css/styles.css:11147:color:#e0e0e0;
+public/css/styles.css:11160:color:#121212;
+public/css/styles.css:11161:background-color:#ffd166;
+public/css/styles.css:11170:color:#121212;
+public/css/styles.css:11171:background-color:#ef476f;
+public/css/styles.css:11180:color:#121212;
+public/css/styles.css:11181:background-color:#1976D2;
+public/css/styles.css:11198:color:#a0a0a0;
+public/css/styles.css:1119:border:4px solid #bb86fc;
+public/css/styles.css:11205:color:#bb86fc
+public/css/styles.css:11218:border:1px solid #3c3c3c;
+public/css/styles.css:11223:background-color:#292929;
+public/css/styles.css:11224:color:#e0e0e0;
+public/css/styles.css:11229:border-color:#bb86fc
+public/css/styles.css:11234:border-color:#bb86fc
+public/css/styles.css:11243:color:#e0e0e0!important
+public/css/styles.css:11247:background-color:#004D40
+public/css/styles.css:11251:background-color:#CD853F;
+public/css/styles.css:11252:color:#212121!important
+public/css/styles.css:11256:background-color:#3D0814
+public/css/styles.css:11260:background-color:#9e9e9e;
+public/css/styles.css:11261:color:#212121!important
+public/css/styles.css:11268:background-color:#1e1e1e;
+public/css/styles.css:11270:border-left:4px solid #4caf50
+public/css/styles.css:11275:color:#4caf50
+public/css/styles.css:11280:background-color:#292929;
+public/css/styles.css:11283:color:#e0e0e0;
+public/css/styles.css:11292:background-color:#1e1e1e;
+public/css/styles.css:11294:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:11296:border:1px solid #3c3c3c;
+public/css/styles.css:11305:color:#bb86fc;
+public/css/styles.css:1130:background-color:#bb86fc;
+public/css/styles.css:11318:background-color:#292929;
+public/css/styles.css:1131:color:#121212;
+public/css/styles.css:11324:box-shadow:0 4px 12px #bb86fc33
+public/css/styles.css:11331:color:#bb86fc;
+public/css/styles.css:11333:border-bottom:1px solid #3c3c3c
+public/css/styles.css:11338:background-color:#1e1e1e;
+public/css/styles.css:11344:color:#a0a0a0;
+public/css/styles.css:11358:background-color:#4caf50;
+public/css/styles.css:11359:color:#121212
+public/css/styles.css:11363:background-color:#ffc107;
+public/css/styles.css:11364:color:#121212
+public/css/styles.css:11368:background-color:#ff3838;
+public/css/styles.css:11369:color:#121212
+public/css/styles.css:11374:color:#e0e0e0;
+public/css/styles.css:11377:background-color:#292929;
+public/css/styles.css:11383:background-color:#1e1e1e;
+public/css/styles.css:11396:color:#e0e0e0;
+public/css/styles.css:11404:border:1px solid #3c3c3c;
+public/css/styles.css:11406:background-color:#292929;
+public/css/styles.css:11407:color:#e0e0e0;
+public/css/styles.css:11415:border-color:#bb86fc
+public/css/styles.css:11444:box-shadow:0 2px 4px #0003
+public/css/styles.css:11448:background-color:#4caf501a;
+public/css/styles.css:11449:color:#4caf50;
+public/css/styles.css:1144:background-color:#96c;
+public/css/styles.css:11450:border:1px solid #4caf5033
+public/css/styles.css:11454:background-color:#ffc1071a;
+public/css/styles.css:11455:color:#ffc107;
+public/css/styles.css:11456:border:1px solid #ffc10733
+public/css/styles.css:11460:background-color:#ff38381a;
+public/css/styles.css:11461:color:#ff3838;
+public/css/styles.css:11462:border:1px solid #ff383833
+public/css/styles.css:11466:background-color:#4caf5033;
+public/css/styles.css:11471:background-color:#ffc10733;
+public/css/styles.css:11476:background-color:#ff383833;
+public/css/styles.css:11481:background-color:#4caf50;
+public/css/styles.css:11482:color:#121212;
+public/css/styles.css:11487:background-color:#ffc107;
+public/css/styles.css:11488:color:#121212;
+public/css/styles.css:11493:background-color:#ff3838;
+public/css/styles.css:11494:color:#121212;
+public/css/styles.css:1149:color:#ff3838;
+public/css/styles.css:11514:background-color:#bb86fc;
+public/css/styles.css:11515:color:#121212;
+public/css/styles.css:11518:box-shadow:0 4px 6px #0003
+public/css/styles.css:11523:background-color:#96c
+public/css/styles.css:11531:background-color:#1e1e1e;
+public/css/styles.css:11533:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:11535:border:1px solid #3c3c3c;
+public/css/styles.css:11537:border-left:4px solid #27B4D2;
+public/css/styles.css:11538:border-right:4px solid #27B4D2
+public/css/styles.css:11546:color:#bb86fc;
+public/css/styles.css:11557:background-color:#27B4D2;
+public/css/styles.css:11558:color:#121212;
+public/css/styles.css:11560:box-shadow:0 4px 6px #0000001a
+public/css/styles.css:11564:background-color:#27B4D2
+public/css/styles.css:11568:background-color:#4caf50
+public/css/styles.css:1156:color:#ff3838
+public/css/styles.css:11572:background-color:#ff9800
+public/css/styles.css:11578:background-color:#292929;
+public/css/styles.css:11587:color:#27B4D2
+public/css/styles.css:11592:color:#e0e0e0;
+public/css/styles.css:11594:background-color:#1e1e1e;
+public/css/styles.css:11597:border-left:2px solid #27B4D2
+public/css/styles.css:11602:color:#a0a0a0;
+public/css/styles.css:11623:background-color:#bb86fc;
+public/css/styles.css:11624:color:#121212;
+public/css/styles.css:11630:background-color:#96c
+public/css/styles.css:11638:background-color:#1e1e1e;
+public/css/styles.css:11640:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:11642:border:1px solid #3c3c3c;
+public/css/styles.css:11644:border-left:4px solid #27B4D2;
+public/css/styles.css:11645:border-right:4px solid #27B4D2
+public/css/styles.css:11653:color:#bb86fc;
+public/css/styles.css:11659:color:#e0e0e0;
+public/css/styles.css:11669:border:1px solid #3c3c3c;
+public/css/styles.css:1166:background-color:#1e1e1e;
+public/css/styles.css:11671:background-color:#292929;
+public/css/styles.css:11672:color:#e0e0e0;
+public/css/styles.css:11682:border-color:#27B4D2;
+public/css/styles.css:11683:box-shadow:0 0 0 2px #ef476f33
+public/css/styles.css:1169:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:116:border:1px solid #3c3c3c;
+public/css/styles.css:11701:background-color:#27B4D2;
+public/css/styles.css:11702:color:#121212;
+public/css/styles.css:11709:background-color:#1E8CA3
+public/css/styles.css:1170:border:1px solid #3c3c3c;
+public/css/styles.css:11727:background-color:#bb86fc;
+public/css/styles.css:11728:color:#121212;
+public/css/styles.css:11734:border:2px solid #bb86fc;
+public/css/styles.css:11735:box-shadow:0 0 15px #bb86fc66;
+public/css/styles.css:11746:background-color:#bb86fc;
+public/css/styles.css:11751:border-left:4px solid #27B4D2;
+public/css/styles.css:11752:border-right:4px solid #27B4D2
+public/css/styles.css:1175:color:#bb86fc;
+public/css/styles.css:11763:background-color:#1e1e1e;
+public/css/styles.css:11766:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:11767:border:1px solid #3c3c3c
+public/css/styles.css:11771:color:#bb86fc;
+public/css/styles.css:11789:border-bottom:1px solid #3c3c3c
+public/css/styles.css:11793:color:#e0e0e0;
+public/css/styles.css:11799:color:#e0e0e0;
+public/css/styles.css:11810:color:#bb86fc;
+public/css/styles.css:11816:color:#cf6679;
+public/css/styles.css:1182:color:#e0e0e0;
+public/css/styles.css:11835:background-color:#1b5e20;
+public/css/styles.css:11836:color:#e8f5e9
+public/css/styles.css:11840:background-color:#ffc107;
+public/css/styles.css:11841:color:#121212
+public/css/styles.css:11845:background-color:#292929;
+public/css/styles.css:11846:color:#e0e0e0;
+public/css/styles.css:11847:border:1px solid #3c3c3c
+public/css/styles.css:11854:background-color:#cf66791a;
+public/css/styles.css:11855:border:1px solid #cf6679;
+public/css/styles.css:11863:color:#cf6679
+public/css/styles.css:11868:box-shadow:0 0 0 0 #cf667966
+public/css/styles.css:11872:box-shadow:0 0 0 8px #cf667900
+public/css/styles.css:11876:box-shadow:0 0 0 0 #cf667900
+public/css/styles.css:11884:background-color:#1e1e1eb3;
+public/css/styles.css:11885:border:1px solid #3c3c3c;
+public/css/styles.css:11892:color:#bbb;
+public/css/styles.css:11898:background-color:#292929;
+public/css/styles.css:11903:border:1px solid #3c3c3c;
+public/css/styles.css:11904:color:#e0e0e0;
+public/css/styles.css:11916:border:4px solid #bb86fc;
+public/css/styles.css:11928:background-color:#bb86fc;
+public/css/styles.css:11929:color:#121212;
+public/css/styles.css:11939:background-color:#96c;
+public/css/styles.css:11947:background:linear-gradient(to right,#292929 0%,#2d2d2d 50%,#292929 100%);
+public/css/styles.css:1194:background-color:#292929;
+public/css/styles.css:11950:border:1px solid #3c3c3c;
+public/css/styles.css:11951:box-shadow:0 4px 15px #0000004d;
+public/css/styles.css:1195:border:1px solid #3c3c3c;
+public/css/styles.css:11965:background:linear-gradient(to right,transparent,#bb86fc,transparent);
+public/css/styles.css:11973:color:#e0e0e0;
+public/css/styles.css:11980:color:#bb86fc;
+public/css/styles.css:12019:background-color:#1e1e1e;
+public/css/styles.css:12022:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:12023:border:1px solid #3c3c3c;
+public/css/styles.css:12028:color:#bb86fc;
+public/css/styles.css:12033:border-bottom:2px solid #bb86fc;
+public/css/styles.css:12040:color:#a0a0a0;
+public/css/styles.css:12042:background-color:#292929;
+public/css/styles.css:1204:border-color:#bb86fc
+public/css/styles.css:12058:background-color:#292929;
+public/css/styles.css:12059:color:#bb86fc;
+public/css/styles.css:12068:background-color:#292929
+public/css/styles.css:12073:color:#e0e0e0;
+public/css/styles.css:12087:background-color:#ff3838;
+public/css/styles.css:12088:color:#121212
+public/css/styles.css:1208:color:#e0e0e0;
+public/css/styles.css:12092:background-color:#ffc107;
+public/css/styles.css:12093:color:#000
+public/css/styles.css:12097:background-color:#4caf50;
+public/css/styles.css:12098:color:#000
+public/css/styles.css:12102:background-color:#bb86fc;
+public/css/styles.css:12103:color:#000
+public/css/styles.css:12107:background-color:#9e9e9e;
+public/css/styles.css:12108:color:#000
+public/css/styles.css:12112:background-color:#27B4D2;
+public/css/styles.css:12113:color:#000
+public/css/styles.css:12119:background-color:#bb86fc;
+public/css/styles.css:12120:color:#121212;
+public/css/styles.css:12129:background-color:#96c;
+public/css/styles.css:12140:background-color:#4caf50;
+public/css/styles.css:12141:color:#121212
+public/css/styles.css:12145:background-color:#45a049
+public/css/styles.css:12149:background-color:#bb86fc;
+public/css/styles.css:12150:color:#121212;
+public/css/styles.css:12155:background-color:#96c;
+public/css/styles.css:1215:color:#a0a0a0;
+public/css/styles.css:12162:background-color:#292929;
+public/css/styles.css:12165:border-top:4px solid #ffc107;
+public/css/styles.css:12166:border-bottom:4px solid #ffc107;
+public/css/styles.css:12171:color:#bb86fc;
+public/css/styles.css:12178:color:#e0e0e0;
+public/css/styles.css:12185:border-bottom:1px solid #3c3c3c
+public/css/styles.css:12195:color:#e0e0e0
+public/css/styles.css:12201:color:#a0a0a0;
+public/css/styles.css:12210:border:1px solid #3c3c3c;
+public/css/styles.css:12211:background-color:#1e1e1e;
+public/css/styles.css:12212:color:#e0e0e0;
+public/css/styles.css:12220:border-color:#bb86fc
+public/css/styles.css:1223:background-color:#bb86fc;
+public/css/styles.css:1224:color:#121212;
+public/css/styles.css:1232:background-color:#96c;
+public/css/styles.css:1243:background-color:#1e1e1e;
+public/css/styles.css:12452:background-color:#1e1e1e;
+public/css/styles.css:12455:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:12456:border:1px solid #3c3c3c;
+public/css/styles.css:12461:color:#bb86fc;
+public/css/styles.css:12466:border-bottom:2px solid #bb86fc;
+public/css/styles.css:1246:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:12473:color:#a0a0a0;
+public/css/styles.css:12475:background-color:#292929;
+public/css/styles.css:1247:border:1px solid #3c3c3c
+public/css/styles.css:12482:background-color:#bb86fc;
+public/css/styles.css:12483:color:#121212;
+public/css/styles.css:12494:background-color:#96c;
+public/css/styles.css:124:background-color:#4caf50;
+public/css/styles.css:12510:background-color:#292929;
+public/css/styles.css:12511:color:#bb86fc;
+public/css/styles.css:1251:color:#bb86fc;
+public/css/styles.css:12520:background-color:#292929
+public/css/styles.css:12525:color:#e0e0e0;
+public/css/styles.css:12538:background-color:#E53B69;
+public/css/styles.css:12539:color:#000
+public/css/styles.css:12543:background-color:#1D84B5;
+public/css/styles.css:12544:color:#000
+public/css/styles.css:12548:background-color:#FFB627;
+public/css/styles.css:12549:color:#000
+public/css/styles.css:12555:background-color:#bb86fc;
+public/css/styles.css:12556:color:#121212;
+public/css/styles.css:12566:background-color:#96c;
+public/css/styles.css:12578:color:#a0a0a0;
+public/css/styles.css:12585:color:#a0a0a0;
+public/css/styles.css:125:color:#121212;
+public/css/styles.css:12602:border-bottom:2px solid #bb86fc
+public/css/styles.css:12606:color:#bb86fc;
+public/css/styles.css:12611:border:2px solid #bb86fc;
+public/css/styles.css:12612:background-color:#bb86fc1a;
+public/css/styles.css:12617:background-color:#292929;
+public/css/styles.css:12618:color:#bb86fc;
+public/css/styles.css:12628:background-color:#bb86fc;
+public/css/styles.css:12629:color:#121212;
+public/css/styles.css:12634:background-color:#1e1e1e;
+public/css/styles.css:12638:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:12639:border:1px solid #3c3c3c
+public/css/styles.css:12643:color:#bb86fc;
+public/css/styles.css:12667:background-color:#E53B69;
+public/css/styles.css:12668:color:#121212
+public/css/styles.css:12672:background-color:#1D84B5;
+public/css/styles.css:12673:color:#121212
+public/css/styles.css:12677:background-color:#FFB627;
+public/css/styles.css:12678:color:#121212
+public/css/styles.css:12689:background-color:#292929;
+public/css/styles.css:12695:color:#a0a0a0;
+public/css/styles.css:12702:color:#e0e0e0;
+public/css/styles.css:12709:background-color:#bb86fc;
+public/css/styles.css:12710:color:#121212;
+public/css/styles.css:12722:background-color:#96c;
+public/css/styles.css:12737:background-color:#292929;
+public/css/styles.css:1274:color:#e0e0e0;
+public/css/styles.css:12753:border-bottom:1px solid #3c3c3c
+public/css/styles.css:12757:color:#bb86fc;
+public/css/styles.css:12762:border-top:4px solid #bb86fc;
+public/css/styles.css:12763:border-bottom:4px solid #bb86fc
+public/css/styles.css:12767:border-left:4px solid #3498DB;
+public/css/styles.css:12768:border-right:4px solid #3498DB
+public/css/styles.css:12772:border-left:4px solid #F39C12;
+public/css/styles.css:12773:border-right:4px solid #F39C12
+public/css/styles.css:12777:color:#a0a0a0;
+public/css/styles.css:12782:color:#e0e0e0;
+public/css/styles.css:12789:color:#a0a0a0;
+public/css/styles.css:12791:background-color:#292929;
+public/css/styles.css:12801:color:#bb86fc;
+public/css/styles.css:12811:background-color:#292929;
+public/css/styles.css:12812:border:1px solid #3c3c3c;
+public/css/styles.css:12814:color:#e0e0e0;
+public/css/styles.css:1281:background-color:#292929;
+public/css/styles.css:12822:border-color:#bb86fc;
+public/css/styles.css:12823:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:12827:background-color:#bb86fc;
+public/css/styles.css:12828:color:#121212;
+public/css/styles.css:1282:border:1px solid #3c3c3c;
+public/css/styles.css:12843:background-color:#96c;
+public/css/styles.css:12848:background-color:#292929;
+public/css/styles.css:12849:border-left:4px solid #cf6679;
+public/css/styles.css:1284:color:#e0e0e0;
+public/css/styles.css:12850:border-right:4px solid #cf6679;
+public/css/styles.css:12851:color:#e0e0e0;
+public/css/styles.css:12859:background-color:#1e1e1e;
+public/css/styles.css:12860:border:1px solid #3c3c3c;
+public/css/styles.css:12861:border-left:4px solid #cf6679;
+public/css/styles.css:12862:border-right:4px solid #cf6679
+public/css/styles.css:12866:background-color:#292929;
+public/css/styles.css:12870:color:#e0e0e0;
+public/css/styles.css:12896:background-color:#292929;
+public/css/styles.css:12913:color:#121212
+public/css/styles.css:12917:background-color:#1D84B5
+public/css/styles.css:12921:background-color:#1597d3;
+public/css/styles.css:12926:background-color:#FFB627
+public/css/styles.css:12930:background-color:#ffc34a;
+public/css/styles.css:12938:background-color:#292929;
+public/css/styles.css:12939:border:1px solid #3c3c3c;
+public/css/styles.css:1293:border-color:#bb86fc
+public/css/styles.css:12941:color:#e0e0e0;
+public/css/styles.css:12949:border-color:#bb86fc;
+public/css/styles.css:12950:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:12958:background-color:#292929;
+public/css/styles.css:12959:color:#e0e0e0;
+public/css/styles.css:12966:border:2px solid #3c3c3c;
+public/css/styles.css:12967:box-shadow:0 4px 10px #0000004d;
+public/css/styles.css:12972:background-color:#bb86fc;
+public/css/styles.css:12973:color:#121212;
+public/css/styles.css:12974:border-color:#bb86fc;
+public/css/styles.css:12995:background-color:#1e1e1e;
+public/css/styles.css:12998:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:12999:border:1px solid #3c3c3c
+public/css/styles.css:1299:background-color:#bb86fc;
+public/css/styles.css:1300:color:#121212;
+public/css/styles.css:13022:border:3px solid #bb86fc;
+public/css/styles.css:13045:background-color:#bb86fc;
+public/css/styles.css:13046:color:#121212;
+public/css/styles.css:13055:background-color:#96c;
+public/css/styles.css:13064:color:#a0a0a0;
+public/css/styles.css:13072:background-color:#292929;
+public/css/styles.css:13078:color:#bb86fc;
+public/css/styles.css:13097:background-color:#4caf50;
+public/css/styles.css:13098:color:#121212
+public/css/styles.css:13102:background-color:#ffc107;
+public/css/styles.css:13103:color:#121212
+public/css/styles.css:13107:background-color:#ff3838;
+public/css/styles.css:13108:color:#121212
+public/css/styles.css:13114:background-color:#bb86fc;
+public/css/styles.css:13115:color:#121212;
+public/css/styles.css:13127:background-color:#96c;
+public/css/styles.css:13132:background-color:#292929;
+public/css/styles.css:13138:color:#bb86fc;
+public/css/styles.css:13143:border-bottom:2px solid #bb86fc;
+public/css/styles.css:1314:background-color:#96c;
+public/css/styles.css:13153:color:#e0e0e0;
+public/css/styles.css:13164:background-color:#1e1e1e;
+public/css/styles.css:13165:border:1px solid #3c3c3c;
+public/css/styles.css:13167:color:#e0e0e0;
+public/css/styles.css:13176:border-color:#bb86fc;
+public/css/styles.css:13177:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:13181:color:#a0a0a0;
+public/css/styles.css:13189:background-color:#bb86fc;
+public/css/styles.css:13190:color:#121212;
+public/css/styles.css:131:background-color:#45a049;
+public/css/styles.css:13204:background-color:#96c;
+public/css/styles.css:13210:--bg:#0B0F14;
+public/css/styles.css:13211:--surface:#11161C;
+public/css/styles.css:13212:--surface-alt:#151B23;
+public/css/styles.css:13214:--primary:#6366F1;
+public/css/styles.css:13215:--primary-hover:#5558E3;
+public/css/styles.css:13216:--text:#E6EDF3;
+public/css/styles.css:13217:--text-muted:#9BA3AF;
+public/css/styles.css:13218:--danger:#EF4444;
+public/css/styles.css:13219:--success:#22C55E;
+public/css/styles.css:13228:background:radial-gradient(1200px 500px at 20% -10%,#1a2330 0,var(--bg) 45%);
+public/css/styles.css:1326:background-color:#292929;
+public/css/styles.css:1327:border:2px solid #bb86fc;
+public/css/styles.css:1328:color:#bb86fc;
+public/css/styles.css:13475:background:#0F141A;
+public/css/styles.css:1351:background-color:#1e1e1e;
+public/css/styles.css:1354:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:1355:border:1px solid #3c3c3c
+public/css/styles.css:1359:border-top:4px solid #ff3838
+public/css/styles.css:1363:border-top:4px solid #ffc107
+public/css/styles.css:1367:border-top:4px solid #03a9f4
+public/css/styles.css:136:background-color:#ff3838;
+public/css/styles.css:1371:color:#e0e0e0;
+public/css/styles.css:13755:color:#fff;
+public/css/styles.css:1377:color:#a0a0a0;
+public/css/styles.css:13791:background:#0F141A;
+public/css/styles.css:13798:background:#0F141A;
+public/css/styles.css:137:color:#121212;
+public/css/styles.css:13949:box-shadow:0 8px 24px #00000040;
+public/css/styles.css:13985:color:#fff;
+public/css/styles.css:1398:background-color:#bb86fc;
+public/css/styles.css:1399:color:#121212
+public/css/styles.css:14015:box-shadow:0 8px 24px #00000040;
+public/css/styles.css:1403:background-color:#96c;
+public/css/styles.css:14087:box-shadow:0 8px 24px #00000040;
+public/css/styles.css:1413:color:#ff3838;
+public/css/styles.css:1414:border:1px solid #ff3838;
+public/css/styles.css:1419:background-color:#ff3838;
+public/css/styles.css:1420:color:#121212
+public/css/styles.css:14215:background:#0E1622;
+public/css/styles.css:1427:background-color:#1e1e1e;
+public/css/styles.css:1429:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:1430:border:1px solid #3c3c3c
+public/css/styles.css:1439:border-bottom:2px solid #bb86fc
+public/css/styles.css:1444:background-color:#292929;
+public/css/styles.css:1445:color:#bb86fc;
+public/css/styles.css:144:background-color:#e62828;
+public/css/styles.css:1454:background-color:#bb86fc;
+public/css/styles.css:1455:color:#121212;
+public/css/styles.css:14593:color:#fff;
+public/css/styles.css:14675:color:#D1F5DF;
+public/css/styles.css:14681:color:#FEE2E2;
+public/css/styles.css:14688:color:#E0E7FF;
+public/css/styles.css:14728:--bg:#0B1117;
+public/css/styles.css:14729:--chrome-bg:#0E1522;
+public/css/styles.css:14730:--surface-1:#122031;
+public/css/styles.css:14731:--surface-2:#18283A;
+public/css/styles.css:14733:--text-primary:#E6EDF3;
+public/css/styles.css:14736:--brand-primary:#6366F1;
+public/css/styles.css:14737:--brand-primary-hover:#5558E3;
+public/css/styles.css:1478:background-color:#292929;
+public/css/styles.css:1479:border:1px solid #3c3c3c;
+public/css/styles.css:1481:color:#e0e0e0;
+public/css/styles.css:14825:background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,0) 28%),#142033;
+public/css/styles.css:1489:border-color:#bb86fc
+public/css/styles.css:14952:color:#F87171;
+public/css/styles.css:14963:background:#F87171;
+public/css/styles.css:14970:color:#FCA5A5;
+public/css/styles.css:1500:background-color:#bb86fc;
+public/css/styles.css:1501:color:#121212;
+public/css/styles.css:1510:background-color:#9d4edd;
+public/css/styles.css:1516:background-color:#292929;
+public/css/styles.css:1517:color:#e0e0e0;
+public/css/styles.css:1518:border:1px solid #3c3c3c;
+public/css/styles.css:1526:background-color:#3c3c3c;
+public/css/styles.css:1527:color:#bb86fc
+public/css/styles.css:15363:background:#0B1420;
+public/css/styles.css:1538:background-color:#cf6679;
+public/css/styles.css:15397:background:#111C2D;
+public/css/styles.css:1539:color:#121212;
+public/css/styles.css:15440:color:#86EFAC;
+public/css/styles.css:15444:color:#FCA5A5;
+public/css/styles.css:15459:background:#101827;
+public/css/styles.css:15469:background:#142033;
+public/css/styles.css:1548:background-color:#b4464f;
+public/css/styles.css:15543:background:#0B1420;
+public/css/styles.css:15566:color:#E6EDF3;
+public/css/styles.css:15593:background:#101827;
+public/css/styles.css:15599:color:#E6EDF3;
+public/css/styles.css:1559:background-color:#292929;
+public/css/styles.css:15600:background:#152236;
+public/css/styles.css:15612:background:#111C2D;
+public/css/styles.css:1561:border:1px solid #3c3c3c;
+public/css/styles.css:15629:background:linear-gradient(90deg,#6366F1 0%,rgba(99,102,241,.18) 100%);
+public/css/styles.css:15645:color:#E6EDF3;
+public/css/styles.css:15656:color:#86EFAC;
+public/css/styles.css:15660:color:#FCA5A5;
+public/css/styles.css:15674:background:#101827;
+public/css/styles.css:1567:border-color:#bb86fc;
+public/css/styles.css:15701:color:#E6EDF3;
+public/css/styles.css:1574:border-bottom:1px solid #3c3c3c;
+public/css/styles.css:1575:background-color:#1e1e1e
+public/css/styles.css:15765:color:#E6EDF3;
+public/css/styles.css:15801:background:#111C2D;
+public/css/styles.css:15821:color:#E6EDF3;
+public/css/styles.css:15840:background:#111C2D;
+public/css/styles.css:15846:background:#152236;
+public/css/styles.css:15847:color:#E6EDF3;
+public/css/styles.css:15868:background:#111C2D;
+public/css/styles.css:15889:color:#E6EDF3;
+public/css/styles.css:1588:background-color:#1e1e1e;
+public/css/styles.css:1589:border:2px solid #3c3c3c;
+public/css/styles.css:15919:color:#E6EDF3;
+public/css/styles.css:1597:background-color:#bb86fc;
+public/css/styles.css:1598:border-color:#bb86fc
+public/css/styles.css:16008:background:#111C2D;
+public/css/styles.css:16013:color:#86EFAC;
+public/css/styles.css:16018:color:#FCA5A5;
+public/css/styles.css:16023:color:#C4B5FD;
+public/css/styles.css:16034:background:#111C2D;
+public/css/styles.css:1603:color:#121212;
+public/css/styles.css:16051:background:linear-gradient(90deg,#6D5EF3 0%,rgba(109,94,243,.18) 100%);
+public/css/styles.css:16055:background:linear-gradient(90deg,#22C55E 0%,rgba(34,197,94,.2) 100%);
+public/css/styles.css:16059:background:linear-gradient(90deg,#EF4444 0%,rgba(239,68,68,.2) 100%);
+public/css/styles.css:16063:background:linear-gradient(90deg,#6D5EF3 0%,rgba(109,94,243,.18) 100%);
+public/css/styles.css:16096:color:#86EFAC;
+public/css/styles.css:16100:color:#FCA5A5;
+public/css/styles.css:16122:background:#101827;
+public/css/styles.css:16165:stroke:#6D5EF3;
+public/css/styles.css:1620:color:#a0a0a0;
+public/css/styles.css:16225:background:#111C2D;
+public/css/styles.css:16241:color:#86EFAC;
+public/css/styles.css:16245:color:#FCA5A5;
+public/css/styles.css:1631:color:#121212
+public/css/styles.css:16330:background:#111C2D;
+public/css/styles.css:1635:background-color:#ff3838
+public/css/styles.css:1639:background-color:#ffc107
+public/css/styles.css:16402:background:#101827;
+public/css/styles.css:16416:background:#6D5EF3;
+public/css/styles.css:1643:background-color:#03a9f4
+public/css/styles.css:16476:background:#101827;
+public/css/styles.css:1648:background-color:#292929;
+public/css/styles.css:16492:background:#0F172A;
+public/css/styles.css:164:background-color:#292929;
+public/css/styles.css:16523:color:#fff;
+public/css/styles.css:16557:background:#101827;
+public/css/styles.css:1657:color:#e0e0e0;
+public/css/styles.css:165:border:2px solid #bb86fc;
+public/css/styles.css:16620:background:#101827;
+public/css/styles.css:16637:background:#101827;
+public/css/styles.css:1665:color:#a0a0a0;
+public/css/styles.css:16665:background:#111C2D;
+public/css/styles.css:1666:background-color:#292929;
+public/css/styles.css:16720:color:#A5B4FC;
+public/css/styles.css:16781:background:#101827;
+public/css/styles.css:16800:background:#0F172A;
+public/css/styles.css:16847:color:#e8ecff;
+public/css/styles.css:16875:color:#d9def3;
+public/css/styles.css:16922:color:#A5B4FC;
+public/css/styles.css:16928:color:#c7ceff
+public/css/styles.css:16936:color:#c4cce2;
+public/css/styles.css:16950:color:#d2d6ff;
+public/css/styles.css:16961:color:#c3cbf1;
+public/css/styles.css:16968:color:#eaf0ff;
+public/css/styles.css:17005:background:linear-gradient(135deg,#6366F1,#5558E3);
+public/css/styles.css:17006:color:#e6edf3;
+public/css/styles.css:17012:color:#cfd8f6;
+public/css/styles.css:17033:background:#101827;
+public/css/styles.css:17052:background:#0F172A;
+public/css/styles.css:17089:color:#d2d8f5;
+public/css/styles.css:17095:color:#A5B4FC;
+public/css/styles.css:17133:background:#111C2D;
+public/css/styles.css:17156:background:#0F172A;
+public/css/styles.css:17212:color:#C4B5FD;
+public/css/styles.css:17218:color:#A5B4FC;
+public/css/styles.css:17226:color:#A5B4FC;
+public/css/styles.css:17233:background:#6D5EF3;
+public/css/styles.css:17243:background:#111C2D;
+public/css/styles.css:17280:color:#C4B5FD;
+public/css/styles.css:17303:background:#101827;
+public/css/styles.css:17311:background:#111C2D;
+public/css/styles.css:17333:background:#0F172A;
+public/css/styles.css:17343:color:#A5B4FC;
+public/css/styles.css:17783:color:#4ADE80;
+public/css/styles.css:17794:color:#A5B4FC;
+public/css/styles.css:17803:color:#FCA5A5;
+public/css/styles.css:17873:--bg:#0B1422;
+public/css/styles.css:17874:--surface-1:#111C2E;
+public/css/styles.css:17875:--surface-2:#0F1A2B;
+public/css/styles.css:18025:color:#FCA5A5;
+public/css/styles.css:189:background-color:#bb86fc;
+public/css/styles.css:190:border-color:#3c3c3c
+public/css/styles.css:1989:color:#7ee6a6;
+public/css/styles.css:1995:color:#a6b3c3;
+public/css/styles.css:199:background-color:#292929;
+public/css/styles.css:2001:color:#f8c26b;
+public/css/styles.css:200:color:#bb86fc;
+public/css/styles.css:201:border:1px solid #bb86fc;
+public/css/styles.css:211:box-shadow:0 0 4px #bb86fc4d
+public/css/styles.css:2153:background-color:#1e1e1e;
+public/css/styles.css:2156:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:2157:border:1px solid #3c3c3c
+public/css/styles.css:2161:color:#bb86fc;
+public/css/styles.css:2166:border-bottom:2px solid #bb86fc;
+public/css/styles.css:2191:border:3px solid #bb86fc;
+public/css/styles.css:2202:color:#e0e0e0;
+public/css/styles.css:2209:color:#bb86fc;
+public/css/styles.css:2216:color:#a0a0a0;
+public/css/styles.css:2236:background-color:#4caf50;
+public/css/styles.css:2237:color:#121212
+public/css/styles.css:2241:background-color:#ffc107;
+public/css/styles.css:2242:color:#121212
+public/css/styles.css:2246:background-color:#ff3838;
+public/css/styles.css:2247:color:#121212
+public/css/styles.css:2251:background-color:#292929;
+public/css/styles.css:2255:color:#e0e0e0;
+public/css/styles.css:2265:background-color:#292929;
+public/css/styles.css:2276:color:#e0e0e0;
+public/css/styles.css:2284:color:#a0a0a0;
+public/css/styles.css:2296:background-color:#1e1e1e;
+public/css/styles.css:2299:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:2300:border:1px solid #3c3c3c
+public/css/styles.css:2304:border-bottom:2px solid #bb86fc;
+public/css/styles.css:2311:color:#bb86fc;
+public/css/styles.css:2317:color:#a0a0a0;
+public/css/styles.css:2323:color:#e0e0e0
+public/css/styles.css:2343:color:#bb86fc;
+public/css/styles.css:2370:background-color:#1e1e1e;
+public/css/styles.css:2371:border:2px solid #3c3c3c;
+public/css/styles.css:2379:background-color:#bb86fc;
+public/css/styles.css:2380:border-color:#bb86fc
+public/css/styles.css:2385:color:#121212;
+public/css/styles.css:2401:color:#e0e0e0;
+public/css/styles.css:2409:background-color:#292929;
+public/css/styles.css:2410:border:1px solid #3c3c3c;
+public/css/styles.css:2412:color:#e0e0e0;
+public/css/styles.css:2420:border-color:#bb86fc
+public/css/styles.css:2437:background-color:#bb86fc;
+public/css/styles.css:2438:color:#121212
+public/css/styles.css:2442:background-color:#96c;
+public/css/styles.css:2447:background-color:#4caf50;
+public/css/styles.css:2448:color:#fff
+public/css/styles.css:2452:background-color:#cf6679;
+public/css/styles.css:2453:color:#121212
+public/css/styles.css:2457:background-color:#b4464f;
+public/css/styles.css:2462:background-color:#03dac6;
+public/css/styles.css:2463:color:#121212
+public/css/styles.css:2467:background-color:#018786;
+public/css/styles.css:246:background-color:#292929;
+public/css/styles.css:2472:background-color:#292929;
+public/css/styles.css:2473:color:#bb86fc;
+public/css/styles.css:2474:border:1px solid #3c3c3c;
+public/css/styles.css:2479:background-color:#bb86fc;
+public/css/styles.css:2480:color:#121212;
+public/css/styles.css:2497:background-color:#292929;
+public/css/styles.css:2517:background-color:#292929;
+public/css/styles.css:2518:border-left:4px solid #bb86fc;
+public/css/styles.css:2519:border-right:4px solid #bb86fc;
+public/css/styles.css:2522:color:#e0e0e0;
+public/css/styles.css:2531:background-color:#1e1e1e;
+public/css/styles.css:2534:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:2535:border:1px solid #3c3c3c;
+public/css/styles.css:2546:background-color:#292929;
+public/css/styles.css:2547:border:1px solid #3c3c3c;
+public/css/styles.css:2549:color:#e0e0e0;
+public/css/styles.css:2552:placeholder-color:#a0a0a0;
+public/css/styles.css:2558:border-color:#bb86fc
+public/css/styles.css:2567:background-color:#bb86fc;
+public/css/styles.css:2568:color:#121212;
+public/css/styles.css:2580:background-color:#96c;
+public/css/styles.css:2595:background-color:#292929;
+public/css/styles.css:2596:color:#bb86fc;
+public/css/styles.css:2605:background-color:#292929
+public/css/styles.css:260:color:#e0e0e0;
+public/css/styles.css:2610:color:#e0e0e0;
+public/css/styles.css:2615:background-color:#cf6679;
+public/css/styles.css:2616:color:#121212;
+public/css/styles.css:2627:background-color:#b4464f;
+public/css/styles.css:2633:color:#a0a0a0;
+public/css/styles.css:2636:background-color:#292929;
+public/css/styles.css:2639:border:2px solid #bb86fc
+public/css/styles.css:2649:background-color:#1e1e1e;
+public/css/styles.css:2652:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:2653:border:1px solid #3c3c3c;
+public/css/styles.css:2658:color:#bb86fc;
+public/css/styles.css:2663:border-bottom:2px solid #bb86fc;
+public/css/styles.css:2670:color:#a0a0a0;
+public/css/styles.css:2672:background-color:#292929;
+public/css/styles.css:2688:background-color:#292929;
+public/css/styles.css:2689:color:#bb86fc;
+public/css/styles.css:2698:background-color:#292929
+public/css/styles.css:2703:color:#e0e0e0;
+public/css/styles.css:2708:color:#bb86fc;
+public/css/styles.css:270:background-color:#242424;
+public/css/styles.css:2713:color:#e0e0e0
+public/css/styles.css:271:color:#bb86fc
+public/css/styles.css:2726:background-color:#1b5e20;
+public/css/styles.css:2727:color:#e8f5e9
+public/css/styles.css:2731:background-color:#ffc107;
+public/css/styles.css:2732:color:#121212
+public/css/styles.css:2736:background-color:#b71c1c;
+public/css/styles.css:2737:color:#fff
+public/css/styles.css:2741:color:#a0a0a0;
+public/css/styles.css:2748:background-color:#bb86fc;
+public/css/styles.css:2749:color:#121212;
+public/css/styles.css:2758:background-color:#96c;
+public/css/styles.css:275:background-color:#bb86fc;
+public/css/styles.css:276:color:#121212!important
+public/css/styles.css:2775:background-color:#1e1e1e;
+public/css/styles.css:2778:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:2779:border:1px solid #3c3c3c
+public/css/styles.css:2788:border-bottom:2px solid #bb86fc
+public/css/styles.css:2796:color:#bb86fc;
+public/css/styles.css:2803:color:#e0e0e0;
+public/css/styles.css:280:color:#666;
+public/css/styles.css:2812:color:#a0a0a0;
+public/css/styles.css:2817:background-color:#292929;
+public/css/styles.css:2818:color:#bb86fc;
+public/css/styles.css:2827:background-color:#bb86fc;
+public/css/styles.css:2828:color:#121212;
+public/css/styles.css:2833:background-color:#292929;
+public/css/styles.css:2834:border:1px solid #3c3c3c;
+public/css/styles.css:2837:color:#e0e0e0;
+public/css/styles.css:2850:background-color:#1b5e20;
+public/css/styles.css:2851:color:#e8f5e9
+public/css/styles.css:2855:background-color:#ffc107;
+public/css/styles.css:2856:color:#121212
+public/css/styles.css:2860:background-color:#b71c1c;
+public/css/styles.css:2861:color:#fff
+public/css/styles.css:2872:background-color:#292929;
+public/css/styles.css:2878:background-color:#292929;
+public/css/styles.css:2879:border-left:4px solid #bb86fc
+public/css/styles.css:2890:color:#e0e0e0;
+public/css/styles.css:2899:color:#fff;
+public/css/styles.css:2904:background-color:#bb86fc;
+public/css/styles.css:2905:color:#121212;
+public/css/styles.css:2914:color:#a0a0a0;
+public/css/styles.css:2919:color:#e0e0e0;
+public/css/styles.css:2924:background-color:#292929;
+public/css/styles.css:2936:color:#bb86fc;
+public/css/styles.css:2946:background-color:#1e1e1e;
+public/css/styles.css:2947:border:1px solid #3c3c3c;
+public/css/styles.css:2949:color:#e0e0e0;
+public/css/styles.css:2956:border-color:#bb86fc
+public/css/styles.css:2960:border-color:#cf6679
+public/css/styles.css:2964:color:#cf6679;
+public/css/styles.css:2975:background-color:#bb86fc;
+public/css/styles.css:2976:color:#121212;
+public/css/styles.css:2988:background-color:#96c;
+public/css/styles.css:2993:background-color:#292929;
+public/css/styles.css:2994:border-left:4px solid #cf6679;
+public/css/styles.css:2995:border-right:4px solid #cf6679;
+public/css/styles.css:2996:color:#e0e0e0;
+public/css/styles.css:3010:background-color:#292929;
+public/css/styles.css:3011:color:#bb86fc;
+public/css/styles.css:3014:border:1px solid #3c3c3c;
+public/css/styles.css:3023:background-color:#bb86fc;
+public/css/styles.css:3024:color:#121212;
+public/css/styles.css:3042:background-color:#292929;
+public/css/styles.css:3043:border:2px solid #bb86fc;
+public/css/styles.css:3044:color:#bb86fc;
+public/css/styles.css:3059:background-color:#bb86fc;
+public/css/styles.css:3060:color:#121212;
+public/css/styles.css:306:color:#e0e0e0;
+public/css/styles.css:3071:background-color:#96c;
+public/css/styles.css:3076:background-color:#1e1e1e;
+public/css/styles.css:3080:color:#a0a0a0;
+public/css/styles.css:3082:border:1px solid #3c3c3c;
+public/css/styles.css:3083:box-shadow:0 4px 20px #0000004d
+public/css/styles.css:3087:background-color:#1e1e1e;
+public/css/styles.css:3090:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:3091:border:1px solid #3c3c3c;
+public/css/styles.css:3102:background-color:#292929;
+public/css/styles.css:3103:color:#bb86fc;
+public/css/styles.css:3112:background-color:#292929
+public/css/styles.css:3117:color:#e0e0e0;
+public/css/styles.css:3122:color:#e0e0e0;
+public/css/styles.css:3136:background-color:#1b5e20;
+public/css/styles.css:3137:color:#e8f5e9
+public/css/styles.css:3141:background-color:#ffc107;
+public/css/styles.css:3142:color:#121212
+public/css/styles.css:3146:background-color:#b71c1c;
+public/css/styles.css:3147:color:#fff
+public/css/styles.css:3151:color:#a0a0a0;
+public/css/styles.css:3158:background-color:#bb86fc;
+public/css/styles.css:3159:color:#121212;
+public/css/styles.css:3168:background-color:#96c;
+public/css/styles.css:317:background-color:#bb86fc;
+public/css/styles.css:3185:background-color:#1e1e1e;
+public/css/styles.css:3188:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3189:border:1px solid #3c3c3c
+public/css/styles.css:318:color:#121212
+public/css/styles.css:3193:color:#bb86fc;
+public/css/styles.css:3206:color:#e0e0e0;
+public/css/styles.css:3216:background-color:#292929;
+public/css/styles.css:3217:border:1px solid #3c3c3c;
+public/css/styles.css:3219:color:#e0e0e0;
+public/css/styles.css:322:background-color:#242424;
+public/css/styles.css:3237:border-color:#bb86fc;
+public/css/styles.css:3238:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:323:color:#bb86fc
+public/css/styles.css:3242:color:#cf6679;
+public/css/styles.css:3282:background:#fff;
+public/css/styles.css:3321:color:#bb86fc;
+public/css/styles.css:3327:background-color:#292929
+public/css/styles.css:3331:background-color:#bb86fc;
+public/css/styles.css:3332:color:#121212;
+public/css/styles.css:3337:background-color:#bb86fc;
+public/css/styles.css:3338:color:#121212;
+public/css/styles.css:3350:background-color:#96c;
+public/css/styles.css:3361:background-color:#1e1e1e;
+public/css/styles.css:3364:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3365:border:1px solid #3c3c3c
+public/css/styles.css:3374:border-bottom:2px solid #bb86fc
+public/css/styles.css:3382:color:#bb86fc;
+public/css/styles.css:3392:color:#a0a0a0;
+public/css/styles.css:3406:background-color:#1b5e20;
+public/css/styles.css:3407:color:#e8f5e9
+public/css/styles.css:340:background-color:#292929;
+public/css/styles.css:3411:background-color:#ffc107;
+public/css/styles.css:3412:color:#121212
+public/css/styles.css:3416:background-color:#b71c1c;
+public/css/styles.css:3417:color:#fff
+public/css/styles.css:3421:background-color:#292929;
+public/css/styles.css:3422:color:#bb86fc;
+public/css/styles.css:342:box-shadow:0 4px 12px #0000004d;
+public/css/styles.css:3431:background-color:#bb86fc;
+public/css/styles.css:3432:color:#121212;
+public/css/styles.css:3444:background-color:#292929;
+public/css/styles.css:3450:border-left:4px solid #bb86fc
+public/css/styles.css:3461:color:#e0e0e0;
+public/css/styles.css:3470:color:#fff;
+public/css/styles.css:3475:background-color:#bb86fc;
+public/css/styles.css:3476:color:#121212;
+public/css/styles.css:3485:color:#a0a0a0;
+public/css/styles.css:3490:color:#e0e0e0;
+public/css/styles.css:3495:background-color:#292929;
+public/css/styles.css:3507:color:#bb86fc;
+public/css/styles.css:3518:background-color:#1e1e1e;
+public/css/styles.css:3519:border:1px solid #3c3c3c;
+public/css/styles.css:3521:color:#e0e0e0;
+public/css/styles.css:3530:border-color:#bb86fc
+public/css/styles.css:3569:background:#fff;
+public/css/styles.css:35:background:#3c3c3c;
+public/css/styles.css:3607:background-color:#bb86fc;
+public/css/styles.css:3608:color:#121212;
+public/css/styles.css:3620:background-color:#96c;
+public/css/styles.css:3625:background-color:#292929;
+public/css/styles.css:3626:border-left:4px solid #cf6679;
+public/css/styles.css:3627:border-right:4px solid #cf6679;
+public/css/styles.css:3628:color:#e0e0e0;
+public/css/styles.css:3642:background-color:#1e1e1e;
+public/css/styles.css:3645:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3646:border:1px solid #3c3c3c;
+public/css/styles.css:3651:color:#bb86fc;
+public/css/styles.css:3659:color:#e0e0e0;
+public/css/styles.css:3674:background-color:#292929;
+public/css/styles.css:3678:border:1px solid #3c3c3c;
+public/css/styles.css:3688:border-color:#bb86fc
+public/css/styles.css:3692:color:#bb86fc;
+public/css/styles.css:3700:color:#e0e0e0;
+public/css/styles.css:3709:background-color:#bb86fc;
+public/css/styles.css:3710:color:#121212;
+public/css/styles.css:3722:background-color:#96c;
+public/css/styles.css:3733:background-color:#1e1e1e;
+public/css/styles.css:3736:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3737:border:1px solid #3c3c3c;
+public/css/styles.css:3745:border-bottom:2px solid #bb86fc
+public/css/styles.css:3749:color:#bb86fc;
+public/css/styles.css:374:color:#e0e0e0;
+public/css/styles.css:3756:color:#e0e0e0;
+public/css/styles.css:3762:color:#bb86fc;
+public/css/styles.css:3770:color:#bb86fc;
+public/css/styles.css:3777:color:#bb86fc;
+public/css/styles.css:3785:border-top:1px solid #3c3c3c;
+public/css/styles.css:3798:box-shadow:0 4px 15px #0000004d;
+public/css/styles.css:3799:border:1px solid #3c3c3c
+public/css/styles.css:3803:background-color:#292929;
+public/css/styles.css:3812:color:#e0e0e0;
+public/css/styles.css:3817:color:#a0a0a0;
+public/css/styles.css:3821:border-left:4px solid #bb86fc;
+public/css/styles.css:3822:border-right:4px solid #bb86fc;
+public/css/styles.css:3823:background-color:#292929;
+public/css/styles.css:382:background-color:#242424;
+public/css/styles.css:383:color:#bb86fc
+public/css/styles.css:3846:color:#e0e0e0;
+public/css/styles.css:3855:color:#bb86fc;
+public/css/styles.css:3860:color:#e0e0e0;
+public/css/styles.css:3862:background-color:#292929;
+public/css/styles.css:3866:border-left:4px solid #bb86fc;
+public/css/styles.css:3867:border-right:4px solid #bb86fc
+public/css/styles.css:3877:background-color:#1e1e1e;
+public/css/styles.css:387:background-color:#bb86fc;
+public/css/styles.css:3880:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3881:border:1px solid #3c3c3c
+public/css/styles.css:3885:color:#bb86fc;
+public/css/styles.css:388:color:#121212
+public/css/styles.css:3904:color:#e0e0e0;
+public/css/styles.css:3913:background-color:#292929;
+public/css/styles.css:3914:border:1px solid #3c3c3c;
+public/css/styles.css:3916:color:#e0e0e0;
+public/css/styles.css:3928:border-color:#bb86fc;
+public/css/styles.css:3929:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:3933:color:#cf6679;
+public/css/styles.css:3962:background-color:#292929;
+public/css/styles.css:3963:color:#e0e0e0;
+public/css/styles.css:3964:border:1px solid #3c3c3c
+public/css/styles.css:3968:background-color:#3c3c3c;
+public/css/styles.css:3969:border-color:#bb86fc
+public/css/styles.css:3973:background-color:#bb86fc;
+public/css/styles.css:3974:color:#121212;
+public/css/styles.css:3980:background-color:#96c
+public/css/styles.css:3990:background-color:#1e1e1e;
+public/css/styles.css:3993:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:3994:border:1px solid #3c3c3c;
+public/css/styles.css:4004:border-bottom:2px solid #bb86fc
+public/css/styles.css:4008:color:#bb86fc;
+public/css/styles.css:4015:background-color:#bb86fc;
+public/css/styles.css:4016:color:#121212;
+public/css/styles.css:4027:background-color:#96c;
+public/css/styles.css:4034:color:#a0a0a0;
+public/css/styles.css:4036:background-color:#292929;
+public/css/styles.css:403:background-color:#1e1e1e;
+public/css/styles.css:4051:background-color:#292929;
+public/css/styles.css:4052:color:#bb86fc;
+public/css/styles.css:405:box-shadow:0 2px 10px #0000004d
+public/css/styles.css:4061:background-color:#292929
+public/css/styles.css:4066:color:#e0e0e0;
+public/css/styles.css:4075:color:#bb86fc;
+public/css/styles.css:4080:color:#a0a0a0;
+public/css/styles.css:4087:color:#cf6679;
+public/css/styles.css:4096:background-color:#cf66791a;
+public/css/styles.css:4097:color:#ff4d6b
+public/css/styles.css:409:border-right:2px solid #bb86fc
+public/css/styles.css:40:background-color:#bb86fc;
+public/css/styles.css:4112:color:#bb86fc;
+public/css/styles.css:4126:background-color:#1e1e1e;
+public/css/styles.css:4129:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:4130:border:1px solid #3c3c3c
+public/css/styles.css:413:border-left:2px solid #bb86fc
+public/css/styles.css:4146:color:#bb86fc;
+public/css/styles.css:4159:color:#e0e0e0;
+public/css/styles.css:4168:background-color:#292929;
+public/css/styles.css:4169:border:1px solid #3c3c3c;
+public/css/styles.css:4171:color:#e0e0e0;
+public/css/styles.css:4178:border-color:#bb86fc;
+public/css/styles.css:4179:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:4183:color:#a0a0a0;
+public/css/styles.css:4190:background-color:#bb86fc;
+public/css/styles.css:4191:color:#121212;
+public/css/styles.css:4203:background-color:#96c;
+public/css/styles.css:4214:background-color:#292929;
+public/css/styles.css:4227:color:#bb86fc;
+public/css/styles.css:4235:color:#cf6679;
+public/css/styles.css:4244:background-color:#cf66791a;
+public/css/styles.css:4245:color:#ff4d6b
+public/css/styles.css:4257:background-color:#1e1e1e;
+public/css/styles.css:4266:color:#e0e0e0;
+public/css/styles.css:4271:color:#a0a0a0;
+public/css/styles.css:42:border:3px solid #3c3c3c
+public/css/styles.css:4329:background-color:#b71c1c;
+public/css/styles.css:432:color:#e0e0e0
+public/css/styles.css:4330:color:#ffebee;
+public/css/styles.css:4337:color:#a0a0a0;
+public/css/styles.css:4365:box-shadow:0 14px 28px #00000036
+public/css/styles.css:4371:box-shadow:0 20px 34px #00000045
+public/css/styles.css:4398:color:#d7dcff
+public/css/styles.css:440:background-color:#292929;
+public/css/styles.css:441:color:#bb86fc
+public/css/styles.css:4426:background-color:#1e1e1e;
+public/css/styles.css:4429:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:4430:border:1px solid #3c3c3c
+public/css/styles.css:4434:color:#bb86fc;
+public/css/styles.css:4449:color:#e0e0e0;
+public/css/styles.css:445:background-color:#bb86fc;
+public/css/styles.css:446:color:#121212;
+public/css/styles.css:4473:background-color:#292929;
+public/css/styles.css:4476:border:2px solid #3c3c3c
+public/css/styles.css:4486:background-color:#e0e0e0;
+public/css/styles.css:4492:background-color:#bb86fc;
+public/css/styles.css:4493:border-color:#bb86fc
+public/css/styles.css:4498:background-color:#1e1e1e
+public/css/styles.css:4503:color:#a0a0a0;
+public/css/styles.css:4509:color:#e0e0e0;
+public/css/styles.css:4516:color:#a0a0a0;
+public/css/styles.css:4526:background-color:#292929;
+public/css/styles.css:4527:border:1px solid #3c3c3c;
+public/css/styles.css:4529:color:#e0e0e0;
+public/css/styles.css:4538:border-color:#bb86fc;
+public/css/styles.css:4539:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:4550:background-color:#bb86fc;
+public/css/styles.css:4551:color:#121212;
+public/css/styles.css:4564:background-color:#96c;
+public/css/styles.css:4575:background-color:#1e1e1e;
+public/css/styles.css:4579:border:1px solid #3c3c3c;
+public/css/styles.css:4580:box-shadow:0 4px 20px #0000004d
+public/css/styles.css:4584:color:#bb86fc;
+public/css/styles.css:4590:color:#e0e0e0;
+public/css/styles.css:4595:background-color:#1e1e1e;
+public/css/styles.css:4598:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:4599:border:1px solid #3c3c3c
+public/css/styles.css:4608:border-bottom:2px solid #bb86fc
+public/css/styles.css:4612:color:#bb86fc;
+public/css/styles.css:4619:background-color:#292929;
+public/css/styles.css:4620:color:#bb86fc;
+public/css/styles.css:4629:background-color:#bb86fc;
+public/css/styles.css:4630:color:#121212;
+public/css/styles.css:4635:background-color:#292929;
+public/css/styles.css:4656:border:3px solid #bb86fc;
+public/css/styles.css:4673:background-color:#3c3c3c;
+public/css/styles.css:4688:color:#121212;
+public/css/styles.css:4691:background:#333
+public/css/styles.css:4695:background-color:#ff3838
+public/css/styles.css:4699:background-color:#ffc107
+public/css/styles.css:46:background-color:#96c
+public/css/styles.css:4703:background-color:#4caf50
+public/css/styles.css:4707:color:#bb86fc;
+public/css/styles.css:470:background-color:#1e1e1e;
+public/css/styles.css:4716:color:#d0a4ff;
+public/css/styles.css:471:color:#e0e0e0;
+public/css/styles.css:4726:color:#bb86fc;
+public/css/styles.css:4732:background-color:#1e1e1e;
+public/css/styles.css:4740:color:#e0e0e0;
+public/css/styles.css:4749:color:#bb86fc;
+public/css/styles.css:474:border-top:2px solid #bb86fc
+public/css/styles.css:4756:background-color:#292929;
+public/css/styles.css:4763:color:#a0a0a0;
+public/css/styles.css:4775:background-color:#292929;
+public/css/styles.css:4781:color:#bb86fc;
+public/css/styles.css:4786:border-bottom:2px dashed #3c3c3c;
+public/css/styles.css:4791:background-color:#1e1e1e;
+public/css/styles.css:4794:border:1px solid #3c3c3c;
+public/css/styles.css:4799:color:#e0e0e0;
+public/css/styles.css:4804:background-color:#292929;
+public/css/styles.css:4808:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:4809:border:1px solid #3c3c3c;
+public/css/styles.css:4814:color:#bb86fc;
+public/css/styles.css:4820:border-bottom:2px dashed #3c3c3c
+public/css/styles.css:4833:color:#bb86fc;
+public/css/styles.css:4840:color:#e0e0e0;
+public/css/styles.css:4856:background-color:#1e1e1e;
+public/css/styles.css:4860:border:1px solid #3c3c3c;
+public/css/styles.css:4867:color:#a0a0a0;
+public/css/styles.css:4876:color:#bb86fc
+public/css/styles.css:4880:color:#4CAF50
+public/css/styles.css:4884:color:#ffc107
+public/css/styles.css:4888:color:#ff3838
+public/css/styles.css:4892:color:#bb86fc
+public/css/styles.css:4896:background-color:#1e1e1e;
+public/css/styles.css:4900:border:1px solid #3c3c3c;
+public/css/styles.css:4906:color:#a0a0a0;
+public/css/styles.css:4911:color:#121212;
+public/css/styles.css:4912:background-color:#bb86fc;
+public/css/styles.css:491:background-color:#292929;
+public/css/styles.css:4926:color:#bb86fc;
+public/css/styles.css:492:color:#bb86fc;
+public/css/styles.css:493:border:1px solid #bb86fc;
+public/css/styles.css:4940:background-color:#bb86fc;
+public/css/styles.css:4945:color:#d0a4ff;
+public/css/styles.css:4955:background-color:#292929;
+public/css/styles.css:4958:border:1px solid #3c3c3c;
+public/css/styles.css:4959:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:4966:color:#bb86fc;
+public/css/styles.css:4972:border-bottom:2px dashed #3c3c3c
+public/css/styles.css:4976:background-color:#1e1e1e;
+public/css/styles.css:4978:border:1px solid #3c3c3c;
+public/css/styles.css:4983:background-color:#1e1e1e;
+public/css/styles.css:4984:color:#e0e0e0;
+public/css/styles.css:4998:background-color:#1e1e1e;
+public/css/styles.css:5002:border:1px solid #3c3c3c
+public/css/styles.css:5006:color:#a0a0a0;
+public/css/styles.css:5013:background-color:#292929;
+public/css/styles.css:5018:border:1px solid #3c3c3c;
+public/css/styles.css:5024:border-color:#bb86fc
+public/css/styles.css:502:background-color:#bb86fc;
+public/css/styles.css:503:color:#121212;
+public/css/styles.css:5056:color:#0f0f0f;
+public/css/styles.css:5059:background-color:#d4d4d4;
+public/css/styles.css:5065:background-color:#1e1e1e;
+public/css/styles.css:5075:color:#e0e0e0;
+public/css/styles.css:5090:color:#bb86fc
+public/css/styles.css:50:background-color:#1e1e1e;
+public/css/styles.css:5100:background-color:#292929;
+public/css/styles.css:5107:border:2px solid #3c3c3c;
+public/css/styles.css:5112:border-color:#bb86fc;
+public/css/styles.css:5117:background-color:#bb86fc;
+public/css/styles.css:5118:border:2px solid #292929
+public/css/styles.css:511:background-color:#1e1e1e;
+public/css/styles.css:5149:background-color:#1e1e1e;
+public/css/styles.css:514:border:2px solid #bb86fc;
+public/css/styles.css:5150:border:1px solid #3c3c3c;
+public/css/styles.css:515:box-shadow:0 2px 4px #0000001a;
+public/css/styles.css:5164:background-color:#1e1e1e;
+public/css/styles.css:5165:border:1px solid #3c3c3c;
+public/css/styles.css:5176:color:#bb86fc;
+public/css/styles.css:5182:color:#e0e0e0;
+public/css/styles.css:5199:background:linear-gradient(135deg,#1e1e1e,#292929);
+public/css/styles.css:519:color:#bb86fc;
+public/css/styles.css:51:color:#e0e0e0;
+public/css/styles.css:5200:border:2px solid #bb86fc;
+public/css/styles.css:5202:box-shadow:0 4px 10px #00000080
+public/css/styles.css:5206:color:#bb86fc;
+public/css/styles.css:5213:background-color:#cf6679;
+public/css/styles.css:5214:color:#121212;
+public/css/styles.css:5225:background-color:#b4464f;
+public/css/styles.css:5230:background-color:#1e1e1e;
+public/css/styles.css:5234:border:1px solid #3c3c3c;
+public/css/styles.css:5235:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:5240:color:#e0e0e0;
+public/css/styles.css:5247:background-color:#bb86fc;
+public/css/styles.css:5248:color:#121212;
+public/css/styles.css:5257:background-color:#96c;
+public/css/styles.css:526:box-shadow:0 4px 8px #0003
+public/css/styles.css:5272:background-color:#1e1e1e;
+public/css/styles.css:5275:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5276:border:1px solid #3c3c3c;
+public/css/styles.css:5314:color:#e0e0e0;
+public/css/styles.css:531:color:#e0e0e0;
+public/css/styles.css:5324:background-color:#292929;
+public/css/styles.css:5325:border:1px solid #3c3c3c;
+public/css/styles.css:5327:color:#e0e0e0;
+public/css/styles.css:5335:border-color:#bb86fc
+public/css/styles.css:5351:color:#bb86fc;
+public/css/styles.css:5362:background-color:#292929;
+public/css/styles.css:5363:border:2px solid #bb86fc;
+public/css/styles.css:5365:color:#e0e0e0;
+public/css/styles.css:5373:box-shadow:0 0 0 3px #bb86fc4d;
+public/css/styles.css:5398:background-color:#bb86fc;
+public/css/styles.css:5399:color:#121212
+public/css/styles.css:53:box-shadow:0 2px 10px #0000004d;
+public/css/styles.css:5403:background-color:#96c;
+public/css/styles.css:5408:background-color:#292929;
+public/css/styles.css:5409:color:#bb86fc;
+public/css/styles.css:540:color:#ff3838
+public/css/styles.css:5410:border:1px solid #3c3c3c;
+public/css/styles.css:5416:background-color:#bb86fc;
+public/css/styles.css:5417:color:#121212;
+public/css/styles.css:5419:border-color:#bb86fc
+public/css/styles.css:5423:background-color:#1e1e1e;
+public/css/styles.css:5427:color:#e0e0e0;
+public/css/styles.css:5428:border:1px solid #3c3c3c
+public/css/styles.css:5438:background-color:#1e1e1e;
+public/css/styles.css:5441:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5442:border:1px solid #3c3c3c;
+public/css/styles.css:5459:color:#bb86fc;
+public/css/styles.css:5464:text-shadow:0 2px 4px #0000004d
+public/css/styles.css:5468:color:#e0e0e0;
+public/css/styles.css:546:background-color:#1e1e1e;
+public/css/styles.css:547:border:2px solid #3c3c3c;
+public/css/styles.css:5481:color:#e0e0e0;
+public/css/styles.css:548:border-left:4px solid #ff3838;
+public/css/styles.css:5491:color:#bb86fc;
+public/css/styles.css:5496:background-color:#292929;
+public/css/styles.css:5497:border-left:4px solid #bb86fc;
+public/css/styles.css:5498:border-right:4px solid #bb86fc;
+public/css/styles.css:549:border-right:4px solid #ff3838;
+public/css/styles.css:54:border-bottom:2px solid #bb86fc
+public/css/styles.css:5506:color:#bb86fc;
+public/css/styles.css:5514:color:#e0e0e0;
+public/css/styles.css:5530:background-color:#1e1e1e;
+public/css/styles.css:5533:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5534:border:1px solid #3c3c3c
+public/css/styles.css:5543:background-color:#bb86fc;
+public/css/styles.css:5544:color:#121212;
+public/css/styles.css:5557:background-color:#96c;
+public/css/styles.css:5568:background-color:#292929;
+public/css/styles.css:5573:border:1px solid #3c3c3c;
+public/css/styles.css:5581:border-color:#bb86fc
+public/css/styles.css:5598:color:#bb86fc;
+public/css/styles.css:5605:color:#a0a0a0;
+public/css/styles.css:560:background-color:#1e1e1e;
+public/css/styles.css:5610:color:#e0e0e0;
+public/css/styles.css:561:border:2px solid #3c3c3c;
+public/css/styles.css:5622:color:#cf6679;
+public/css/styles.css:562:border-left:4px solid #ffc107;
+public/css/styles.css:5635:color:#ff4d6b;
+public/css/styles.css:563:border-right:4px solid #ffc107;
+public/css/styles.css:5642:background-color:#292929;
+public/css/styles.css:5644:color:#e0e0e0;
+public/css/styles.css:5650:background-color:#292929;
+public/css/styles.css:5651:border-left:4px solid #ffc107;
+public/css/styles.css:5652:border-right:4px solid #ffc107;
+public/css/styles.css:5653:color:#e0e0e0;
+public/css/styles.css:5672:background-color:#1e1e1e;
+public/css/styles.css:5675:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5676:border:1px solid #3c3c3c
+public/css/styles.css:5680:color:#bb86fc;
+public/css/styles.css:5699:color:#e0e0e0;
+public/css/styles.css:5708:background-color:#292929;
+public/css/styles.css:5709:border:1px solid #3c3c3c;
+public/css/styles.css:5711:color:#e0e0e0;
+public/css/styles.css:5723:color:#666;
+public/css/styles.css:5729:border-color:#bb86fc;
+public/css/styles.css:5730:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:5740:background-color:#bb86fc;
+public/css/styles.css:5741:color:#121212;
+public/css/styles.css:5754:background-color:#96c;
+public/css/styles.css:5765:background-color:#1e1e1e;
+public/css/styles.css:5768:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5769:border:1px solid #3c3c3c
+public/css/styles.css:5779:background-color:#292929;
+public/css/styles.css:5797:background-color:#3c3c3c;
+public/css/styles.css:5804:background-color:#bb86fc
+public/css/styles.css:5808:color:#e0e0e0;
+public/css/styles.css:5816:color:#121212
+public/css/styles.css:5827:color:#bb86fc;
+public/css/styles.css:582:color:#ff3838;
+public/css/styles.css:5836:color:#d0a4ff;
+public/css/styles.css:5842:color:#a0a0a0
+public/css/styles.css:5852:background-color:#292929;
+public/css/styles.css:5866:background-color:#1e1e1e;
+public/css/styles.css:5867:border:1px solid #3c3c3c;
+public/css/styles.css:5869:color:#e0e0e0;
+public/css/styles.css:5877:border-color:#bb86fc;
+public/css/styles.css:5878:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:5882:background-color:#bb86fc;
+public/css/styles.css:5883:color:#121212;
+public/css/styles.css:5897:background-color:#96c;
+public/css/styles.css:589:color:#ffc107;
+public/css/styles.css:5909:background-color:#1e1e1e;
+public/css/styles.css:5912:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:5913:border:1px solid #3c3c3c;
+public/css/styles.css:5918:color:#cf6679;
+public/css/styles.css:5924:color:#bb86fc;
+public/css/styles.css:5931:background-color:#292929;
+public/css/styles.css:5935:border-left:4px solid #cf6679;
+public/css/styles.css:5936:border-right:4px solid #cf6679
+public/css/styles.css:5940:color:#cf6679;
+public/css/styles.css:5947:color:#e0e0e0;
+public/css/styles.css:5955:background-color:#3c3c3c;
+public/css/styles.css:5960:color:#a0a0a0;
+public/css/styles.css:5973:background-color:#bb86fc;
+public/css/styles.css:5974:color:#121212;
+public/css/styles.css:5986:background-color:#96c;
+public/css/styles.css:5:background-color:#121212;
+public/css/styles.css:6006:background-color:#1e1e1e;
+public/css/styles.css:6009:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:6010:border:1px solid #3c3c3c
+public/css/styles.css:6014:color:#bb86fc;
+public/css/styles.css:6021:color:#bb86fc;
+public/css/styles.css:6036:background-color:#292929;
+public/css/styles.css:6037:border:1px solid #3c3c3c;
+public/css/styles.css:6045:color:#bb86fc;
+public/css/styles.css:6051:color:#e0e0e0;
+public/css/styles.css:6064:background-color:#292929;
+public/css/styles.css:6065:border:1px solid #3c3c3c;
+public/css/styles.css:6073:color:#bb86fc;
+public/css/styles.css:6079:color:#e0e0e0;
+public/css/styles.css:6092:background-color:#292929;
+public/css/styles.css:6093:border:1px solid #3c3c3c;
+public/css/styles.css:609:border-bottom:1px solid #3c3c3c
+public/css/styles.css:6100:color:#bb86fc;
+public/css/styles.css:6113:background-color:#292929;
+public/css/styles.css:6114:border:1px solid #3c3c3c;
+public/css/styles.css:6120:color:#a0a0a0;
+public/css/styles.css:613:background-color:#292929;
+public/css/styles.css:6140:background-color:#292929;
+public/css/styles.css:6141:border:1px solid #3c3c3c;
+public/css/styles.css:6143:color:#e0e0e0;
+public/css/styles.css:614:color:#bb86fc
+public/css/styles.css:6151:border-color:#bb86fc
+public/css/styles.css:6156:background-color:#bb86fc;
+public/css/styles.css:6157:color:#121212;
+public/css/styles.css:6169:background-color:#96c;
+public/css/styles.css:6174:background-color:#292929;
+public/css/styles.css:6175:border:1px solid #3c3c3c;
+public/css/styles.css:6189:color:#bb86fc;
+public/css/styles.css:6196:color:#a0a0a0;
+public/css/styles.css:6203:background-color:#cf6679;
+public/css/styles.css:6204:color:#121212;
+public/css/styles.css:6214:background-color:#b4464f;
+public/css/styles.css:6225:background-color:#1e1e1e;
+public/css/styles.css:6228:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:6229:border:1px solid #3c3c3c;
+public/css/styles.css:6237:border-bottom:2px solid #bb86fc;
+public/css/styles.css:6242:color:#bb86fc;
+public/css/styles.css:6249:color:#a0a0a0;
+public/css/styles.css:6252:background-color:#292929;
+public/css/styles.css:625:box-shadow:0 2px 4px #0000001a;
+public/css/styles.css:6269:background-color:#292929;
+public/css/styles.css:6273:border:1px solid #3c3c3c;
+public/css/styles.css:6280:border-color:#bb86fc
+public/css/styles.css:6295:color:#e0e0e0;
+public/css/styles.css:6301:color:#bb86fc
+public/css/styles.css:6305:color:#e0e0e0;
+public/css/styles.css:6316:background-color:#CD853F;
+public/css/styles.css:6317:color:#212121!important
+public/css/styles.css:631:background-color:#2e7d32;
+public/css/styles.css:6321:background-color:#004D40
+public/css/styles.css:6325:background-color:#3D0814
+public/css/styles.css:632:color:#fff
+public/css/styles.css:6350:background-color:#bb86fc;
+public/css/styles.css:6351:color:#121212;
+public/css/styles.css:6357:background-color:#96c;
+public/css/styles.css:6362:background-color:#ffc107;
+public/css/styles.css:6363:color:#121212;
+public/css/styles.css:6368:background-color:#e0a800;
+public/css/styles.css:636:background-color:#d32f2f;
+public/css/styles.css:6370:box-shadow:0 4px 8px #0003
+public/css/styles.css:6374:background-color:#997300;
+public/css/styles.css:6375:color:#0a0a0a;
+public/css/styles.css:637:color:#fff
+public/css/styles.css:6384:background-color:#997300
+public/css/styles.css:6389:color:#ff3838;
+public/css/styles.css:6390:border:1px solid #ff3838
+public/css/styles.css:6394:background-color:#ff3838;
+public/css/styles.css:6395:color:#121212;
+public/css/styles.css:6397:box-shadow:0 4px 8px #ff38384d
+public/css/styles.css:6407:background-color:#1e1e1e;
+public/css/styles.css:6410:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:6411:border:1px solid #3c3c3c
+public/css/styles.css:6417:border-bottom:2px solid #bb86fc;
+public/css/styles.css:641:background-color:#1976d2;
+public/css/styles.css:6422:color:#bb86fc;
+public/css/styles.css:642:color:#fff
+public/css/styles.css:6432:background-color:#b71c1c;
+public/css/styles.css:6433:color:#ffebee
+public/css/styles.css:6454:color:#e0e0e0;
+public/css/styles.css:6462:background-color:#292929;
+public/css/styles.css:6463:color:#e0e0e0;
+public/css/styles.css:6468:background-color:#bb86fc;
+public/css/styles.css:6469:color:#121212;
+public/css/styles.css:646:background-color:#0288d1;
+public/css/styles.css:6476:background-color:#96c
+public/css/styles.css:647:color:#fff
+public/css/styles.css:6480:background-color:#ffc107;
+public/css/styles.css:6481:color:#121212;
+public/css/styles.css:6487:background-color:#e0a800
+public/css/styles.css:6492:color:#ffc107;
+public/css/styles.css:6493:border:1px solid #ffc107;
+public/css/styles.css:6500:background-color:#ffc107;
+public/css/styles.css:6501:color:#121212
+public/css/styles.css:6506:color:#ff3838;
+public/css/styles.css:6507:border:1px solid #ff3838;
+public/css/styles.css:6514:background-color:#ff3838;
+public/css/styles.css:6515:color:#121212
+public/css/styles.css:6521:background-color:#292929;
+public/css/styles.css:6523:color:#a0a0a0
+public/css/styles.css:6539:background-color:#292929;
+public/css/styles.css:6540:color:#bb86fc;
+public/css/styles.css:6548:background-color:#292929
+public/css/styles.css:6553:color:#e0e0e0
+public/css/styles.css:6557:color:#e0e0e0;
+public/css/styles.css:6563:color:#96c
+public/css/styles.css:6575:background-color:#004D40;
+public/css/styles.css:6576:color:#e0e0e0
+public/css/styles.css:657:color:#bb86fc;
+public/css/styles.css:6580:background-color:#CD853F;
+public/css/styles.css:6581:color:#212121
+public/css/styles.css:6585:background-color:#3D0814;
+public/css/styles.css:6586:color:#e0e0e0
+public/css/styles.css:6611:border-bottom:2px solid #bb86fc
+public/css/styles.css:6615:color:#bb86fc;
+public/css/styles.css:6622:background-color:#1e1e1e;
+public/css/styles.css:6625:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:6626:border:1px solid #3c3c3c;
+public/css/styles.css:6634:color:#a0a0a0;
+public/css/styles.css:6636:background-color:#292929;
+public/css/styles.css:663:background-color:#292929;
+public/css/styles.css:6648:background-color:#292929;
+public/css/styles.css:664:border:2px solid #bb86fc;
+public/css/styles.css:6652:border:1px solid #3c3c3c
+public/css/styles.css:6657:border-color:#bb86fc
+public/css/styles.css:665:color:#bb86fc;
+public/css/styles.css:6661:color:#bb86fc;
+public/css/styles.css:6669:color:#e0e0e0;
+public/css/styles.css:6680:border-top:1px solid #3c3c3c
+public/css/styles.css:6695:background-color:#4caf50;
+public/css/styles.css:6696:color:#121212
+public/css/styles.css:6700:color:#a0a0a0;
+public/css/styles.css:6720:background-color:#bb86fc;
+public/css/styles.css:6721:color:#121212
+public/css/styles.css:6725:background-color:#96c;
+public/css/styles.css:6731:color:#cf6679;
+public/css/styles.css:6732:border:1px solid #cf6679
+public/css/styles.css:6736:background-color:#cf6679;
+public/css/styles.css:6737:color:#121212;
+public/css/styles.css:6761:color:#bb86fc;
+public/css/styles.css:6767:color:#96c;
+public/css/styles.css:6772:color:#e0e0e0
+public/css/styles.css:6776:background-color:#1e1e1e;
+public/css/styles.css:6780:border:1px solid #3c3c3c;
+public/css/styles.css:6781:box-shadow:0 6px 25px #0000004d
+public/css/styles.css:6785:color:#bb86fc;
+public/css/styles.css:6792:color:#a0a0a0;
+public/css/styles.css:6799:background-color:#bb86fc;
+public/css/styles.css:6800:color:#121212;
+public/css/styles.css:6811:background-color:#96c;
+public/css/styles.css:6816:background-color:#1e1e1e;
+public/css/styles.css:6819:border:1px solid #3c3c3c;
+public/css/styles.css:6824:box-shadow:0 6px 25px #0000004d
+public/css/styles.css:6836:background-color:#292929;
+public/css/styles.css:683:background-color:#1e1e1e;
+public/css/styles.css:6849:border:2px solid #3c3c3c
+public/css/styles.css:684:border:1px solid #3c3c3c;
+public/css/styles.css:6870:color:#e0e0e0;
+public/css/styles.css:6877:color:#bb86fc;
+public/css/styles.css:6887:color:#bb86fc;
+public/css/styles.css:688:box-shadow:0 4px 20px #0000004d
+public/css/styles.css:6893:color:#a0a0a0;
+public/css/styles.css:6913:color:#e0e0e0;
+public/css/styles.css:6920:background-color:#1e1e1e;
+public/css/styles.css:6921:border:1px solid #3c3c3c;
+public/css/styles.css:6923:color:#e0e0e0;
+public/css/styles.css:6929:border-color:#bb86fc
+public/css/styles.css:6934:border-color:#bb86fc
+public/css/styles.css:6938:background-color:#bb86fc;
+public/css/styles.css:6939:color:#121212;
+public/css/styles.css:6949:background-color:#96c;
+public/css/styles.css:6954:background-color:#1e1e1e;
+public/css/styles.css:6955:color:#e0e0e0;
+public/css/styles.css:6959:border:1px solid #3c3c3c
+public/css/styles.css:6963:color:#cf6679;
+public/css/styles.css:6973:color:#ff4d6b;
+public/css/styles.css:6978:background-color:#1e1e1e;
+public/css/styles.css:6979:color:#e0e0e0;
+public/css/styles.css:6983:border:1px solid #3c3c3c;
+public/css/styles.css:6:color:#e0e0e0;
+public/css/styles.css:7007:background-color:#292929;
+public/css/styles.css:7010:border-top:2px solid #bb86fc;
+public/css/styles.css:7024:color:#e0e0e0;
+public/css/styles.css:7035:background-color:#1e1e1e;
+public/css/styles.css:7036:border:1px solid #3c3c3c;
+public/css/styles.css:7038:color:#e0e0e0;
+public/css/styles.css:7047:border-color:#bb86fc
+public/css/styles.css:7051:background-color:#bb86fc;
+public/css/styles.css:7052:color:#121212;
+public/css/styles.css:7065:background-color:#96c;
+public/css/styles.css:7070:background-color:#1e1e1e;
+public/css/styles.css:7081:background-color:#292929;
+public/css/styles.css:7082:border:1px solid #3c3c3c;
+public/css/styles.css:7084:color:#e0e0e0;
+public/css/styles.css:7092:border-color:#bb86fc
+public/css/styles.css:7097:border-color:#bb86fc
+public/css/styles.css:7102:background-color:#292929;
+public/css/styles.css:7105:border-top:2px solid #bb86fc;
+public/css/styles.css:711:background-color:#292929;
+public/css/styles.css:7120:color:#e0e0e0;
+public/css/styles.css:712:border-left:4px solid #bb86fc;
+public/css/styles.css:7130:color:#bb86fc;
+public/css/styles.css:7136:color:#a0a0a0;
+public/css/styles.css:713:border-right:4px solid #bb86fc;
+public/css/styles.css:7148:background-color:#cf6679;
+public/css/styles.css:7149:color:#121212;
+public/css/styles.css:7161:background-color:#b4464f;
+public/css/styles.css:7167:background-color:#4caf50;
+public/css/styles.css:7168:color:#121212;
+public/css/styles.css:717:color:#e0e0e0
+public/css/styles.css:7181:background-color:#45a049;
+public/css/styles.css:7196:background-color:#1e1e1e;
+public/css/styles.css:7199:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:7200:border:1px solid #3c3c3c;
+public/css/styles.css:7209:color:#bb86fc;
+public/css/styles.css:721:color:#bb86fc
+public/css/styles.css:7227:color:#bb86fc;
+public/css/styles.css:7234:color:#a0a0a0;
+public/css/styles.css:7245:color:#e0e0e0;
+public/css/styles.css:7254:background-color:#292929;
+public/css/styles.css:7255:border:1px solid #3c3c3c;
+public/css/styles.css:7257:color:#e0e0e0;
+public/css/styles.css:7264:border-color:#bb86fc;
+public/css/styles.css:7265:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:7276:background-color:#bb86fc;
+public/css/styles.css:7277:color:#121212;
+public/css/styles.css:7292:background-color:#96c;
+public/css/styles.css:7297:color:#a0a0a0;
+public/css/styles.css:7306:background-color:#292929;
+public/css/styles.css:7307:border:1px solid #3c3c3c;
+public/css/styles.css:7313:border-color:#bb86fc;
+public/css/styles.css:7314:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:7319:color:#bb86fc;
+public/css/styles.css:7321:border-right:1px solid #3c3c3c
+public/css/styles.css:7329:color:#e0e0e0;
+public/css/styles.css:7342:background-color:#292929;
+public/css/styles.css:7346:border:1px solid #3c3c3c;
+public/css/styles.css:7351:border-color:#bb86fc;
+public/css/styles.css:7356:color:#bb86fc;
+public/css/styles.css:7369:background-color:#bb86fc;
+public/css/styles.css:7370:color:#121212;
+public/css/styles.css:7384:background-color:#96c;
+public/css/styles.css:7395:background-color:#1e1e1e;
+public/css/styles.css:7396:border:1px solid #3c3c3c;
+public/css/styles.css:7399:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:7409:border-bottom:2px solid #bb86fc
+public/css/styles.css:740:background-color:#1e1e1e;
+public/css/styles.css:7413:color:#bb86fc;
+public/css/styles.css:7420:background-color:#bb86fc;
+public/css/styles.css:7421:color:#121212;
+public/css/styles.css:742:border:1px solid #3c3c3c;
+public/css/styles.css:7432:background-color:#96c;
+public/css/styles.css:743:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:7443:background-color:#292929;
+public/css/styles.css:7444:color:#bb86fc;
+public/css/styles.css:7453:background-color:#292929
+public/css/styles.css:7458:color:#e0e0e0;
+public/css/styles.css:7468:color:#121212;
+public/css/styles.css:7473:background:#4caf50
+public/css/styles.css:7477:background:#9e9e9e
+public/css/styles.css:749:color:#bb86fc;
+public/css/styles.css:7501:background-color:#4caf50;
+public/css/styles.css:7502:color:#121212
+public/css/styles.css:7506:background-color:#45a049;
+public/css/styles.css:7512:color:#ff3838;
+public/css/styles.css:7513:border:1px solid #ff3838;
+public/css/styles.css:7519:background-color:#ff3838;
+public/css/styles.css:7520:color:#121212
+public/css/styles.css:7526:color:#a0a0a0;
+public/css/styles.css:7528:background-color:#292929;
+public/css/styles.css:7534:border-top:1px solid #3c3c3c;
+public/css/styles.css:7546:background:#1e1e1e;
+public/css/styles.css:7547:border:1px solid #3c3c3c;
+public/css/styles.css:7549:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:7559:border-bottom:2px solid #bb86fc
+public/css/styles.css:7563:color:#bb86fc;
+public/css/styles.css:7570:background-color:#bb86fc;
+public/css/styles.css:7571:color:#121212;
+public/css/styles.css:7582:background-color:#96c;
+public/css/styles.css:7599:background:#292929;
+public/css/styles.css:7600:border:1px solid #3c3c3c;
+public/css/styles.css:7602:color:#e0e0e0;
+public/css/styles.css:7607:border-color:#bb86fc;
+public/css/styles.css:7608:box-shadow:0 0 0 2px #bb86fc1a;
+public/css/styles.css:7614:color:#e0e0e0;
+public/css/styles.css:761:background-color:#292929;
+public/css/styles.css:7644:background-color:#292929;
+public/css/styles.css:7647:border:2px solid #3c3c3c
+public/css/styles.css:7657:background-color:#e0e0e0;
+public/css/styles.css:765:box-shadow:0 4px 6px #0000001a
+public/css/styles.css:7663:background-color:#bb86fc;
+public/css/styles.css:7664:border-color:#bb86fc
+public/css/styles.css:7669:background-color:#1e1e1e
+public/css/styles.css:7680:color:#a0a0a0;
+public/css/styles.css:7685:background:#bb86fc;
+public/css/styles.css:7686:color:#121212;
+public/css/styles.css:7699:background:#96c;
+public/css/styles.css:769:color:#e0e0e0
+public/css/styles.css:7710:background:#121212f2;
+public/css/styles.css:7718:background:#1e1e1e;
+public/css/styles.css:7719:border:2px solid #bb86fc;
+public/css/styles.css:7724:box-shadow:0 8px 32px #0000004d;
+public/css/styles.css:7729:color:#bb86fc;
+public/css/styles.css:7738:color:#e0e0e0;
+public/css/styles.css:773:color:#bb86fc;
+public/css/styles.css:7750:background:#bb86fc;
+public/css/styles.css:7751:color:#121212;
+public/css/styles.css:7767:background:#96c;
+public/css/styles.css:7786:background-color:#1e1e1e;
+public/css/styles.css:7789:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:7790:border:1px solid #3c3c3c;
+public/css/styles.css:779:background-color:#1e1e1e;
+public/css/styles.css:7800:color:#e0e0e0;
+public/css/styles.css:7807:background-color:#bb86fc;
+public/css/styles.css:780:border:1px solid #3c3c3c;
+public/css/styles.css:7824:background-color:#292929;
+public/css/styles.css:7826:border:1px solid #3c3c3c
+public/css/styles.css:7879:background-color:#292929;
+public/css/styles.css:7880:border:2px solid #bb86fc;
+public/css/styles.css:7881:color:#e0e0e0;
+public/css/styles.css:7891:background-color:#bb86fc;
+public/css/styles.css:7892:color:#121212;
+public/css/styles.css:7901:background-color:#bb86fc;
+public/css/styles.css:7902:color:#121212;
+public/css/styles.css:7907:background-color:#292929;
+public/css/styles.css:7910:border:1px solid #3c3c3c
+public/css/styles.css:7925:color:#bb86fc;
+public/css/styles.css:7932:color:#a0a0a0;
+public/css/styles.css:7944:color:#e0e0e0;
+public/css/styles.css:7949:color:#bb86fc;
+public/css/styles.css:7965:color:#e0e0e0!important
+public/css/styles.css:7969:background-color:#004D40
+public/css/styles.css:7973:background-color:#CD853F;
+public/css/styles.css:7974:color:#212121!important
+public/css/styles.css:7978:background-color:#3D0814
+public/css/styles.css:7982:background-color:#1976D2;
+public/css/styles.css:7983:color:#121212!important
+public/css/styles.css:799:color:#e0e0e0;
+public/css/styles.css:8001:background-color:#bb86fc;
+public/css/styles.css:8002:color:#121212
+public/css/styles.css:8006:background-color:#96c;
+public/css/styles.css:8011:background-color:#cf6679;
+public/css/styles.css:8012:color:#121212
+public/css/styles.css:8016:background-color:#b4464f;
+public/css/styles.css:8023:background-color:#292929;
+public/css/styles.css:8026:border:1px solid #3c3c3c
+public/css/styles.css:8043:color:#e0e0e0;
+public/css/styles.css:8050:background-color:#1e1e1e;
+public/css/styles.css:8051:border:1px solid #3c3c3c;
+public/css/styles.css:8053:color:#e0e0e0;
+public/css/styles.css:8058:border-color:#bb86fc;
+public/css/styles.css:8067:background-color:#4caf50;
+public/css/styles.css:8068:color:#121212;
+public/css/styles.css:8077:background-color:#45a049;
+public/css/styles.css:807:background-color:#1e1e1e;
+public/css/styles.css:8082:background-color:#292929;
+public/css/styles.css:8087:border:1px solid #3c3c3c
+public/css/styles.css:808:border:1px solid #3c3c3c;
+public/css/styles.css:8091:color:#bb86fc;
+public/css/styles.css:8100:color:#e0e0e0;
+public/css/styles.css:8106:background-color:#b71c1c;
+public/css/styles.css:8107:color:#ffebee;
+public/css/styles.css:810:color:#e0e0e0;
+public/css/styles.css:8115:background-color:#1e1e1e;
+public/css/styles.css:8119:border:1px solid #3c3c3c;
+public/css/styles.css:8124:color:#bb86fc;
+public/css/styles.css:8130:color:#e0e0e0
+public/css/styles.css:8135:border-bottom:1px solid #3c3c3c
+public/css/styles.css:8142:background-color:#4A3B6B;
+public/css/styles.css:8143:border:1px solid #4A3B6B;
+public/css/styles.css:8146:color:#e0e0e0;
+public/css/styles.css:8148:box-shadow:0 2px 8px #0000001a
+public/css/styles.css:8154:color:#e0e0e0
+public/css/styles.css:8160:color:#e0e0e0
+public/css/styles.css:8165:color:#e0e0e0;
+public/css/styles.css:8172:border-bottom:1px solid #3c3c3c
+public/css/styles.css:8181:color:#e0e0e0;
+public/css/styles.css:8182:background-color:#D70040;
+public/css/styles.css:8199:border:3px solid #bb86fc
+public/css/styles.css:8209:background-color:#3c3c3c;
+public/css/styles.css:820:border-color:#bb86fc
+public/css/styles.css:8216:color:#bb86fc;
+public/css/styles.css:8225:color:#d0a4ff;
+public/css/styles.css:8235:background-color:#bb86fc;
+public/css/styles.css:8236:color:#121212;
+public/css/styles.css:8245:background-color:#96c;
+public/css/styles.css:824:border-color:#ff3838
+public/css/styles.css:8250:background-color:#292929;
+public/css/styles.css:8255:border:1px solid #3c3c3c
+public/css/styles.css:8259:color:#bb86fc;
+public/css/styles.css:8273:background-color:#1e1e1e;
+public/css/styles.css:8276:border:1px solid #3c3c3c
+public/css/styles.css:8285:border-bottom:1px solid #3c3c3c
+public/css/styles.css:8299:border:2px solid #bb86fc
+public/css/styles.css:8309:color:#bb86fc;
+public/css/styles.css:8321:color:#a0a0a0;
+public/css/styles.css:8333:background-color:#4caf50;
+public/css/styles.css:8334:color:#121212
+public/css/styles.css:8338:background-color:#ffc107;
+public/css/styles.css:8339:color:#121212
+public/css/styles.css:8343:background-color:#ff3838;
+public/css/styles.css:8344:color:#121212
+public/css/styles.css:8348:color:#e0e0e0;
+public/css/styles.css:8359:color:#bb86fc;
+public/css/styles.css:835:background-color:#bb86fc;
+public/css/styles.css:836:color:#121212;
+public/css/styles.css:8373:color:#bb86fc
+public/css/styles.css:8378:color:#a0a0a0;
+public/css/styles.css:8393:border-bottom:1px solid #3c3c3c
+public/css/styles.css:8397:color:#a0a0a0
+public/css/styles.css:8401:color:#e0e0e0;
+public/css/styles.css:8407:color:#a0a0a0;
+public/css/styles.css:8414:border-top:1px solid #3c3c3c
+public/css/styles.css:8419:background-color:#03DAC6;
+public/css/styles.css:8420:color:#121212;
+public/css/styles.css:8431:background-color:#018786;
+public/css/styles.css:8442:background-color:#1e1e1e;
+public/css/styles.css:8445:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:8446:border:1px solid #3c3c3c
+public/css/styles.css:8450:color:#bb86fc;
+public/css/styles.css:8456:border-bottom:2px dashed #bb86fc
+public/css/styles.css:8460:background-color:#292929;
+public/css/styles.css:8463:border:1px solid #3c3c3c;
+public/css/styles.css:8464:color:#e0e0e0;
+public/css/styles.css:8482:color:#bb86fc;
+public/css/styles.css:8488:color:#96c;
+public/css/styles.css:848:background-color:#96c;
+public/css/styles.css:8493:color:#e0e0e0!important
+public/css/styles.css:8497:background-color:#1e1e1e;
+public/css/styles.css:8500:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:8501:border:1px solid #3c3c3c
+public/css/styles.css:8505:color:#bb86fc;
+public/css/styles.css:8529:color:#bb86fc;
+public/css/styles.css:8536:background-color:#FF4500;
+public/css/styles.css:8537:color:#121212;
+public/css/styles.css:853:color:#ffc107
+public/css/styles.css:8553:background-color:#292929;
+public/css/styles.css:8556:border:1px solid #3c3c3c
+public/css/styles.css:8570:color:#e0e0e0;
+public/css/styles.css:857:background-color:#b71c1c;
+public/css/styles.css:8581:color:#bb86fc;
+public/css/styles.css:8587:color:#a0a0a0;
+public/css/styles.css:858:color:#ffebee
+public/css/styles.css:8597:color:#bb86fc;
+public/css/styles.css:8603:color:#a0a0a0;
+public/css/styles.css:8613:background-color:#292929;
+public/css/styles.css:8615:border:1px solid #3c3c3c;
+public/css/styles.css:8626:border-color:#bb86fc
+public/css/styles.css:8631:border-color:#bb86fc
+public/css/styles.css:8635:color:#e0e0e0;
+public/css/styles.css:8644:background-color:#1e1e1e;
+public/css/styles.css:8645:border:1px solid #3c3c3c;
+public/css/styles.css:8647:color:#e0e0e0;
+public/css/styles.css:8656:color:#a0a0a0;
+public/css/styles.css:8666:background-color:#292929;
+public/css/styles.css:8669:border:1px solid #3c3c3c
+public/css/styles.css:8673:color:#bb86fc;
+public/css/styles.css:8688:color:#e0e0e0;
+public/css/styles.css:868:background-color:#1e1e1e;
+public/css/styles.css:8698:border-top:1px solid #3c3c3c;
+public/css/styles.css:8699:color:#e0e0e0;
+public/css/styles.css:8709:color:#bb86fc;
+public/css/styles.css:8715:color:#a0a0a0;
+public/css/styles.css:871:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:872:border:1px solid #3c3c3c;
+public/css/styles.css:8730:background-color:#292929;
+public/css/styles.css:8731:color:#bb86fc;
+public/css/styles.css:8732:border:1px solid #3c3c3c;
+public/css/styles.css:8741:background-color:#bb86fc;
+public/css/styles.css:8742:color:#121212;
+public/css/styles.css:8749:background-color:#4caf50;
+public/css/styles.css:8750:color:#121212;
+public/css/styles.css:8759:background-color:#45a049;
+public/css/styles.css:8775:border:4px solid #3c3c3c;
+public/css/styles.css:877:color:#bb86fc;
+public/css/styles.css:8787:color:#bb86fc!important;
+public/css/styles.css:8792:background-color:#292929;
+public/css/styles.css:8796:border:1px solid #3c3c3c;
+public/css/styles.css:8801:color:#bb86fc;
+public/css/styles.css:8820:background-color:#1e1e1e;
+public/css/styles.css:8821:border:2px solid #3c3c3c;
+public/css/styles.css:8829:background-color:#bb86fc;
+public/css/styles.css:8830:border-color:#bb86fc
+public/css/styles.css:8835:color:#121212;
+public/css/styles.css:8847:color:#a0a0a0;
+public/css/styles.css:884:color:#e0e0e0;
+public/css/styles.css:8853:color:#bb86fc
+public/css/styles.css:8857:color:#a0a0a0;
+public/css/styles.css:8867:color:#cf6679;
+public/css/styles.css:8878:background-color:#cf66791a;
+public/css/styles.css:8879:color:#ff4d6b
+public/css/styles.css:8894:background-color:#1e1e1e;
+public/css/styles.css:8897:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:8898:border:1px solid #3c3c3c;
+public/css/styles.css:8903:color:#bb86fc;
+public/css/styles.css:8908:border-bottom:2px solid #bb86fc;
+public/css/styles.css:890:color:#bb86fc;
+public/css/styles.css:8924:background-color:#292929;
+public/css/styles.css:8925:color:#bb86fc;
+public/css/styles.css:8935:color:#e0e0e0;
+public/css/styles.css:8936:background-color:#292929;
+public/css/styles.css:8954:background-color:#ffd700;
+public/css/styles.css:8955:color:#121212
+public/css/styles.css:8959:background-color:#4caf50;
+public/css/styles.css:8960:color:#fff
+public/css/styles.css:8964:background-color:#f44336;
+public/css/styles.css:8965:color:#fff
+public/css/styles.css:896:color:#96c
+public/css/styles.css:8971:color:#a0a0a0;
+public/css/styles.css:8973:background-color:#292929;
+public/css/styles.css:8990:background-color:#bb86fc;
+public/css/styles.css:8991:color:#121212
+public/css/styles.css:8995:background-color:#96c;
+public/css/styles.css:9006:background-color:#1e1e1e;
+public/css/styles.css:9009:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:9010:border:1px solid #3c3c3c;
+public/css/styles.css:9015:color:#bb86fc;
+public/css/styles.css:9020:border-bottom:2px solid #bb86fc;
+public/css/styles.css:9025:background-color:#292929;
+public/css/styles.css:9029:border:1px solid #3c3c3c
+public/css/styles.css:9033:color:#bb86fc;
+public/css/styles.css:9043:color:#e0e0e0
+public/css/styles.css:9047:color:#bb86fc;
+public/css/styles.css:9052:background-color:#1e1e1e;
+public/css/styles.css:9055:color:#e0e0e0;
+public/css/styles.css:905:background-color:#bb86fc;
+public/css/styles.css:9069:border:2px solid #3c3c3c;
+public/css/styles.css:906:color:#121212;
+public/css/styles.css:9077:border-color:#bb86fc;
+public/css/styles.css:9079:box-shadow:0 4px 15px #bb86fc33
+public/css/styles.css:9108:background-color:#4caf50;
+public/css/styles.css:9109:color:#121212
+public/css/styles.css:9113:background-color:#45a049;
+public/css/styles.css:9118:background-color:#cf6679;
+public/css/styles.css:9119:color:#121212
+public/css/styles.css:9123:background-color:#b4464f;
+public/css/styles.css:9135:color:#bb86fc;
+public/css/styles.css:9147:background-color:#292929;
+public/css/styles.css:9148:color:#bb86fc;
+public/css/styles.css:9153:border:1px solid #3c3c3c
+public/css/styles.css:9157:background-color:#bb86fc;
+public/css/styles.css:9158:color:#121212;
+public/css/styles.css:9160:box-shadow:0 4px 15px #bb86fc33
+public/css/styles.css:9170:background-color:#1e1e1e;
+public/css/styles.css:9173:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:9174:border:1px solid #3c3c3c;
+public/css/styles.css:9179:color:#bb86fc;
+public/css/styles.css:9183:border-bottom:2px solid #bb86fc;
+public/css/styles.css:9188:background-color:#b71c1c;
+public/css/styles.css:9189:color:#ffebee;
+public/css/styles.css:9206:color:#e0e0e0;
+public/css/styles.css:920:background-color:#96c;
+public/css/styles.css:9215:background-color:#292929;
+public/css/styles.css:9216:border:1px solid #3c3c3c;
+public/css/styles.css:9218:color:#e0e0e0;
+public/css/styles.css:9228:border-color:#bb86fc;
+public/css/styles.css:9229:box-shadow:0 0 0 2px #bb86fc1a
+public/css/styles.css:9241:background-color:#292929;
+public/css/styles.css:9242:border:2px dashed #3c3c3c;
+public/css/styles.css:9249:border-color:#bb86fc;
+public/css/styles.css:925:background-color:#2e2e2e;
+public/css/styles.css:926:color:#858585;
+public/css/styles.css:9275:color:#a0a0a0;
+public/css/styles.css:9284:background-color:#bb86fc;
+public/css/styles.css:9285:color:#121212;
+public/css/styles.css:9299:background-color:#96c;
+public/css/styles.css:9308:background-color:#292929;
+public/css/styles.css:9309:border:2px solid #bb86fc;
+public/css/styles.css:9310:color:#bb86fc;
+public/css/styles.css:9339:background-color:#292929;
+public/css/styles.css:9340:border:2px solid #bb86fc;
+public/css/styles.css:9341:color:#bb86fc;
+public/css/styles.css:934:color:#e0e0e0;
+public/css/styles.css:9359:background-color:#1e1e1e;
+public/css/styles.css:935:background-color:#292929;
+public/css/styles.css:9360:border:1px solid #3c3c3c;
+public/css/styles.css:9363:box-shadow:0 4px 6px #0000001a
+public/css/styles.css:9367:color:#bb86fc;
+public/css/styles.css:9369:border-bottom:2px solid #bb86fc;
+public/css/styles.css:9376:color:#e0e0e0;
+public/css/styles.css:9390:color:#bb86fc;
+public/css/styles.css:939:border-left:4px solid #3498db;
+public/css/styles.css:9401:background-color:#1e1e1e;
+public/css/styles.css:9404:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:9405:border:1px solid #3c3c3c;
+public/css/styles.css:940:border-right:4px solid #3498db;
+public/css/styles.css:9410:color:#bb86fc;
+public/css/styles.css:9415:border-bottom:2px solid #bb86fc;
+public/css/styles.css:9424:color:#bb86fc;
+public/css/styles.css:9432:color:#a0a0a0;
+public/css/styles.css:9438:background-color:#292929;
+public/css/styles.css:9444:border:1px solid #3c3c3c;
+public/css/styles.css:9453:border:2px solid #3c3c3c
+public/css/styles.css:9467:color:#e0e0e0;
+public/css/styles.css:9474:color:#a0a0a0;
+public/css/styles.css:947:color:#e0e0e0;
+public/css/styles.css:9494:background-color:#292929;
+public/css/styles.css:9495:border:1px solid #3c3c3c;
+public/css/styles.css:9502:border-color:#bb86fc;
+public/css/styles.css:950:background-color:#292929;
+public/css/styles.css:9516:border-color:#bb86fc;
+public/css/styles.css:9517:background-color:#bb86fc1a
+public/css/styles.css:9531:color:#e0e0e0;
+public/css/styles.css:9536:color:#bb86fc;
+public/css/styles.css:9544:background-color:#cf677914;
+public/css/styles.css:9545:color:#cf6679;
+public/css/styles.css:954:border-left:4px solid #ffc107;
+public/css/styles.css:9558:background-color:#292929;
+public/css/styles.css:9559:border:1px solid #3c3c3c;
+public/css/styles.css:955:border-right:4px solid #ffc107
+public/css/styles.css:9561:color:#e0e0e0;
+public/css/styles.css:9570:border-color:#bb86fc
+public/css/styles.css:9579:background-color:#bb86fc;
+public/css/styles.css:9580:color:#121212;
+public/css/styles.css:9593:background-color:#96c;
+public/css/styles.css:9601:background-color:#1e1e1e;
+public/css/styles.css:9602:border:1px solid #3c3c3c;
+public/css/styles.css:9604:box-shadow:0 4px 20px #0000004d;
+public/css/styles.css:9611:color:#bb86fc;
+public/css/styles.css:9617:color:#e0e0e0;
+public/css/styles.css:9624:color:#e0e0e0;
+public/css/styles.css:9625:background-color:#292929;
+public/css/styles.css:9629:border-left:4px solid #cf6679;
+public/css/styles.css:9643:background-color:#bb86fc;
+public/css/styles.css:9644:color:#121212;
+public/css/styles.css:9654:background-color:#96c;
+public/css/styles.css:9669:background-color:#292929;
+public/css/styles.css:9670:border:2px solid #bb86fc;
+public/css/styles.css:9671:color:#bb86fc;
+public/css/styles.css:9686:box-shadow:0 4px 15px #bb86fc33
+public/css/styles.css:9697:background-color:#1e1e1e;
+public/css/styles.css:9700:box-shadow:0 6px 25px #0000004d;
+public/css/styles.css:9701:border:1px solid #3c3c3c
+public/css/styles.css:9705:color:#bb86fc;
+public/css/styles.css:970:color:#3498db;
+public/css/styles.css:9723:border-bottom:1px solid #3c3c3c
+public/css/styles.css:9727:color:#e0e0e0;
+public/css/styles.css:9733:color:#e0e0e0;
+public/css/styles.css:9744:color:#bb86fc;
+public/css/styles.css:9750:color:#a0a0a0;
+public/css/styles.css:9765:background-color:#1b5e20;
+public/css/styles.css:9766:color:#e8f5e9
+public/css/styles.css:9770:background-color:#ffc107;
+public/css/styles.css:9771:color:#121212
+public/css/styles.css:9775:background-color:#292929;
+public/css/styles.css:9776:color:#e0e0e0;
+public/css/styles.css:9777:border:1px solid #3c3c3c
+public/css/styles.css:9781:color:#cf6679;
+public/css/styles.css:9787:background-color:#292929;
+public/css/styles.css:9792:border:1px solid #3c3c3c;
+public/css/styles.css:9793:color:#e0e0e0;
+public/css/styles.css:9805:border:4px solid #bb86fc;
+public/css/styles.css:9811:color:#e0e0e0;
+public/css/styles.css:9824:background-color:#bb86fc;
+public/css/styles.css:9825:color:#121212;
+public/css/styles.css:9837:background-color:#96c;
+public/css/styles.css:983:border-top:1px solid #3c3c3c;
+public/css/styles.css:9842:background-color:#1b5e20;
+public/css/styles.css:9843:color:#e8f5e9;
+public/css/styles.css:9851:background-color:#292929;
+public/css/styles.css:9853:border:2px solid #bb86fc;
+public/css/styles.css:9859:color:#e0e0e0;
+public/css/styles.css:9865:color:#cf6679;
+public/css/styles.css:9870:background-color:#cf66791a;
+public/css/styles.css:9872:border:1px solid #cf6679
+public/css/styles.css:9883:background-color:#292929;
+public/css/styles.css:9884:color:#bb86fc;
+public/css/styles.css:9885:border:1px solid #3c3c3c;
+public/css/styles.css:9894:background-color:#bb86fc;
+public/css/styles.css:9895:color:#121212;
+public/css/styles.css:9904:background:#1e1e1e;
+public/css/styles.css:9906:border:1px solid #3c3c3c;
+public/css/styles.css:9913:background:#292929;
+public/css/styles.css:9916:border:1px solid #3c3c3c;
+public/css/styles.css:9922:border-color:#bb86fc;
+public/css/styles.css:9962:color:#e0e0e0;
+public/css/styles.css:997:color:#e0e0e0;
+public/css/styles.css:9996:background-color:#004D40;
+public/css/styles.css:9997:color:#e0e0e0

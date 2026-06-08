@@ -1,12 +1,12 @@
-KABUS MARKETPLACE SCRIPT LICENSE
+MERCATORIA MARKETPLACE SCRIPT LICENSE
 
-Copyright (c) 2025 sukunetsiz
+Copyright (c) 2026 godsxfinger
 
 DEFINITIONS
 
-"Software" refers to the Kabus marketplace script, including all source code, documentation, configuration files, assets, and associated materials available at github.com/sukunetsiz/kabus.
+"Software" refers to the Mercatoria marketplace script, including all source code, documentation, configuration files, assets, and associated materials available at github.com/godsxfinger.
 
-"Original Author" refers to sukunetsiz, the creator and copyright holder of the Software.
+"Original Author" refers to godsxfinger, the creator and copyright holder of the Software.
 
 "You" refers to any individual or entity that obtains, uses, or distributes the Software.
 
@@ -38,13 +38,13 @@ Any use, modification, or distribution of the Software requires strict complianc
 
 2. PROPER FORKING: Any public sharing of the Software on GitHub, GitLab, Bitbucket, or similar platforms must be accomplished exclusively through the official fork mechanism. Creating new repositories with copied code from the Software is prohibited and constitutes copyright infringement.
 
-3. CLEAR ATTRIBUTION: In any public documentation, about pages, readme files, or user-facing materials, You must clearly and prominently state that the work is "Based on Kabus marketplace script by sukunetsiz (github.com/sukunetsiz/kabus)".
+3. CLEAR ATTRIBUTION: In any public documentation, about pages, readme files, or user-facing materials, You must clearly and prominently state that the work is "Based on Mercatoria marketplace script by godsxfinger.
 
 4. SOURCE CODE DISCLOSURE: If You distribute any modified version of the Software, You must make the complete source code available under the terms of this same license.
 
 5. LICENSE INHERITANCE: Any derivative works must be licensed under identical terms to this license.
 
-6. INTERFACE ATTRIBUTION: You must retain any "Powered by Kabus" or similar attribution notices in the software interface where visible to end users.
+6. INTERFACE ATTRIBUTION: You must retain any "Powered by Mercatoria" or similar attribution notices in the software interface where visible to end users.
 
 7. SUBSTANTIAL PORTIONS: Use of any substantial portion of the Software is subject to all terms of this license, regardless of how it is incorporated into other works.
 
@@ -75,18 +75,18 @@ The following activities are expressly prohibited and constitute copyright infri
 USE CASE CLARIFICATIONS
 
 PERMITTED:
-- Installing and running Kabus for your own marketplace operations
+- Installing and running Mercatoria for your own marketplace operations
 - Modifying the code for your specific marketplace needs
 - Learning from and studying the codebase
 - Contributing improvements through proper forks and pull requests
 
 PROHIBITED:
-- Selling Kabus or modified versions on any marketplace or platform
-- Offering Kabus installation or customization as a paid service without explicit permission
-- Removing "Powered by Kabus" or similar attribution from the software interface
+- Selling Mercatoria or modified versions on any marketplace or platform
+- Offering Mercatoria installation or customization as a paid service without explicit permission
+- Removing "Powered by Mercatoria" or similar attribution from the software interface
 - Creating "nulled" or cracked versions
 - Distributing through file-sharing platforms or torrent sites
-- Using Kabus code in AI training datasets
+- Using Mercatoria code in AI training datasets
 - Incorporating substantial portions into proprietary software without full license compliance
 - Hosting modified versions on personal websites without proper source code disclosure
 
@@ -125,13 +125,12 @@ This license shall be governed by and construed in accordance with applicable co
 
 CONTACT AND COMMERCIAL LICENSING
 
-For commercial licensing, distribution rights, or permissions beyond this license, contact:
-sukunetsiz@protonmail.com
+For commercial licensing, distribution rights, or permissions beyond this license, contact: godsxfinger
 
 Commercial licenses are available for entities wishing to use, distribute, or sell the Software commercially.
 
 LICENSE VALIDITY
 
-This license is effective as of September 9, 2025, and applies to all previous, current and future versions of the Kabus marketplace script. This license supersedes any previous licensing terms and remains in effect until terminated according to its terms.
+This license is effective as of January 8, 2026, and applies to all previous, current and future versions of the Mercatoria marketplace script. This license supersedes any previous licensing terms and remains in effect until terminated according to its terms.
 
 The Original Author reserves the right to change licensing terms for future versions of the Software, but such changes do not affect rights already granted under this license for existing versions.

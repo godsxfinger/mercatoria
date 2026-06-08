@@ -32,8 +32,13 @@
                                 </span>
                             </div>
                             <p class="messages-index-preview">
-                                @if($conversation->messages->isNotEmpty())
-                                    {{ Str::limit($conversation->messages->last()->content, 100) }}
+                                @if($conversation->latestMessage)
+                                    @php
+                                        $previewSender = $conversation->latestMessage->sender_id === Auth::id()
+                                            ? 'You'
+                                            : ($conversation->latestMessage->sender->username ?? 'Unknown');
+                                    @endphp
+                                    {{ $previewSender }}: {{ Str::limit($conversation->latestMessage->content, 100) }}
                                 @else
                                     No messages yet
                                 @endif

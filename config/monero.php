@@ -11,8 +11,10 @@ return [
     |
     */
     'host' => env('MONERO_RPC_HOST', '127.0.0.1'),
-    'port' => env('MONERO_RPC_PORT', 18082),
+    'port' => env('MONERO_RPC_PORT', 18083),
     'ssl' => env('MONERO_RPC_SSL', false),
+    'username' => env('MONERO_RPC_USERNAME'),
+    'password' => env('MONERO_RPC_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,    // Must run first to create vendors
             ProductSeeder::class, // Depends on vendors existing
             ReviewSeeder::class,  // Depends on both users and products existing
+            DemoSeeder::class,    // Deterministic portfolio demo data
         ]);
 
         $this->command->info('Database seeding completed successfully.');

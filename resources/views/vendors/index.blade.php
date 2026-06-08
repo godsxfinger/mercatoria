@@ -5,6 +5,7 @@
 <div class="vendors-index-container">
     <div class="vendors-index-card">
         <h1 class="vendors-index-title">Vendor List</h1>
+        <p class="vendors-index-subtitle">Explore trusted sellers across the marketplace</p>
         @if($vendors->isEmpty())
             <p class="vendors-index-empty">No vendors found.</p>
         @else

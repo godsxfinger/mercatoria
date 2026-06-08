@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>Title</th>
+                            <th>Sender</th>
                             <th>Target Group</th>
                             <th>Sent Date</th>
                             <th>Actions</th>
@@ -33,6 +34,11 @@
                                 <td>
                                     <div class="bulk-message-list-title-text">
                                         {{ $notification->title }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="bulk-message-list-target">
+                                        {{ $notification->sender->username ?? 'System' }}
                                     </div>
                                 </td>
                                 <td>

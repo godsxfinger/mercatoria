@@ -74,7 +74,7 @@
                     @endif
                 </li>
                 <li>
-                    <strong>Dead Drop Products:</strong> {{ number_format($productsByType['deaddrop']) }}
+                    <strong>Local Pickup Products:</strong> {{ number_format($productsByType['deaddrop']) }}
                     @if($totalProducts > 0)
                         ({{ number_format(($productsByType['deaddrop'] / $totalProducts) * 100, 1) }}%)
                     @endif

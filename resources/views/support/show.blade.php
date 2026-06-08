@@ -61,11 +61,12 @@
                             minlength="8" maxlength="4000">{{ old('message') }}</textarea>
                     </div>
 
-                    <div class="support-show-captcha-container">
+                    <div class="support-show-captcha-container support-show-captcha-container-block">
                         <span class="support-show-captcha-label">CAPTCHA</span>
                         <img class="support-show-captcha-image" src="{{ $captchaImage }}" alt="CAPTCHA">
                         <input type="text" name="captcha" id="captcha" required
                             class="support-show-captcha-input"
+                            placeholder="Enter CAPTCHA"
                             minlength="2" maxlength="8">
                     </div>
 

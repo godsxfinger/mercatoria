@@ -25,6 +25,9 @@ use Illuminate\Database\QueryException;
 class ProfileController extends Controller
 {
     private const CONFIRMATION_EXPIRY_MINUTES = 16;
+    private const MAX_IMAGE_WIDTH = 5000;
+    private const MAX_IMAGE_HEIGHT = 5000;
+    private const MAX_IMAGE_PIXELS = 16000000;
 
     private $allowedMimeTypes = [
         'image/jpeg',
@@ -55,11 +58,13 @@ class ProfileController extends Controller
                     'string',
                     'min:4',
                     'max:800',
-                    'regex:/^[\p{L}\p{N}\s\p{P}]+$/u'
+                    'regex:/^(?!.*[<>])[\p{L}\p{N}\s\p{P}]+$/u'
                 ],
                 'profile_picture' => [
                     'nullable',
                     'file',
+                    'image',
+                    'mimes:jpeg,png,gif,webp',
                     'max:800',
                 ],
             ], [
@@ -119,9 +124,10 @@ class ProfileController extends Controller
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $mimeType = $finfo->file($file->getPathname());
 
-            if (!in_array($mimeType, $this->allowedMimeTypes)) {
+            if (!in_array($mimeType, $this->allowedMimeTypes, true)) {
                 throw new Exception('Invalid file type. Allowed types are JPEG, PNG, GIF, and WebP.');
             }
+            $this->assertSafeImageDimensions($file);
 
             // Delete old profile picture if exists
             if ($profile->profile_picture) {
@@ -173,6 +179,28 @@ class ProfileController extends Controller
         return $extensions[$mimeType] ?? 'jpg';
     }
 
+    private function assertSafeImageDimensions($file): void
+    {
+        $imageInfo = @getimagesize($file->getPathname());
+        if ($imageInfo === false) {
+            throw new Exception('Invalid image file.');
+        }
+
+        $width = (int) ($imageInfo[0] ?? 0);
+        $height = (int) ($imageInfo[1] ?? 0);
+        $pixels = $width * $height;
+
+        if (
+            $width < 1 ||
+            $height < 1 ||
+            $width > self::MAX_IMAGE_WIDTH ||
+            $height > self::MAX_IMAGE_HEIGHT ||
+            $pixels > self::MAX_IMAGE_PIXELS
+        ) {
+            throw new Exception('Image dimensions are too large.');
+        }
+    }
+
     private function encodeImage($image, $mimeType)
     {
         switch ($mimeType) {
@@ -195,6 +223,15 @@ class ProfileController extends Controller
                 abort(403, 'Unauthorized action.');
             }
 
+            // Prevent path traversal and unexpected filename formats
+            if (
+                !preg_match('/^[A-Za-z0-9._-]+$/', $filename) ||
+                str_contains($filename, '..') ||
+                str_contains($filename, '/')
+            ) {
+                abort(404, 'Profile picture not found');
+            }
+
             // Get the path to the image
             $path = 'profile_pictures/' . $filename;
 
@@ -210,13 +247,15 @@ class ProfileController extends Controller
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $mimeType = $finfo->buffer($file);
 
-            if (!in_array($mimeType, $this->allowedMimeTypes)) {
+            if (!in_array($mimeType, $this->allowedMimeTypes, true)) {
                 throw new Exception('Invalid file type');
             }
 
             // Create the response
             $response = Response::make($file, 200);
             $response->header("Content-Type", $mimeType);
+            $response->header('X-Content-Type-Options', 'nosniff');
+            $response->header('Cache-Control', 'private, no-store, max-age=0');
 
             return $response;
         } catch (Exception $e) {

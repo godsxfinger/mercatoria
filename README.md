@@ -1,139 +1,121 @@
-<div align="center">
-  <h1><a href="docs/INSTALLATION.md">Installation Guide</a></h1>
-</div>
+# Mercatoria
 
-<div align="center">
-  <img src="public/images/kabus.png" alt="Kabus Logo">
-</div>
+Mercatoria is a privacy-first multi-vendor marketplace built with Laravel 11. It demonstrates vendor onboarding, product catalogs, cart and checkout rules, order lifecycle management, crypto payment integration, disputes, admin moderation, and privacy-oriented encrypted messaging in a portfolio-safe way.
 
-<div align="center">
-  <h1>Kabus - Monero Marketplace Script</h1>
-</div>
+## Project Overview
 
-<div align="center">
-    <h1>Project Status and Future Direction</h1>
-</div>
+The application models a marketplace where buyers can browse vendors, build a single-vendor cart, create orders, track fulfillment, message vendors, and raise disputes. Vendors can manage listings, view sales, and receive payouts through an abstract payment layer. Admins can review users, products, disputes, and platform activity.
 
-Due to minimal donations, I have decided to discontinue active development of Kabus as an open-source project. Maintaining and enhancing this marketplace script requires significant time and resources, and without adequate community backing, it is no longer sustainable to continue development using my personal time while managing other financial obligations.
+## Why I Built This
 
-**The Kabus repository will remain open-source and available for use.** You are free to fork, modify, and use the existing codebase according to the project's license terms.
+Mercatoria is designed as a realistic Laravel case study: complex enough to show architecture decisions, but framed around legitimate marketplace workflows, privacy-conscious authentication, and maintainable service boundaries.
 
-<div align="center">
-    <h2>About Kabus-X</h2>
-</div>
+## Tech Stack
 
-Moving forward, I am developing Kabus-X, which will be a premium, paid Monero marketplace script featuring:
+- Laravel 11, PHP 8.3, Blade, Vite
+- MySQL-compatible schema
+- Laravel authorization policies and middleware
+- Service/action classes for order and payment workflows
+- PHPUnit feature and unit tests
+- Optional Monero wallet RPC adapter behind a payment interface
 
-- Advanced security implementations
-- Enhanced performance optimizations
-- Exclusive features not available in the open-source version
-- Regular updates and improvements
+## Core Features
 
-For more information about Kabus-X, including services, custom development, and portfolio showcase, please visit: https://github.com/sukunetsiz/kabus-x-studio
+- Multi-role accounts for buyers, vendors, and admins
+- Product types for digital delivery, cargo shipping, and local pickup
+- Single-vendor cart enforcement
+- Checkout stock validation
+- Order creation, payment tracking, fulfillment, completion, cancellation, refund, and dispute handling
+- Privacy-oriented encrypted messaging
+- Public-key authentication challenge support
+- Admin moderation and marketplace statistics
 
-<div align="center">
-    <h1>Introduction</h1>
-</div>
+## Buyer Workflow
 
-The purpose of creating Kabus was to contribute to the Monero ecosystem and ensure its growth. It was never created for any illegal purpose, nor does it encourage such activities. The aim of this marketplace script is to facilitate the sale of legal products online as anonymously as possible.
+Buyers register, browse products, add items from one vendor at a time, choose delivery or pickup options, and create an order. After payment is detected, the buyer can track fulfillment, complete the order, contact the vendor, or open a dispute when appropriate.
 
-Built with PHP 8.3 and Laravel 11.
+## Vendor Workflow
 
-<div align="center">
-    <h2>Core Features</h2>
-</div>
+Vendors create and update product listings, define delivery options, manage stock, review sales, mark orders as sent, and receive released payments when orders complete.
 
-### Monero Integration
-- **Vendor Registration Payment**: Monero Wallet RPC integration that generates a wallet address for vendor fee payments, with support for separate transactions and a 24-hour payment window
-- **Product Advertising Payment**: Integrated payment system for vendors to advertise their products on the homepage through Monero transactions
-- **Product Purchasing**: Integrated Monero payment system for secure and anonymous product transactions
-- **Return Address System**: Validation for user's Monero return addresses
+## Admin Workflow
 
-### Marketplace Functions
-- **User Dashboard**: Comprehensive control panel for account management
-- **Vendor Profiles**: Vendor pages with product listings
-- **Product Management**: Search functionality and wishlist feature
-- **Messaging System**: Secure communication between users
-- **Admin Panel**: Complete administrative control interface
-- **Vendor Panel**: Dedicated interface for vendor operations
-- **Reference System**: Optional referral code requirement for registration
-- **Educational Resources**: Comprehensive guides on Monero, Tor, KeePassXC and Kleopatra usage for new users
-- **Support System**: Integrated help desk functionality
-- **Disputes System**: Facilitates resolution of order-related issues between buyers and vendors with administrative intervention when necessary
+Admins can manage users, products, categories, platform messages, disputes, and marketplace statistics. Dispute tools allow admins to resolve outcomes while preserving order lifecycle rules.
 
-### Security & Privacy
-- **Walletless Escrow System**: No user wallets; payments are made per order and escrowed until order resolution
-- **PGP Integration**: Mandatory PGP key confirmation for vendors to verify key ownership
-- **Two-Factor Authentication**: Enhanced security through PGP-based 2FA
-- **Mnemonic Recovery**: Built-in mnemonic phrase generation for key recovery
-- **No JavaScript**: Built entirely with pure PHP and does not utilize JavaScript in any capacity
+## Order Lifecycle
 
-<div align="center">
-    <h1>Screenshots</h1>
-</div>
+Mercatoria uses explicit order statuses:
 
-![Products Page](docs/1.png)
----
-![AdminPanel's User Page](docs/2.png)
----
-![Account Page](docs/3.png)
----
-![References Page](docs/4.png)
----
-![Support Page](docs/5.png)
----
-![Products Page](docs/6.png)
----
-![Cart Page](docs/7.png)
----
-![Return Addresses Page](docs/8.png)
----
-![Order Payment Page](docs/9.png)
----
-![Advertisements Page](docs/10.png)
----
-![Vendors Page](docs/11.png)
----
-![Settings Page](docs/12.png)
----
-![Messages Page](docs/13.png)
----
-![Create Pop-up Page](docs/14.png)
----
-![Admin Dispute Page](docs/15.png)
----
-![Create Cargo Product Page](docs/16.png)
----
+- `waiting_payment`
+- `payment_received`
+- `product_sent`
+- `completed`
+- `cancelled`
+- `disputed`
+- `refunded`
 
-<div align="center">
-  <h1><a href="docs/CONNECTING-MONERO-RPC.md">Monero Wallet RPC Guide</a></h1>
-</div>
+Allowed transitions are centralized in `OrderStateService`, so invalid transitions throw a clear exception instead of silently mutating order state.
 
-<div align="center">
-    <h2>Legacy Support</h2>
-</div>
+## Payment Architecture
 
-While active development of Kabus has concluded, the open-source codebase remains available for community use. If you're using the existing code:
+Payment behavior is accessed through `PaymentGateway`, which defines:
 
-- **Monero Donations**: Direct support through Monero payments
-- **Code Contributions**: Community pull requests and improvements are still welcome
-- **Bug Reports**: Issues can be reported for community visibility and potential fixes
-- **Community Fork**: Users are encouraged to fork and maintain their own versions
-
-*For professional support and ongoing development, consider Kabus-X.*
-
----
-
-<div align="center">
-
-## Donation Address
-
-![Monero QR](docs/monero-donate.png)
-
-**Monero (XMR)** `89p3o8Umho9haXyAJHMwrfeeqea2UoJaZ6sknFvYVAitMFKJYTW54huh1enTQHBwdaWq5duyZ4ZsZjVcHQyiRZmfGbQMhce`
-
-</div>
-
+```php
+createPaymentAddress(Order $order): PaymentRequest
+checkPaymentStatus(Order $order): PaymentStatus
+refund(Order $order): RefundResult
 ```
-Privacy is a human right, and it can never be taken away from anyone, nor should it even be suggested.
+
+`MoneroPaymentGateway` is the current provider implementation. Controllers depend on the interface, so another provider can be added later without rewriting checkout or order controllers.
+
+## Security Decisions
+
+- `.env`, wallet credentials, and runtime logs are ignored
+- Public-key authentication challenge logic is isolated in a service
+- Messaging content is encrypted at rest by the model layer
+- Authorization policies cover products, orders, disputes, messages, and vendor profiles
+- Tests mock payment behavior and do not call real wallet RPC endpoints
+
+## Database Design
+
+The database preserves existing compatibility keys while improving source conventions. The legacy product type value `deaddrop` remains stored for compatibility, but the UI presents it as local pickup. The conventional `Order` model is available, with `Orders` kept as a deprecated alias to avoid abrupt breakage.
+
+## Testing Strategy
+
+The test suite covers brand smoke checks, product validation, cart stock behavior, order state transitions, payment abstractions, authorization boundaries, demo-safe messaging access rules, and basic auth/middleware flows. Payment tests use mocked gateways so local and CI runs do not require wallet RPC.
+
+## Local Setup
+
+```bash
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm run build
+php artisan serve
 ```
+
+Open `http://127.0.0.1:8000`.
+
+## Demo Accounts
+
+The demo seeder creates predictable, fake-only accounts:
+
+- Admin: `demo_admin` / `Password!123`
+- Vendor: `demo_vendor` / `Password!123`
+- Buyer: `demo_buyer` / `Password!123`
+
+These accounts are for local development only. They do not include real wallet credentials, secrets, or RPC values.
+
+## Screenshots
+
+Screenshots can be added from a local seeded run after final UI review.
+
+## Lessons Learned
+
+This project shows how a Laravel app can evolve from feature-heavy controllers into clearer model, policy, service, and action boundaries without a rewrite. The main takeaway is that compatibility and professionalism can coexist: legacy database values can be preserved while the public product story, naming, tests, and architecture become cleaner.
+
+## License
+
+See `LICENSE.txt`.

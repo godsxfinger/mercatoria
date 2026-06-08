@@ -111,7 +111,7 @@
                     <div class="orders-show-payment-row">
                         <span class="orders-show-payment-label">Required Amount:</span>
                         <span class="orders-show-payment-value">
-                            <span class="orders-show-payment-amount">ɱ{{ number_format($order->required_xmr_amount, 12) }} XMR</span>
+                            <span class="orders-show-payment-amount">{{ number_format($order->required_xmr_amount, 12) }} XMR</span>
                         </span>
                     </div>
                 
@@ -125,7 +125,7 @@
                     <div class="orders-show-payment-row">
                         <span class="orders-show-payment-label">Minimum Payment:</span>
                         <span class="orders-show-payment-value">
-                            <span class="orders-show-payment-amount">ɱ{{ number_format($order->required_xmr_amount * 0.1, 12) }} XMR (10%)</span>
+                            <span class="orders-show-payment-amount">{{ number_format($order->required_xmr_amount * 0.1, 12) }} XMR (10%)</span>
                         </span>
                     </div>
                 
@@ -133,9 +133,9 @@
                         <div class="orders-show-payment-row">
                             <span class="orders-show-payment-label">Amount Received:</span>
                             <div class="orders-show-payment-value-group">
-                                <span class="orders-show-payment-amount">ɱ{{ number_format($order->total_received_xmr, 12) }} XMR</span>
+                                <span class="orders-show-payment-amount">{{ number_format($order->total_received_xmr, 12) }} XMR</span>
                                 <span class="orders-show-payment-remaining">
-                                    Remaining: ɱ{{ number_format($order->required_xmr_amount - $order->total_received_xmr, 12) }} XMR
+                                    Remaining: {{ number_format($order->required_xmr_amount - $order->total_received_xmr, 12) }} XMR
                                 </span>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                         </div>
                     @endif
                 
-                    <h2 class="orders-show-payment-subtitle" style="margin-top: 20px;">Payment Address</h2>
+                    <h2 class="orders-show-payment-subtitle orders-show-payment-subtitle-spaced">Payment Address</h2>
                     <div class="orders-show-payment-address">
                         {{ $order->payment_address }}
                     </div>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="orders-show-info-item">
                     <div class="orders-show-info-label">Monero Amount</div>
-                    <div class="orders-show-info-value total">ɱ{{ number_format($order->required_xmr_amount, 12) }}</div>
+                    <div class="orders-show-info-value total">{{ number_format($order->required_xmr_amount, 12) }} XMR</div>
                 </div>
             </div>
         </div>
@@ -298,7 +298,7 @@
                                     @elseif($item->product->type === 'cargo')
                                         Cargo
                                     @elseif($item->product->type === 'deaddrop')
-                                        Dead Drop
+                                        Local Pickup
                                     @else
                                         {{ ucfirst($item->product->type) }}
                                     @endif

@@ -25,6 +25,9 @@ use Intervention\Image\Exceptions\NotReadableException;
 class BecomeVendorController extends Controller
 {
     protected $walletRPC;
+    private const MAX_IMAGE_WIDTH = 5000;
+    private const MAX_IMAGE_HEIGHT = 5000;
+    private const MAX_IMAGE_PIXELS = 16000000;
 
     public function __construct()
     {
@@ -33,7 +36,9 @@ class BecomeVendorController extends Controller
             $this->walletRPC = new walletRPC(
                 $config['host'],
                 $config['port'],
-                $config['ssl']
+                $config['ssl'],
+                $config['username'] ?? null,
+                $config['password'] ?? null
             );
         } catch (\Exception $e) {
             Log::error('Failed to initialize Monero RPC connection: ' . $e->getMessage());
@@ -318,9 +323,10 @@ class BecomeVendorController extends Controller
                 'image/webp'
             ];
 
-            if (!in_array($mimeType, $allowedMimeTypes)) {
+            if (!in_array($mimeType, $allowedMimeTypes, true)) {
                 throw new \Exception('Invalid file type. Allowed types are JPEG, PNG, GIF, and WebP.');
             }
+            $this->assertSafeImageDimensions($file);
 
             $extension = match($mimeType) {
                 'image/jpeg' => 'jpg',
@@ -362,6 +368,28 @@ class BecomeVendorController extends Controller
         } catch (\Exception $e) {
             Log::error('Application picture upload failed: ' . $e->getMessage());
             throw new \Exception($e->getMessage());
+        }
+    }
+
+    private function assertSafeImageDimensions($file): void
+    {
+        $imageInfo = @getimagesize($file->getPathname());
+        if ($imageInfo === false) {
+            throw new \Exception('Invalid image file.');
+        }
+
+        $width = (int) ($imageInfo[0] ?? 0);
+        $height = (int) ($imageInfo[1] ?? 0);
+        $pixels = $width * $height;
+
+        if (
+            $width < 1 ||
+            $height < 1 ||
+            $width > self::MAX_IMAGE_WIDTH ||
+            $height > self::MAX_IMAGE_HEIGHT ||
+            $pixels > self::MAX_IMAGE_PIXELS
+        ) {
+            throw new \Exception('Image dimensions are too large.');
         }
     }
 

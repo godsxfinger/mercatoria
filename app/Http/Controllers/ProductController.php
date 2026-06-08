@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -114,6 +115,14 @@ class ProductController extends Controller
             $products = $query->paginate(12)->withQueryString();
 
             $categories = Category::select('id', 'name')->get();
+            $activeVendorIds = Product::active()
+                ->select('user_id')
+                ->distinct()
+                ->pluck('user_id');
+
+            $vendorOptions = User::whereIn('id', $activeVendorIds)
+                ->orderBy('username')
+                ->pluck('username');
 
             // Modified redirect logic to exclude 'page' parameter
             $requestParams = $request->except('page');
@@ -124,6 +133,7 @@ class ProductController extends Controller
             return view('products.index', [
                 'products' => $products,
                 'categories' => $categories,
+                'vendorOptions' => $vendorOptions,
                 'currentType' => $filters['type'] ?? null,
                 'filters' => $filters
             ]);
@@ -251,6 +261,15 @@ class ProductController extends Controller
                 abort(403, 'Unauthorized action.');
             }
 
+            // Prevent path traversal and unexpected filename formats
+            if (
+                !preg_match('/^[A-Za-z0-9._-]+$/', $filename) ||
+                str_contains($filename, '..') ||
+                str_contains($filename, '/')
+            ) {
+                throw new Exception('Invalid filename');
+            }
+
             // If it's the default picture, serve it from the public directory
             if ($filename === 'default-product-picture.png') {
                 return response()->file(public_path('images/default-product-picture.png'));
@@ -271,13 +290,15 @@ class ProductController extends Controller
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $mimeType = $finfo->buffer($file);
 
-            if (!in_array($mimeType, $this->allowedMimeTypes)) {
+            if (!in_array($mimeType, $this->allowedMimeTypes, true)) {
                 throw new Exception('Invalid file type');
             }
 
             // Create the response
             $response = Response::make($file, 200);
             $response->header("Content-Type", $mimeType);
+            $response->header('X-Content-Type-Options', 'nosniff');
+            $response->header('Cache-Control', 'private, no-store, max-age=0');
 
             return $response;
         } catch (Exception $e) {

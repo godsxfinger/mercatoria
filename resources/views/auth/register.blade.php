@@ -1,4 +1,5 @@
 @extends('layouts.auth')
+@section('body_class', 'auth-register-page')
 @section('content')
 
 <div class="auth-register-container">
@@ -36,11 +37,11 @@
                        @if(config('marketplace.require_reference_code', true)) required @endif
                        minlength="12" maxlength="20">
             </div>
-            <div class="auth-register-form-group">
+            <div class="auth-register-form-group auth-register-form-group-captcha">
                 <div class="auth-register-captcha-wrapper">
                     <div class="auth-register-captcha-label">CAPTCHA</div>
                     <img src="{{ $captchaImage }}" alt="CAPTCHA Image" class="auth-register-captcha-image">
-                    <input type="text" id="captcha" name="captcha" class="auth-register-input" required minlength="2" maxlength="8">
+                    <input type="text" id="captcha" name="captcha" class="auth-register-input" required minlength="2" maxlength="8" placeholder="Enter CAPTCHA">
                 </div>
             </div>
             <button type="submit" class="auth-register-submit-btn">Register</button>

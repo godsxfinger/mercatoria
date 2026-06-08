@@ -18,9 +18,9 @@
             </div>
             
             <div class="a-v-panel-item">
-                <h3 class="a-v-panel-item-title">Add Dead Drop Product</h3>
+                <h3 class="a-v-panel-item-title">Add Local Pickup Product</h3>
                 <p class="a-v-panel-item-description">You can add products that can be delivered via dead drop.</p>
-                <a href="{{ route('vendor.products.create', 'deaddrop') }}" class="a-v-panel-item-link">Add Dead Drop Product</a>
+                <a href="{{ route('vendor.products.create', 'deaddrop') }}" class="a-v-panel-item-link">Add Local Pickup Product</a>
             </div>
             <div class="a-v-panel-item">
                 <h3 class="a-v-panel-item-title">Vendor Appearance</h3>

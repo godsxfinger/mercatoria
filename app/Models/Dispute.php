@@ -60,7 +60,7 @@ class Dispute extends Model
      */
     public function order()
     {
-        return $this->belongsTo(Orders::class, 'order_id');
+        return $this->belongsTo(Order::class, 'order_id');
     }
 
     /**
@@ -102,13 +102,15 @@ class Dispute extends Model
             return false;
         }
 
+        // Complete the order first; dispute can only be resolved if order transition succeeds.
+        if (!$this->order->markAsCompleted()) {
+            return false;
+        }
+
         $this->status = self::STATUS_VENDOR_PREVAILS;
         $this->resolved_at = now();
         $this->resolved_by = $adminId;
         $this->save();
-
-        // Mark the order as completed
-        $this->order->markAsCompleted();
 
         return true;
     }
@@ -122,13 +124,15 @@ class Dispute extends Model
             return false;
         }
 
+        // Cancel the order first; dispute can only be resolved if order transition succeeds.
+        if (!$this->order->markAsCancelled()) {
+            return false;
+        }
+
         $this->status = self::STATUS_BUYER_PREVAILS;
         $this->resolved_at = now();
         $this->resolved_by = $adminId;
         $this->save();
-
-        // Mark the order as cancelled
-        $this->order->markAsCancelled();
 
         return true;
     }
@@ -192,103 +196,3 @@ class Dispute extends Model
     }
 }
 
-/**
- * DisputeMessage model represents individual messages within a dispute.
- */
-class DisputeMessage extends Model
-{
-    use HasFactory;
-
-    public $incrementing = false;
-    protected $keyType = 'string';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<string>
-     */
-    protected $fillable = [
-        'dispute_id',
-        'user_id',
-        'message',
-    ];
-
-    /**
-     * Boot function from Laravel.
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function (Model $model) {
-            // Set 30-character alphanumeric string if not set
-            if (empty($model->{$model->getKeyName()})) {
-                $model->{$model->getKeyName()} = Str::random(30);
-            }
-        });
-    }
-
-    /**
-     * Get the dispute that owns the message.
-     */
-    public function dispute()
-    {
-        return $this->belongsTo(Dispute::class, 'dispute_id');
-    }
-
-    /**
-     * Get the user who sent the message.
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    /**
-     * Check if the message is from an admin.
-     */
-    public function isFromAdmin()
-    {
-        return $this->user && $this->user->hasRole('admin');
-    }
-
-    /**
-     * Check if the message is from the buyer.
-     */
-    public function isFromBuyer()
-    {
-        if (!$this->user || !$this->dispute || !$this->dispute->order) {
-            return false;
-        }
-
-        return $this->user->id === $this->dispute->order->user_id;
-    }
-
-    /**
-     * Check if the message is from the vendor.
-     */
-    public function isFromVendor()
-    {
-        if (!$this->user || !$this->dispute || !$this->dispute->order) {
-            return false;
-        }
-
-        return $this->user->id === $this->dispute->order->vendor_id;
-    }
-
-    /**
-     * Get the message type for UI display.
-     */
-    public function getMessageType()
-    {
-        if ($this->isFromAdmin()) {
-            return 'admin';
-        } elseif ($this->isFromBuyer()) {
-            return 'buyer';
-        } elseif ($this->isFromVendor()) {
-            return 'vendor';
-        } else {
-            return 'unknown';
-        }
-    }
-}

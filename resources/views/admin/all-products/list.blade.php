@@ -34,7 +34,7 @@
                         <option value="">All Types</option>
                         <option value="digital" {{ ($currentType === 'digital') ? 'selected' : '' }}>Digital</option>
                         <option value="cargo" {{ ($currentType === 'cargo') ? 'selected' : '' }}>Cargo</option>
-                        <option value="deaddrop" {{ ($currentType === 'deaddrop') ? 'selected' : '' }}>Dead Drop</option>
+                        <option value="deaddrop" {{ ($currentType === 'deaddrop') ? 'selected' : '' }}>Local Pickup</option>
                     </select>
                 </div>
 
@@ -116,7 +116,7 @@
                                </td>
                                 <td class="all-products-index-product-type">
                                     <span class="all-products-index-type-badge all-products-index-type-badge-{{ $product->type }}">
-                                        {{ $product->type === 'deaddrop' ? 'Dead Drop' : ucfirst($product->type) }}
+                                        {{ $product->type === 'deaddrop' ? 'Local Pickup' : ucfirst($product->type) }}
                                     </span>
                                 </td>
                                 <td class="all-products-index-product-owner">

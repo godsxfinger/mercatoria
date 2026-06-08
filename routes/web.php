@@ -56,20 +56,20 @@ Route::middleware('guest')->group(function () {
     Route::get('/banned', [AuthController::class, 'showBanned'])->name('banned');
 
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:auth-forms');
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:auth-login');
     Route::get('/mnemonic/{token}', [AuthController::class, 'showMnemonic'])->name('show.mnemonic');
 
     // Password reset routes using mnemonic
     Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
-    Route::post('/forgot-password', [AuthController::class, 'verifyMnemonic'])->name('password.verify');
+    Route::post('/forgot-password', [AuthController::class, 'verifyMnemonic'])->middleware('throttle:auth-forms')->name('password.verify');
     Route::get('/reset-password/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
-    Route::post('/reset-password', [AuthController::class, 'reset'])->name('password.update');
+    Route::post('/reset-password', [AuthController::class, 'reset'])->middleware('throttle:auth-forms')->name('password.update');
 
     // PGP 2FA challenge routes
     Route::get('/2fa/challenge', [AuthController::class, 'showPgp2FAChallenge'])->name('pgp.2fa.challenge');
-    Route::post('/2fa/verify', [AuthController::class, 'verifyPgp2FAChallenge'])->name('pgp.2fa.verify');
+    Route::post('/2fa/verify', [AuthController::class, 'verifyPgp2FAChallenge'])->middleware('throttle:auth-2fa')->name('pgp.2fa.verify');
 
 });
 
@@ -84,7 +84,9 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
     // Product routes
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/product/picture/{filename}', [ProductController::class, 'showPicture'])->name('product.picture');
+    Route::get('/product/picture/{filename}', [ProductController::class, 'showPicture'])
+        ->where('filename', '[A-Za-z0-9._-]+')
+        ->name('product.picture');
     
     // Cart routes
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -117,17 +119,17 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
     // Messaging routes
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
-    Route::post('/messages', [MessageController::class, 'startConversation'])->name('messages.start');
+    Route::post('/messages', [MessageController::class, 'startConversation'])->middleware('throttle:messages')->name('messages.start');
     Route::get('/messages/{conversation}', [MessageController::class, 'show'])->name('messages.show');
-    Route::post('/messages/{conversation}', [MessageController::class, 'store'])->name('messages.store');
+    Route::post('/messages/{conversation}', [MessageController::class, 'store'])->middleware('throttle:messages')->name('messages.store');
     Route::delete('/messages/{conversation}', [MessageController::class, 'destroy'])->name('messages.destroy');
 
     // Support request routes for users
     Route::get('/support', [SupportController::class, 'index'])->name('support.index');
     Route::get('/support/create', [SupportController::class, 'create'])->name('support.create');
-    Route::post('/support', [SupportController::class, 'store'])->name('support.store');
+    Route::post('/support', [SupportController::class, 'store'])->middleware('throttle:support')->name('support.store');
     Route::get('/support/{supportRequest:ticket_id}', [SupportController::class, 'show'])->name('support.show');
-    Route::post('/support/{supportRequest:ticket_id}/reply', [SupportController::class, 'reply'])->name('support.reply');
+    Route::post('/support/{supportRequest:ticket_id}/reply', [SupportController::class, 'reply'])->middleware('throttle:support')->name('support.reply');
 
     // Rules route
     Route::get('/rules', [RulesController::class, 'index'])->name('rules');
@@ -139,7 +141,9 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/picture', [ProfileController::class, 'deleteProfilePicture'])->name('profile.delete_picture');
-    Route::get('/profile/picture/{filename}', [ProfileController::class, 'getProfilePicture'])->name('profile.picture');
+    Route::get('/profile/picture/{filename}', [ProfileController::class, 'getProfilePicture'])
+        ->where('filename', '[A-Za-z0-9._-]+')
+        ->name('profile.picture');
 
     // References routes
     Route::get('/references', [ReferencesController::class, 'index'])->name('references.index');
@@ -166,8 +170,8 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
 
     // Notification routes
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
-    Route::post('/notifications/{notification}/mark-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-read');
-    Route::post('/notifications/{notification}/delete', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    Route::post('/notifications/{notification}/mark-read', [NotificationController::class, 'markAsRead'])->middleware('throttle:notifications')->name('notifications.mark-read');
+    Route::post('/notifications/{notification}/delete', [NotificationController::class, 'destroy'])->middleware('throttle:notifications')->name('notifications.destroy');
 
     // Vendor listing routes
     Route::get('/vendors', [VendorsController::class, 'index'])->name('vendors.index');
@@ -185,8 +189,8 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
     // Dispute routes
     Route::get('/disputes', [DisputesController::class, 'index'])->name('disputes.index');
     Route::get('/disputes/{id}', [DisputesController::class, 'show'])->name('disputes.show');
-    Route::post('/disputes/{uniqueUrl}', [DisputesController::class, 'store'])->name('disputes.store');
-    Route::post('/disputes/{id}/message', [DisputesController::class, 'addMessage'])->name('disputes.add-message');
+    Route::post('/disputes/{uniqueUrl}', [DisputesController::class, 'store'])->middleware('throttle:disputes')->name('disputes.store');
+    Route::post('/disputes/{id}/message', [DisputesController::class, 'addMessage'])->middleware('throttle:disputes')->name('disputes.add-message');
 
     // -------------------------------------------------------------------------
     // Admin Routes
@@ -194,7 +198,7 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
     Route::middleware(AdminMiddleware::class)->group(function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
         Route::get('/admin/canary', [AdminController::class, 'showUpdateCanary'])->name('admin.canary');
-        Route::post('/admin/canary', [AdminController::class, 'updateCanary'])->name('admin.canary.post');
+        Route::post('/admin/canary', [AdminController::class, 'updateCanary'])->middleware('throttle:admin-actions')->name('admin.canary.post');
         
         // Admin statistics
         Route::get('/admin/statistics', [AdminController::class, 'statistics'])->name('admin.statistics');
@@ -223,12 +227,12 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
         // Admin support request management
         Route::get('/admin/support', [AdminController::class, 'supportRequests'])->name('admin.support.requests');
         Route::get('/admin/support/{supportRequest:ticket_id}', [AdminController::class, 'showSupportRequest'])->name('admin.support.show');
-        Route::post('/admin/support/{supportRequest:ticket_id}/reply', [AdminController::class, 'replySupportRequest'])->name('admin.support.reply');
-        Route::put('/admin/support/{supportRequest:ticket_id}/status', [AdminController::class, 'updateSupportStatus'])->name('admin.support.status');
+        Route::post('/admin/support/{supportRequest:ticket_id}/reply', [AdminController::class, 'replySupportRequest'])->middleware('throttle:admin-actions')->name('admin.support.reply');
+        Route::put('/admin/support/{supportRequest:ticket_id}/status', [AdminController::class, 'updateSupportStatus'])->middleware('throttle:admin-actions')->name('admin.support.status');
 
         // Bulk Message routes
         Route::get('/admin/bulk-message', [AdminController::class, 'showBulkMessage'])->name('admin.bulk-message.create');
-        Route::post('/admin/bulk-message', [AdminController::class, 'sendBulkMessage'])->name('admin.bulk-message.send');
+        Route::post('/admin/bulk-message', [AdminController::class, 'sendBulkMessage'])->middleware('throttle:admin-actions')->name('admin.bulk-message.send');
         Route::get('/admin/bulk-message/list', [AdminController::class, 'listBulkMessages'])->name('admin.bulk-message.list');
         Route::delete('/admin/bulk-message/{notification}', [AdminController::class, 'deleteBulkMessage'])->name('admin.bulk-message.delete');
 
@@ -294,10 +298,10 @@ Route::middleware(['auth', CheckBanned::class])->group(function () {
         // Product creation and editing routes
         Route::get('/vendor/products/{type}/create', [VendorController::class, 'create'])
             ->name('vendor.products.create')
-            ->where('type', 'cargo|digital|deaddrop');
+            ->where('type', 'cargo|digital|deaddrop|local-pickup');
         Route::post('/vendor/products/{type}', [VendorController::class, 'store'])
             ->name('vendor.products.store')
-            ->where('type', 'cargo|digital|deaddrop');
+            ->where('type', 'cargo|digital|deaddrop|local-pickup');
         Route::get('/vendor/products/{product}/edit', [VendorController::class, 'edit'])
             ->name('vendor.products.edit');
         Route::patch('/vendor/products/{product}', [VendorController::class, 'update'])
@@ -316,4 +320,3 @@ Route::fallback(function () {
     }
     return redirect()->route('login');
 });
-

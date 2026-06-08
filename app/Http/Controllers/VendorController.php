@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Advertisement;
-use App\Models\Orders;
+use App\Models\Order;
 use Illuminate\Support\Facades\Storage;
 use MoneroIntegrations\MoneroPhp\walletRPC;
 use Endroid\QrCode\Builder\Builder;
@@ -31,6 +31,9 @@ use Exception;
 class VendorController extends Controller
 {
     protected $walletRPC;
+    private const MAX_IMAGE_WIDTH = 5000;
+    private const MAX_IMAGE_HEIGHT = 5000;
+    private const MAX_IMAGE_PIXELS = 16000000;
     private $allowedMimeTypes = [
         'image/jpeg',
         'image/png',
@@ -48,7 +51,9 @@ class VendorController extends Controller
             $this->walletRPC = new walletRPC(
                 $config['host'],
                 $config['port'],
-                $config['ssl']
+                $config['ssl'],
+                $config['username'] ?? null,
+                $config['password'] ?? null
             );
         } catch (\Exception $e) {
             Log::error('Failed to initialize Monero RPC connection: ' . $e->getMessage());
@@ -72,7 +77,7 @@ class VendorController extends Controller
      */
     public function sales()
     {
-        $sales = Orders::getVendorOrders(Auth::id());
+        $sales = Order::getVendorOrders(Auth::id());
         
         return view('vendor.sales.index', [
             'sales' => $sales
@@ -88,9 +93,9 @@ class VendorController extends Controller
     public function showSale($uniqueUrl)
     {
         // Process any orders that need auto status changes
-        Orders::processAllAutoStatusChanges();
+        Order::processAllAutoStatusChanges();
         
-        $sale = Orders::findByUrl($uniqueUrl);
+        $sale = Order::findByUrl($uniqueUrl);
         
         if (!$sale) {
             abort(404);
@@ -106,7 +111,7 @@ class VendorController extends Controller
             $sale->autoCancelIfNotSent();
             $sale->refresh();
             
-            if ($sale->status === Orders::STATUS_CANCELLED) {
+            if ($sale->status === Order::STATUS_CANCELLED) {
                 return redirect()->route('vendor.sales.show', $sale->unique_url)
                     ->with('info', 'This order has been automatically cancelled because it was not marked as sent within 96 hours (4 days) after payment.');
             }
@@ -117,7 +122,7 @@ class VendorController extends Controller
             $sale->autoCompleteIfNotConfirmed();
             $sale->refresh();
             
-            if ($sale->status === Orders::STATUS_COMPLETED) {
+            if ($sale->status === Order::STATUS_COMPLETED) {
                 return redirect()->route('vendor.sales.show', $sale->unique_url)
                     ->with('info', 'This order has been automatically marked as completed because it was not confirmed within 192 hours (8 days) after being marked as sent.');
             }
@@ -148,7 +153,7 @@ class VendorController extends Controller
      */
     public function updateDeliveryText(Request $request, $uniqueUrl)
     {
-        $sale = Orders::findByUrl($uniqueUrl);
+        $sale = Order::findByUrl($uniqueUrl);
         
         if (!$sale) {
             abort(404);
@@ -160,7 +165,7 @@ class VendorController extends Controller
         }
         
         // Verify the order is in the correct status
-        if ($sale->status !== Orders::STATUS_PAYMENT_RECEIVED) {
+        if ($sale->status !== Order::STATUS_PAYMENT_RECEIVED) {
             return redirect()->route('vendor.sales.show', $sale->unique_url)
                 ->with('error', 'Delivery information can only be updated for orders with "Payment Received" status.');
         }
@@ -297,6 +302,8 @@ class VendorController extends Controller
      */
     public function create(string $type)
     {
+        $type = Product::normalizeType($type);
+
         if (!in_array($type, [Product::TYPE_CARGO, Product::TYPE_DIGITAL, Product::TYPE_DEADDROP])) {
             abort(404);
         }
@@ -318,6 +325,8 @@ class VendorController extends Controller
      */
     public function store(Request $request, string $type)
     {
+        $type = Product::normalizeType($type);
+
         if (!in_array($type, [Product::TYPE_CARGO, Product::TYPE_DIGITAL, Product::TYPE_DEADDROP])) {
             abort(404);
         }
@@ -332,11 +341,20 @@ class VendorController extends Controller
                 'product_picture' => [
                     'nullable',
                     'file',
+                    'image',
+                    'mimes:jpeg,png,gif,webp',
                     'max:800', // 800KB max size
+                ],
+                'additional_photos' => [
+                    'nullable',
+                    'array',
+                    'max:3',
                 ],
                 'additional_photos.*' => [
                     'nullable',
                     'file',
+                    'image',
+                    'mimes:jpeg,png,gif,webp',
                     'max:800', // 800KB max size
                 ],
                 'stock_amount' => 'required|integer|min:0|max:80000',
@@ -463,15 +481,11 @@ class VendorController extends Controller
             $product = match($type) {
                 Product::TYPE_CARGO => Product::createCargo($productData),
                 Product::TYPE_DIGITAL => Product::createDigital($productData),
-                Product::TYPE_DEADDROP => Product::createDeadDrop($productData),
+                Product::TYPE_DEADDROP => Product::createLocalPickup($productData),
             };
 
             // Get appropriate success message
-            $productTypeName = match($type) {
-                Product::TYPE_CARGO => 'Cargo',
-                Product::TYPE_DIGITAL => 'Digital',
-                Product::TYPE_DEADDROP => 'Dead Drop',
-            };
+            $productTypeName = Product::displayType($type);
 
             return redirect()
                 ->route('vendor.index')
@@ -617,11 +631,7 @@ class VendorController extends Controller
             ]);
 
             // Get appropriate success message
-            $productTypeName = match($product->type) {
-                Product::TYPE_CARGO => 'Cargo',
-                Product::TYPE_DIGITAL => 'Digital',
-                Product::TYPE_DEADDROP => 'Dead Drop',
-            };
+            $productTypeName = Product::displayType($product->type);
 
             return redirect()
                 ->route('vendor.my-products')
@@ -649,9 +659,10 @@ class VendorController extends Controller
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $mimeType = $finfo->file($file->getPathname());
 
-            if (!in_array($mimeType, $this->allowedMimeTypes)) {
+            if (!in_array($mimeType, $this->allowedMimeTypes, true)) {
                 throw new Exception('Invalid file type. Allowed types are JPEG, PNG, GIF, and WebP.');
             }
+            $this->assertSafeImageDimensions($file);
 
             $extension = $this->getExtensionFromMimeType($mimeType);
             $filename = time() . '_' . Str::uuid() . '.' . $extension;
@@ -697,6 +708,28 @@ class VendorController extends Controller
         ];
 
         return $extensions[$mimeType] ?? 'jpg';
+    }
+
+    private function assertSafeImageDimensions($file): void
+    {
+        $imageInfo = @getimagesize($file->getPathname());
+        if ($imageInfo === false) {
+            throw new Exception('Invalid image file.');
+        }
+
+        $width = (int) ($imageInfo[0] ?? 0);
+        $height = (int) ($imageInfo[1] ?? 0);
+        $pixels = $width * $height;
+
+        if (
+            $width < 1 ||
+            $height < 1 ||
+            $width > self::MAX_IMAGE_WIDTH ||
+            $height > self::MAX_IMAGE_HEIGHT ||
+            $pixels > self::MAX_IMAGE_PIXELS
+        ) {
+            throw new Exception('Image dimensions are too large.');
+        }
     }
 
     /**

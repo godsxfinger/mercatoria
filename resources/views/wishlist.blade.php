@@ -18,10 +18,17 @@
 
     @if($products->isEmpty())
         <div class="wishlist-index-empty">
-            <p class="wishlist-index-empty-text">Your wishlist is empty.</p>
-            <a href="{{ route('products.index') }}" class="wishlist-index-browse-btn">
-                Browse Products
-            </a>
+            <div class="wishlist-index-empty-icon" aria-hidden="true">♡</div>
+            <h2 class="wishlist-index-empty-title">You haven’t saved anything yet.</h2>
+            <p class="wishlist-index-empty-text">Start exploring and save products you love.</p>
+            <div class="wishlist-index-empty-actions">
+                <a href="{{ route('products.index') }}" class="wishlist-index-browse-btn">
+                    Browse Products
+                </a>
+                <a href="{{ route('home') }}" class="wishlist-index-trending-link">
+                    View Trending
+                </a>
+            </div>
         </div>
     @else
         <x-products 
@@ -30,4 +37,3 @@
     @endif
 </div>
 @endsection
-

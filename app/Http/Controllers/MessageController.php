@@ -33,7 +33,11 @@ class MessageController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $conversations = $user->conversations()->with(['user1', 'user2'])->orderBy('last_message_at', 'desc')->paginate(4);
+        $conversations = $user->conversations()
+            ->with(['user1', 'user2', 'latestMessage.sender'])
+            ->orderBy('last_message_at', 'desc')
+            ->paginate(4);
+
         return view('messages.index', compact('conversations'));
     }
 
@@ -116,6 +120,7 @@ class MessageController extends Controller
                 'title' => 'New message from ' . Auth::user()->username,
                 'message' => 'You have received a new message from ' . Auth::user()->username,
                 'type' => 'message',
+                'sender_id' => Auth::id(),
             ]);
             $notification->save();
             $notification->users()->attach($recipientId, ['read' => false]);
@@ -206,6 +211,7 @@ class MessageController extends Controller
             'title' => 'New message from ' . Auth::user()->username,
             'message' => 'You have received a new message from ' . Auth::user()->username,
             'type' => 'message',
+            'sender_id' => Auth::id(),
         ]);
         $notification->save();
         $notification->users()->attach($otherUser->id, ['read' => false]);

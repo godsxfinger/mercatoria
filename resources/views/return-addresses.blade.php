@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{ $address->monero_address }}</td>
                                 <td>
-                                    <form action="{{ route('return-addresses.destroy', $address) }}" method="POST" style="display: inline;">
+                                    <form action="{{ route('return-addresses.destroy', $address) }}" method="POST" class="u-inline-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="return-addresses-delete-btn">

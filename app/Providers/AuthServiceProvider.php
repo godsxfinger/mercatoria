@@ -6,8 +6,16 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Models\SupportRequest;
 use App\Models\Message;
+use App\Models\Dispute;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\VendorProfile;
+use App\Policies\DisputePolicy;
 use App\Policies\SupportRequestPolicy;
 use App\Policies\MessagePolicy;
+use App\Policies\OrderPolicy;
+use App\Policies\ProductPolicy;
+use App\Policies\VendorPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -19,6 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         SupportRequest::class => SupportRequestPolicy::class,
         Message::class => MessagePolicy::class,
+        Product::class => ProductPolicy::class,
+        Order::class => OrderPolicy::class,
+        Dispute::class => DisputePolicy::class,
+        VendorProfile::class => VendorPolicy::class,
     ];
 
     /**

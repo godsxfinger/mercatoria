@@ -46,7 +46,7 @@
                                         <div class="cart-checkout-price-fiat">${{ number_format($item->getTotalPrice(), 2) }}</div>
                                         @if(is_numeric($xmrPrice) && $xmrPrice > 0)
                                             <div class="cart-checkout-price-crypto">
-                                                ≈ ɱ{{ number_format($item->getTotalPrice() / $xmrPrice, 4) }}
+                                                ≈ {{ number_format($item->getTotalPrice() / $xmrPrice, 4) }} XMR
                                             </div>
                                         @endif
                                     </div>
@@ -90,7 +90,7 @@
                                 <div class="cart-checkout-total-fiat">${{ number_format($total, 2) }}</div>
                                 @if(is_numeric($xmrTotal))
                                     <div class="cart-checkout-total-crypto">
-                                        ≈ ɱ{{ number_format($xmrTotal, 4) }}
+                                        ≈ {{ number_format($xmrTotal, 4) }} XMR
                                     </div>
                                 @endif
                             </div>

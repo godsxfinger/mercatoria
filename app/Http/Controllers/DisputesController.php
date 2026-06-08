@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dispute;
 use App\Models\DisputeMessage;
-use App\Models\Orders;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,7 +52,7 @@ class DisputesController extends Controller
      */
     public function store(Request $request, $uniqueUrl)
     {
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);

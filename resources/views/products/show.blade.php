@@ -113,7 +113,7 @@
                         <div class="products-show-price">
                             <span class="products-show-price-fiat">${{ number_format($product->price, 2) }}</span>
                             @if(is_numeric($xmrPrice))
-                                <span class="products-show-price-monero">≈ ɱ{{ number_format($xmrPrice, 4) }}</span>
+                                <span class="products-show-price-monero">≈ {{ number_format($xmrPrice, 4) }} XMR</span>
                             @endif
                         </div>
 

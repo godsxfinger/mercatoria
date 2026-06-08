@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Orders;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Dispute;
+use App\Actions\Orders\CompleteOrder;
+use App\Actions\Orders\CreateOrder;
+use App\Actions\Orders\RefundBuyer;
+use App\Services\Payments\PaymentGateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\XmrPriceController;
-use MoneroIntegrations\MoneroPhp\walletRPC;
 use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel;
@@ -17,33 +20,81 @@ use Illuminate\Support\Facades\Log;
 
 class OrdersController extends Controller
 {
-    protected $walletRPC;
-    
-    /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
-        $config = config('monero');
-        try {
-            $this->walletRPC = new walletRPC(
-                $config['host'],
-                $config['port'],
-                $config['ssl']
-            );
-        } catch (\Exception $e) {
-            Log::error('Failed to initialize Monero RPC connection: ' . $e->getMessage());
-        }
+    public function __construct(
+        private PaymentGateway $payments,
+        private CreateOrder $createOrder,
+        private CompleteOrder $completeOrder,
+        private RefundBuyer $refundBuyer,
+    ) {
     }
     /**
      * Display a listing of the user's orders.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Orders::getUserOrders(Auth::id());
+        $status = (string) $request->query('status', 'all');
+        $sort = (string) $request->query('sort', 'newest');
+        $from = (string) $request->query('from', '');
+        $to = (string) $request->query('to', '');
+        $perPage = (int) $request->query('per_page', 20);
+        $allowedPerPage = [10, 20, 50];
+
+        if (!in_array($perPage, $allowedPerPage, true)) {
+            $perPage = 20;
+        }
+
+        $ordersQuery = Order::where('user_id', Auth::id())
+            ->with(['items', 'vendor']);
+
+        if ($status === 'completed') {
+            $ordersQuery->where('status', Order::STATUS_COMPLETED);
+        } elseif ($status === 'cancelled') {
+            $ordersQuery->where('status', Order::STATUS_CANCELLED);
+        } elseif ($status === 'waiting') {
+            $ordersQuery->whereIn('status', [
+                Order::STATUS_WAITING_PAYMENT,
+                Order::STATUS_PAYMENT_RECEIVED,
+                Order::STATUS_PRODUCT_SENT,
+                Order::STATUS_DISPUTED,
+            ]);
+        } else {
+            $status = 'all';
+        }
+
+        if ($from !== '') {
+            $ordersQuery->whereDate('created_at', '>=', $from);
+        }
+
+        if ($to !== '') {
+            $ordersQuery->whereDate('created_at', '<=', $to);
+        }
+
+        switch ($sort) {
+            case 'oldest':
+                $ordersQuery->orderBy('created_at', 'asc');
+                break;
+            case 'highest_amount':
+                $ordersQuery->orderBy('total', 'desc')->orderBy('created_at', 'desc');
+                break;
+            case 'lowest_amount':
+                $ordersQuery->orderBy('total', 'asc')->orderBy('created_at', 'desc');
+                break;
+            case 'newest':
+            default:
+                $sort = 'newest';
+                $ordersQuery->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $orders = $ordersQuery->paginate($perPage)->withQueryString();
         
         return view('orders.index', [
-            'orders' => $orders
+            'orders' => $orders,
+            'statusFilter' => $status,
+            'sortFilter' => $sort,
+            'dateFrom' => $from,
+            'dateTo' => $to,
+            'perPage' => $perPage,
         ]);
     }
 
@@ -53,9 +104,9 @@ class OrdersController extends Controller
     public function show($uniqueUrl)
     {
         // Process any orders that need auto status changes
-        Orders::processAllAutoStatusChanges();
+        Order::processAllAutoStatusChanges();
         
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);
@@ -72,7 +123,7 @@ class OrdersController extends Controller
         // For buyers with unpaid orders, check if a payment address exists
         // and handle payment processing
         $qrCode = null;
-        if ($isBuyer && $order->status === Orders::STATUS_WAITING_PAYMENT) {
+        if ($isBuyer && $order->status === Order::STATUS_WAITING_PAYMENT) {
             // First check if the order has an expired payment
             if ($order->isExpired() && !empty($order->payment_address)) {
                 // Handle expired payment (cancels the order)
@@ -81,7 +132,7 @@ class OrdersController extends Controller
                 // Refresh the order after cancellation
                 $order->refresh();
                 
-                if ($order->status === Orders::STATUS_CANCELLED) {
+                if ($order->status === Order::STATUS_CANCELLED) {
                     return redirect()->route('orders.show', $order->unique_url)
                         ->with('info', 'This order has been automatically cancelled because the payment window has expired.');
                 }
@@ -92,7 +143,7 @@ class OrdersController extends Controller
                 $order->autoCancelIfNotSent();
                 $order->refresh();
                 
-                if ($order->status === Orders::STATUS_CANCELLED) {
+                if ($order->status === Order::STATUS_CANCELLED) {
                     return redirect()->route('orders.show', $order->unique_url)
                         ->with('info', 'This order has been automatically cancelled because the vendor did not mark it as sent within 96 hours (4 days) after payment.');
                 }
@@ -103,14 +154,14 @@ class OrdersController extends Controller
                 $order->autoCompleteIfNotConfirmed();
                 $order->refresh();
                 
-                if ($order->status === Orders::STATUS_COMPLETED) {
+                if ($order->status === Order::STATUS_COMPLETED) {
                     return redirect()->route('orders.show', $order->unique_url)
                         ->with('info', 'This order has been automatically marked as completed because it was not confirmed within 192 hours (8 days) after being marked as sent.');
                 }
             }
             
             // Only generate a payment address if none exists and the order isn't cancelled
-            if (empty($order->payment_address) && $order->status === Orders::STATUS_WAITING_PAYMENT) {
+            if (empty($order->payment_address) && $order->status === Order::STATUS_WAITING_PAYMENT) {
                 try {
                     // Get current XMR/USD rate
                     $xmrPriceController = new XmrPriceController();
@@ -128,10 +179,7 @@ class OrdersController extends Controller
                     $order->xmr_usd_rate = $xmrRate;
                     $order->save();
                     
-                    // Generate payment address
-                    if (!$order->generatePaymentAddress($this->walletRPC)) {
-                        return redirect()->back()->with('error', 'Unable to generate payment address. Please try again.');
-                    }
+                    $this->payments->createPaymentAddress($order);
                 } catch (\Exception $e) {
                     Log::error('Error setting up payment: ' . $e->getMessage());
                     return redirect()->back()->with('error', 'Error setting up payment: ' . $e->getMessage());
@@ -140,7 +188,17 @@ class OrdersController extends Controller
             
             // Check for new payments
             try {
-                $order->checkPayments($this->walletRPC);
+                $status = $this->payments->checkPaymentStatus($order);
+                $order->total_received_xmr = $status->receivedAmount;
+
+                if ($status->paid && !$order->is_paid) {
+                    $order->status = Order::STATUS_PAYMENT_RECEIVED;
+                    $order->is_paid = true;
+                    $order->paid_at = $status->paidAt ?? now();
+                    $order->payment_completed_at = $status->paidAt ?? now();
+                }
+
+                $order->save();
             } catch (\Exception $e) {
                 Log::error('Error checking payments: ' . $e->getMessage());
             }
@@ -202,27 +260,7 @@ class OrdersController extends Controller
                 return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
             }
             
-            // Get vendor ID from cart items
-            $vendorId = $cartItems->first()->product->user_id;
-            
-            // Check if user can create a new order with this vendor (spam prevention)
-            [$canCreate, $reason] = Orders::canCreateNewOrder($user->id, $vendorId);
-            
-            if (!$canCreate) {
-                return redirect()->route('cart.checkout')->with('error', $reason);
-            }
-            
-            // Calculate order totals
-            $subtotal = Cart::getCartTotal($user);
-            $commissionPercentage = config('marketplace.commission_percentage');
-            $commission = ($subtotal * $commissionPercentage) / 100;
-            $total = $subtotal + $commission;
-            
-            // Create the order
-            $order = Orders::createFromCart($user, $cartItems, $subtotal, $commission, $total);
-            
-            // Clear the cart
-            Cart::where('user_id', $user->id)->delete();
+            $order = $this->createOrder->handle($user, $cartItems);
             
             return redirect()->route('orders.show', $order->unique_url)
                 ->with('success', 'Order created successfully. Please complete the payment.');
@@ -263,7 +301,7 @@ class OrdersController extends Controller
      */
     public function markAsSent($uniqueUrl)
     {
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);
@@ -288,7 +326,7 @@ class OrdersController extends Controller
      */
     public function markAsCompleted($uniqueUrl)
     {
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);
@@ -299,7 +337,7 @@ class OrdersController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        if ($order->markAsCompleted()) {
+        if ($this->completeOrder->handle($order)) {
             return redirect()->route('orders.show', $order->unique_url)
                 ->with('success', 'Order marked as completed and payment has been sent to the vendor. Thank you for your purchase.');
         }
@@ -313,7 +351,7 @@ class OrdersController extends Controller
      */
     public function markAsCancelled($uniqueUrl)
     {
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);
@@ -325,17 +363,23 @@ class OrdersController extends Controller
         }
 
         // Check if order is in a status that can be cancelled
-        if ($order->status === Orders::STATUS_COMPLETED) {
+        if ($order->status === Order::STATUS_COMPLETED) {
             return redirect()->back()->with('error', 'Completed orders cannot be cancelled.');
         }
 
-        if ($order->markAsCancelled()) {
+        if (in_array($order->status, [Order::STATUS_PAYMENT_RECEIVED, Order::STATUS_PRODUCT_SENT, Order::STATUS_DISPUTED], true)) {
+            $cancelled = $this->refundBuyer->handle($order);
+        } else {
+            $cancelled = $order->markAsCancelled();
+        }
+
+        if ($cancelled) {
             // Determine the redirect route based on whether the user is buyer or vendor
             $isBuyer = $order->user_id === Auth::id();
             $route = $isBuyer ? 'orders.show' : 'vendor.sales.show';
             
             return redirect()->route($route, $order->unique_url)
-                ->with('success', 'Order has been cancelled successfully.');
+                ->with('success', 'Order has been closed successfully.');
         }
 
         return redirect()->back()->with('error', 'Unable to cancel the order at this time.');
@@ -347,7 +391,7 @@ class OrdersController extends Controller
     public function submitReview(Request $request, $uniqueUrl, $orderItemId)
     {
         // Find the order
-        $order = Orders::findByUrl($uniqueUrl);
+        $order = Order::findByUrl($uniqueUrl);
         
         if (!$order) {
             abort(404);
@@ -359,7 +403,7 @@ class OrdersController extends Controller
         }
 
         // Verify order is completed
-        if ($order->status !== Orders::STATUS_COMPLETED) {
+        if ($order->status !== Order::STATUS_COMPLETED) {
             return redirect()->route('orders.show', $order->unique_url)
                 ->with('error', 'You can only review products from completed orders.');
         }
@@ -401,4 +445,3 @@ class OrdersController extends Controller
             ->with('success', 'Your review has been submitted successfully.');
     }
 }
-

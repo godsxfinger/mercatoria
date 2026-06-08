@@ -92,6 +92,13 @@ class Message extends Model
                     ->whereNotNull('conversation_id');
     }
 
+    public function latestMessage()
+    {
+        return $this->hasOne(Message::class, 'conversation_id')
+            ->whereNotNull('conversation_id')
+            ->latestOfMany('created_at');
+    }
+
     public function user1()
     {
         return $this->belongsTo(User::class, 'user_id_1');
@@ -142,12 +149,13 @@ class Message extends Model
     {
         return static::conversation()
             ->where(function ($query) use ($userId1, $userId2) {
-                $query->where('user_id_1', $userId1)
-                      ->where('user_id_2', $userId2);
-            })
-            ->orWhere(function ($query) use ($userId1, $userId2) {
-                $query->where('user_id_1', $userId2)
-                      ->where('user_id_2', $userId1);
+                $query->where(function ($inner) use ($userId1, $userId2) {
+                    $inner->where('user_id_1', $userId1)
+                        ->where('user_id_2', $userId2);
+                })->orWhere(function ($inner) use ($userId1, $userId2) {
+                    $inner->where('user_id_1', $userId2)
+                        ->where('user_id_2', $userId1);
+                });
             })
             ->first();
     }

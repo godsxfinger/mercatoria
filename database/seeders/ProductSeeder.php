@@ -237,7 +237,7 @@ class ProductSeeder extends Seeder
                 'category' => $booksSubcategories[3],
                 'method' => 'createCargo',
             ],
-            // Dead Drop Products (Local Delivery/Pickup)
+            // Local Pickup Products (Local Delivery/Pickup)
             [
                 'name' => 'Custom Gaming PC Setup',
                 'price' => 2499,

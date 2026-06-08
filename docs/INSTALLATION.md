@@ -1,6 +1,6 @@
-# Installation Guide for Kabus Monero Marketplace Script
+# Installation Guide for Mercatoria Monero Marketplace Script
 
-This comprehensive guide will walk you through the installation process of the Kabus Monero Marketplace script on your system.
+This comprehensive guide will walk you through the installation process of the Mercatoria Monero Marketplace script on your system.
 
 ## Operating System Requirements
 This guide is based on Ubuntu 22.04 LTS (Jammy Jellyfish). We strongly recommend using a Linux distribution for optimal performance and security. Windows is not recommended for this setup.
@@ -70,7 +70,7 @@ sudo apt install -y nodejs npm
 
 After we clone the repository in the next section, you can optionally run this command to install the development tools:
 ```bash
-cd /var/www/kabus
+cd /var/www/mercatoria
 npm install
 ```
 
@@ -162,19 +162,19 @@ Let's start by navigating to your Downloads folder:
 cd Downloads
 ```
 
-Now, we will download our repository from GitHub. This command will create a folder named "kabus" in your Downloads folder:
+Now, we will download our repository from GitHub. This command will create a folder named "mercatoria" in your Downloads folder:
 ```bash
-git clone https://github.com/sukunetsiz/kabus.git
+git clone https://github.com/<your-username>/mercatoria.git
 ```
 
-We need to move our "kabus" repository to /var/www/ directory, as this will be the location Nginx uses to serve our application:
+We need to move our "mercatoria" repository to /var/www/ directory, as this will be the location Nginx uses to serve our application:
 ```bash
-sudo mv kabus /var/www/
+sudo mv mercatoria /var/www/
 ```
 
 Open a new terminal and navigate to our project directory:
 ```bash
-cd /var/www/kabus
+cd /var/www/mercatoria
 ```
 
 First, let's create our environment configuration file by copying the example file:
@@ -219,19 +219,84 @@ php artisan db:seed
 
 Finally, we need to set proper file permissions for security. Run these commands in sequence:
 ```bash
-sudo chown -R www-data:www-data /var/www/kabus
-sudo find /var/www/kabus -type f -exec chmod 644 {} \;
-sudo find /var/www/kabus -type d -exec chmod 755 {} \;
-sudo chmod -R 775 /var/www/kabus/storage
-sudo chmod -R 775 /var/www/kabus/bootstrap/cache
-sudo chmod 640 /var/www/kabus/.env
+sudo chown -R www-data:www-data /var/www/mercatoria
+sudo find /var/www/mercatoria -type f -exec chmod 644 {} \;
+sudo find /var/www/mercatoria -type d -exec chmod 755 {} \;
+sudo chmod -R 775 /var/www/mercatoria/storage
+sudo chmod -R 775 /var/www/mercatoria/bootstrap/cache
+sudo chmod 640 /var/www/mercatoria/.env
 ```
+
+## Starting the Project in Development Mode (Every Time)
+
+If you want to run Mercatoria in development mode, use this workflow each time you start working.
+
+First, make sure your `.env` uses development settings:
+```env
+APP_ENV=local
+APP_DEBUG=true
+```
+
+Before starting services, clear cached Laravel state:
+```bash
+cd /var/www/mercatoria
+php artisan optimize:clear
+```
+
+Now use 4 terminals:
+
+Terminal 1 (Laravel dev server):
+```bash
+cd /var/www/mercatoria
+php artisan serve --host=127.0.0.1 --port=8000
+```
+
+Terminal 2 (Vite dev assets):
+```bash
+cd /var/www/mercatoria
+npm install
+npm run dev
+```
+
+Terminal 3 (Queue worker):
+```bash
+cd /var/www/mercatoria
+php artisan queue:work
+```
+
+Terminal 4 (Monero Wallet RPC):
+```bash
+cd /home/blackbox/monero-rpc/monero-x86_64-linux-gnu-v0.18.4.5
+./monero-wallet-rpc \
+--rpc-bind-ip 127.0.0.1 \
+--rpc-bind-port 18083 \
+--daemon-address xmr.surveillance.monster:443 \
+--wallet-file /home/blackbox/monero-rpc/monero-x86_64-linux-gnu-v0.18.4.5/mercatoria-wallet-rpc-20260227 \
+--password-file /tmp/mercatoria-wallet-rpc-20260227.pass \
+--trusted-daemon \
+--daemon-ssl enabled \
+--daemon-ssl-allow-any-cert \
+--rpc-login mercatoriarpc:change-this-now \
+--log-file /home/blackbox/monero-rpc/monero-x86_64-linux-gnu-v0.18.4.5/logs/monero-wallet-rpc.log \
+--log-level 1
+```
+
+Make sure your `.env` RPC port matches this command:
+```env
+MONERO_RPC_HOST=127.0.0.1
+MONERO_RPC_PORT=18083
+MONERO_RPC_SSL=false
+MONERO_RPC_USERNAME=mercatoriarpc
+MONERO_RPC_PASSWORD=change-this-now
+```
+
+Open `http://127.0.0.1:8000` in your browser.
 
 ## Secure Nginx Configuration
 
 Now we need to configure Nginx to serve our marketplace. Let's create a new server block configuration file:
 ```bash
-sudo nano /etc/nginx/sites-available/kabus
+sudo nano /etc/nginx/sites-available/mercatoria
 ```
 
 Copy and paste the following configuration into the file. This is a simple Nginx configuration:
@@ -240,7 +305,7 @@ server {
     listen 80;
     listen [::]:80;
 
-    root /var/www/kabus/public;
+    root /var/www/mercatoria/public;
     index index.php;
 
     error_page 503 /maintenance.php;
@@ -267,7 +332,7 @@ After pasting the configuration, save and exit the editor by pressing CTRL+X, th
 
 Now, we need to enable our site by creating a symbolic link:
 ```bash
-sudo ln -s /etc/nginx/sites-available/kabus /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/mercatoria /etc/nginx/sites-enabled/
 ```
 
 Let's remove the default Nginx configuration to avoid any conflicts:
@@ -288,6 +353,76 @@ sudo systemctl restart nginx
 Now our Nginx server is configured and is ready to serve our marketplace application.
 You can visit localhost in your browser to test if your marketplace is working properly. 
 
+## Basic Abuse Protection Setup (Recommended)
+
+If you are running on a single VPS, start with this baseline instead of complex WAF stacks.
+
+### 1) Add Nginx rate limits
+
+Edit your Nginx site file:
+```bash
+sudo nano /etc/nginx/sites-available/mercatoria
+```
+
+Add these limit zones near the top (before `server {`):
+```nginx
+limit_req_zone $binary_remote_addr zone=mercatoria_auth:10m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=mercatoria_form:10m rate=30r/m;
+```
+
+Inside `server { ... }`, add targeted limits:
+```nginx
+# Auth endpoints
+location ~* ^/(login|register|forgot-password|reset-password|2fa/verify)$ {
+    limit_req zone=mercatoria_auth burst=10 nodelay;
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+# High-write app endpoints
+location ~* ^/(messages|support|disputes|notifications|admin/bulk-message|admin/support|admin/canary) {
+    limit_req zone=mercatoria_form burst=20 nodelay;
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
+
+Validate and reload:
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+### 2) Install and enable Fail2ban for repeated abuse
+
+Install:
+```bash
+sudo apt install -y fail2ban
+```
+
+Create a jail file:
+```bash
+sudo nano /etc/fail2ban/jail.d/mercatoria-nginx.local
+```
+
+Paste:
+```ini
+[nginx-http-auth]
+enabled = true
+port = http,https
+logpath = /var/log/nginx/error.log
+maxretry = 8
+findtime = 10m
+bantime = 1h
+```
+
+Enable and check:
+```bash
+sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban
+sudo fail2ban-client status
+```
+
+This gives you immediate baseline protection with minimal operational overhead.
+
 **Important:** Your marketplace requires Tor to function properly. The XMR price fetching feature uses Tor's SOCKS proxy to anonymously retrieve cryptocurrency prices from external APIs. Without Tor configured, your marketplace will display 'UNAVAILABLE' for XMR prices instead of live market data.
 
 The following section will guide you through installing and configuring Tor to enable both the price fetching functionality and publish your marketplace as a hidden service on the Tor network.
@@ -307,7 +442,7 @@ sudo nano /etc/tor/torrc
 Add the following configuration lines at the beginning of the file. The SocksPort enables anonymous XMR price fetching, while the HiddenService settings make your marketplace accessible via .onion address:
 ```bash
 SocksPort 9050
-HiddenServiceDir /var/lib/tor/kabus_hidden_service/
+HiddenServiceDir /var/lib/tor/mercatoria_hidden_service/
 HiddenServicePort 80 127.0.0.1:80
 ```
 
@@ -333,5 +468,5 @@ This confirms that Tor's SOCKS proxy is running on port 9050 and ready to handle
 
 You can now retrieve your hidden service's onion address from the hostname file:
 ```bash
-sudo cat /var/lib/tor/kabus_hidden_service/hostname
+sudo cat /var/lib/tor/mercatoria_hidden_service/hostname
 ```

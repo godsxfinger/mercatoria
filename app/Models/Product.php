@@ -18,6 +18,7 @@ class Product extends Model
     public const TYPE_DIGITAL = 'digital';
     public const TYPE_CARGO = 'cargo';
     public const TYPE_DEADDROP = 'deaddrop';
+    public const TYPE_LOCAL_PICKUP = self::TYPE_DEADDROP;
 
     // Measurement units
     public const UNIT_GRAM = 'g';
@@ -180,12 +181,12 @@ class Product extends Model
 
             $priceDisplay = '$' . number_format($option['price'], 2);
             if ($optionXmrPrice !== null) {
-                $priceDisplay .= sprintf(' (≈ ɱ%s)', number_format($optionXmrPrice, 4));
+                $priceDisplay .= sprintf(' (≈ %s XMR)', number_format($optionXmrPrice, 4));
             }
 
             $totalPriceDisplay = '$' . number_format($this->price + $option['price'], 2);
             if ($totalXmrPrice !== null) {
-                $totalPriceDisplay .= sprintf(' (≈ ɱ%s)', number_format($totalXmrPrice, 4));
+                $totalPriceDisplay .= sprintf(' (≈ %s XMR)', number_format($totalXmrPrice, 4));
             }
 
             return [
@@ -219,7 +220,7 @@ class Product extends Model
                     number_format($option['amount']),
                     $formattedUnit,
                     number_format($option['price'], 2),
-                    $xmrAmount !== null ? sprintf(' (≈ ɱ%s)', number_format($xmrAmount, 4)) : ''
+                    $xmrAmount !== null ? sprintf(' (≈ %s XMR)', number_format($xmrAmount, 4)) : ''
                 )
             ];
         }, $this->bulk_options ?? []);
@@ -361,11 +362,19 @@ class Product extends Model
     }
 
     /**
-     * Check if the product is deaddrop.
+     * Check if the product uses local pickup.
+     */
+    public function isLocalPickup(): bool
+    {
+        return $this->type === self::TYPE_LOCAL_PICKUP;
+    }
+
+    /**
+     * @deprecated Use isLocalPickup().
      */
     public function isDeadDrop(): bool
     {
-        return $this->type === self::TYPE_DEADDROP;
+        return $this->isLocalPickup();
     }
 
     /**
@@ -385,11 +394,40 @@ class Product extends Model
     }
 
     /**
-     * Create a new deaddrop product instance.
+     * Create a new local pickup product instance.
+     */
+    public static function createLocalPickup(array $attributes)
+    {
+        return static::create(array_merge($attributes, ['type' => self::TYPE_LOCAL_PICKUP]));
+    }
+
+    /**
+     * @deprecated Use createLocalPickup().
      */
     public static function createDeadDrop(array $attributes)
     {
-        return static::create(array_merge($attributes, ['type' => self::TYPE_DEADDROP]));
+        return static::createLocalPickup($attributes);
+    }
+
+    /**
+     * Normalize public route values to database-compatible product types.
+     */
+    public static function normalizeType(string $type): string
+    {
+        return $type === 'local-pickup' ? self::TYPE_LOCAL_PICKUP : $type;
+    }
+
+    /**
+     * Get a portfolio-safe display name for a product type.
+     */
+    public static function displayType(string $type): string
+    {
+        return match (self::normalizeType($type)) {
+            self::TYPE_CARGO => 'Cargo',
+            self::TYPE_DIGITAL => 'Digital',
+            self::TYPE_LOCAL_PICKUP => 'Local Pickup',
+            default => ucfirst($type),
+        };
     }
     
     /**
@@ -424,13 +462,21 @@ class Product extends Model
     }
     
     /**
-     * Get all deaddrop products.
+     * Get all local pickup products.
      * 
      * @return \Illuminate\Database\Eloquent\Builder
      */
+    public static function getLocalPickupProducts()
+    {
+        return static::getByType(self::TYPE_LOCAL_PICKUP);
+    }
+
+    /**
+     * @deprecated Use getLocalPickupProducts().
+     */
     public static function getDeadDropProducts()
     {
-        return static::getByType(self::TYPE_DEADDROP);
+        return static::getLocalPickupProducts();
     }
     
     /**

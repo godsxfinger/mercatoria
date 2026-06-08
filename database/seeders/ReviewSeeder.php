@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Product;
-use App\Models\Orders;
+use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductReviews;
 use Illuminate\Support\Str;
@@ -60,7 +60,7 @@ class ReviewSeeder extends Seeder
     {
         try {
             // Create the order with completed status
-            $order = new Orders();
+            $order = new Order();
             $order->id = (string) Str::uuid();
             $order->user_id = $user->id;
             $order->vendor_id = $vendor->id;
@@ -68,7 +68,7 @@ class ReviewSeeder extends Seeder
             $order->subtotal = $product->price;
             $order->commission = $product->price * 0.05; // 5% commission
             $order->total = $order->subtotal + $order->commission;
-            $order->status = Orders::STATUS_COMPLETED;
+            $order->status = Order::STATUS_COMPLETED;
             $order->is_paid = true;
             $order->is_sent = true;
             $order->is_completed = true;

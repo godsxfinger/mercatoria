@@ -191,7 +191,7 @@
                 </div>
                 <div class="orders-show-info-item">
                     <div class="orders-show-info-label">Monero Amount</div>
-                    <div class="orders-show-info-value total">ɱ{{ number_format($sale->required_xmr_amount, 12) }}</div>
+                    <div class="orders-show-info-value total">{{ number_format($sale->required_xmr_amount, 12) }} XMR</div>
                 </div>
             </div>
         </div>
@@ -247,7 +247,7 @@
                                     @elseif($item->product->type === 'cargo')
                                         Cargo
                                     @elseif($item->product->type === 'deaddrop')
-                                        Dead Drop
+                                        Local Pickup
                                     @else
                                         {{ ucfirst($item->product->type) }}
                                     @endif

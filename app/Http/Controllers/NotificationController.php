@@ -15,6 +15,7 @@ class NotificationController extends Controller
         try {
             $user = auth()->user();
             $notifications = $user->notifications()
+                ->with('sender:id,username')
                 ->orderBy('created_at', 'desc')
                 ->paginate(16);
 
@@ -51,7 +52,7 @@ class NotificationController extends Controller
         } catch (\Exception $e) {
             \Log::error('Failed to mark notification as read: ' . $e->getMessage());
             return redirect()->route('notifications.index')
-                ->with('error', 'Failed to mark notification as read: ' . $e->getMessage());
+                ->with('error', 'Failed to mark notification as read. Please try again.');
         }
     }
 
@@ -81,7 +82,7 @@ class NotificationController extends Controller
         } catch (\Exception $e) {
             \Log::error('Failed to delete notification: ' . $e->getMessage());
             return redirect()->route('notifications.index')
-                ->with('error', 'Failed to delete notification: ' . $e->getMessage());
+                ->with('error', 'Failed to delete notification. Please try again.');
         }
     }
 }
