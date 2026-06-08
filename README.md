@@ -1,44 +1,51 @@
 # Mercatoria
 
-[![License](https://img.shields.io/github/license/godsxfinger/mercatoria?style=flat-square)](LICENSE.txt) [![GitHub issues](https://img.shields.io/github/issues/godsxfinger/mercatoria?style=flat-square)](https://github.com/godsxfinger/mercatoria/issues) [![GitHub repo size](https://img.shields.io/github/repo-size/godsxfinger/mercatoria?style=flat-square)](https://github.com/godsxfinger/mercatoria)
+[![Build](https://img.shields.io/github/actions/workflow/status/godsxfinger/mercatoria/.github/workflows/laravel.yml?branch=main&style=flat-square)](https://github.com/godsxfinger/mercatoria/actions)
+[![License](https://img.shields.io/github/license/godsxfinger/mercatoria?style=flat-square)](LICENSE.txt)
+[![Issues](https://img.shields.io/github/issues/godsxfinger/mercatoria?style=flat-square)](https://github.com/godsxfinger/mercatoria/issues)
+[![Repo size](https://img.shields.io/github/repo-size/godsxfinger/mercatoria?style=flat-square)](https://github.com/godsxfinger/mercatoria)
 
-Mercatoria is a privacy-first, multi-vendor marketplace built with Laravel 11 and Monero-compatible payment integration. It is designed as a professional reference app for modern marketplace workflows, platform moderation, and secure user interactions.
+Mercatoria is a privacy-first, multi-vendor marketplace built with Laravel 11 and optional Monero payment integration. It is designed as a professional reference application for modern e-commerce workflows, vendor onboarding, dispute resolution, and privacy-conscious user experience.
 
-## Key Features
+## Overview
 
-- Multi-role system for buyers, vendors, and administrators
-- Vendor-managed product catalog with stock and delivery controls
-- Single-vendor cart enforcement and flexible checkout rules
-- Order lifecycle management with payment, shipment, completion, dispute, and refund states
-- Abstract payment gateway interface with a Monero implementation
-- Privacy-oriented encrypted messaging and public-key challenge login support
-- Admin moderation tools for products, users, disputes, and marketplace analytics
+This project demonstrates a production-style marketplace architecture with:
+
+- role-based accounts for buyers, vendors, and admins
+- product catalog management, stock controls, and vendor delivery options
+- single-vendor cart enforcement and secure checkout rules
+- order lifecycle handling from payment through delivery, completion, dispute, and refund
+- abstract payment gateway architecture with Monero adapter support
+- encrypted messaging and challenge-based authentication
+- admin moderation, analytics, and platform controls
+
+## Highlights
+
+- Laravel 11 application structure with clear services and policies
+- Feature and unit tests for core behavior
+- CI workflow for automated PHPUnit validation
+- Professional repo metadata and contribution guidance
+- MIT license for open-source distribution
 
 ## Technology Stack
 
-- Laravel 11, PHP 8.2+
-- Blade templates, Vite frontend build, and modern JavaScript tooling
-- MySQL-compatible database schema
-- PHPUnit tests for feature and unit coverage
-- Composer dependency management and npm frontend tooling
-
-## Repository Metadata
-
-- **Project:** Mercatoria
-- **Owner:** godsxfinger
-- **License:** MIT
-- **Repository:** https://github.com/godsxfinger/mercatoria
+- PHP 8.2+
+- Laravel 11
+- Blade templating with Vite frontend build
+- MySQL-compatible database
+- PHPUnit for automated tests
+- GitHub Actions for CI
 
 ## Getting Started
 
-### Requirements
+### Prerequisites
 
 - PHP 8.2 or later
 - Composer
 - Node.js 18+ and npm
 - MySQL or compatible database
 
-### Installation
+### Local Installation
 
 ```bash
 composer install
@@ -50,7 +57,7 @@ npm run build
 php artisan serve
 ```
 
-Open the application at `http://127.0.0.1:8000`.
+Then visit `http://127.0.0.1:8000`.
 
 ### Development
 
@@ -64,9 +71,22 @@ npm run dev
 vendor/bin/phpunit
 ```
 
+## Repository Structure
+
+- `app/` — application logic, controllers, models, policies, services
+- `config/` — Laravel and marketplace configuration
+- `database/seeders/` — demo and production seeders
+- `resources/views/` — Blade UI templates
+- `routes/web.php` — application routes
+- `.github/workflows/laravel.yml` — CI pipeline for PHP and MySQL testing
+
 ## Contributing
 
-Contributions are welcome. Please open issues for bugs and feature requests, and create pull requests for improvements.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening issues or pull requests.
+
+## Security
+
+If you discover a security issue, please follow the process described in `SECURITY.md`.
 
 ## License
 

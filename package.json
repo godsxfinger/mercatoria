@@ -27,5 +27,13 @@
     "bugs": {
         "url": "https://github.com/godsxfinger/mercatoria/issues"
     },
-    "homepage": "https://github.com/godsxfinger/mercatoria#readme"
+    "homepage": "https://github.com/godsxfinger/mercatoria#readme",
+    "keywords": [
+        "laravel",
+        "marketplace",
+        "ecommerce",
+        "monero",
+        "privacy",
+        "php"
+    ]
 }
