@@ -1,8 +1,16 @@
 {
-    "name": "mercatoria/marketplace",
+    "name": "godsxfinger/mercatoria",
     "type": "project",
-    "description": "Mercatoria marketplace application.",
-    "keywords": ["laravel", "framework"],
+    "description": "Mercatoria is a privacy-first Laravel marketplace for multi-vendor e-commerce with crypto payment support.",
+    "keywords": [
+        "laravel",
+        "marketplace",
+        "ecommerce",
+        "cryptocurrency",
+        "monero",
+        "php",
+        "blade"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -140,5 +148,20 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "homepage": "https://github.com/godsxfinger/mercatoria",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/godsxfinger/mercatoria.git"
+    },
+    "support": {
+        "issues": "https://github.com/godsxfinger/mercatoria/issues",
+        "source": "https://github.com/godsxfinger/mercatoria"
+    },
+    "authors": [
+        {
+            "name": "godsxfinger",
+            "email": "godsxfinger@users.noreply.github.com"
+        }
+    ]
 }

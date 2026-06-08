@@ -1,6 +1,6 @@
 {
     "name": "mercatoria",
-    "private": true,
+    "private": false,
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -16,5 +16,16 @@
     "overrides": {
         "form-data": "^4.0.4",
         "rollup": "^4.59.0"
-    }
+    },
+    "description": "Privacy-first multi-vendor marketplace built with Laravel and Monero payment integration.",
+    "author": "godsxfinger",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/godsxfinger/mercatoria.git"
+    },
+    "bugs": {
+        "url": "https://github.com/godsxfinger/mercatoria/issues"
+    },
+    "homepage": "https://github.com/godsxfinger/mercatoria#readme"
 }
